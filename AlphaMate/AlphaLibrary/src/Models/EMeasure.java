@@ -10,7 +10,6 @@ import SupportClasses.EMeasureInterval;
 import java.math.BigDecimal;
 import javax.measure.DecimalMeasure;
 import javax.measure.Measure;
-import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 /**
