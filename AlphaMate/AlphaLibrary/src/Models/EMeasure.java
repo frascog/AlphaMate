@@ -16,6 +16,7 @@ import javax.measure.unit.Unit;
  *
  * @author frascog
  */
+@SuppressWarnings("rawtypes")
 public class EMeasure {
     
     private String name;
@@ -28,6 +29,7 @@ public class EMeasure {
     private EMeasureInterval lowerEnd = EMeasureInterval.inclusive;
     private EMeasureInterval upperEnd = EMeasureInterval.inclusive;
     
+    @SuppressWarnings("unchecked")
     public EMeasure(String name,Unit unit){
         this.name = name;
         this.unit = unit;
@@ -51,11 +53,13 @@ public class EMeasure {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
+    @SuppressWarnings("rawtypes")
     public Unit getUnit() {
         return unit;
     }
 
+    @SuppressWarnings("rawtypes")
     public void setUnit(Unit unit) {
         this.unit = unit;
     }
@@ -83,5 +87,36 @@ public class EMeasure {
     public void setUpperEnd(EMeasureInterval upperEnd) {
         this.upperEnd = upperEnd;
     }
+
+    @SuppressWarnings("unchecked")
+    public double getMinimum() {
+        return minimum.doubleValue(unit);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void setMinimum(double minimum) {
+        this.minimum = Measure.valueOf(minimum, unit);
+    }
+
+    @SuppressWarnings("unchecked")
+    public double getNominal() {
+        return nominal.doubleValue(unit);
+    }
+    
+    @SuppressWarnings("unchecked")
+    public void setNominal(double nominal) {
+        this.nominal = Measure.valueOf(nominal, unit);
+    }
+
+    @SuppressWarnings("unchecked")
+    public double getMaximun() {
+        return maximun.doubleValue(unit);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void setMaximun(double maximun) {
+        this.maximun = Measure.valueOf(maximun, unit);
+    }
+    
     
 }
