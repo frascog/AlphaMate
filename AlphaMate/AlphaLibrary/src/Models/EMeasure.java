@@ -28,6 +28,7 @@ public class EMeasure {
     private EMeasureFlavor flavor = EMeasureFlavor.nominal;
     private EMeasureInterval lowerEnd = EMeasureInterval.inclusive;
     private EMeasureInterval upperEnd = EMeasureInterval.inclusive;
+    private int precision = 3;
     
     @SuppressWarnings("unchecked")
     public EMeasure(String name,Unit unit){
@@ -117,6 +118,13 @@ public class EMeasure {
     public void setMaximun(double maximun) {
         this.maximun = Measure.valueOf(maximun, unit);
     }
-    
+
+    public int getPrecision() {
+        return precision;
+    }
+
+    public void setPrecision(int precision) {
+        this.precision = precision;
+    }
     
 }
