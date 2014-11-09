@@ -7,8 +7,6 @@ package Controllers;
 
 import Models.EMeasure;
 import SupportClasses.EMeasureFlavor;
-import java.util.HashSet;
-import java.util.Set;
 import javax.measure.unit.Unit;
 
 /**
@@ -16,13 +14,13 @@ import javax.measure.unit.Unit;
  * @author frascog
  */
 public class EMeasureController {
-    
+
     private EMeasure entity;
 
     public EMeasureController(EMeasure entity) {
         this.entity = entity;
-    }   
-    
+    }
+
     public EMeasure getEntity() {
         return entity;
     }
@@ -88,6 +86,12 @@ public class EMeasureController {
     public void setFlavor(EMeasureFlavor flavor) {
         this.entity.setFlavor(flavor);
     }
-    
-    
+
+    public int getPrecision() {
+        return this.entity.getPrecision();
+    }
+
+    public void setPrecision(int precision) {
+        this.entity.setPrecision(precision);
+    }
 }
