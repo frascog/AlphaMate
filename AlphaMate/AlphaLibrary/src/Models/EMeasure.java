@@ -6,6 +6,7 @@
 package Models;
 
 import SupportClasses.EMeasureFlavor;
+import SupportClasses.EMeasureFormat;
 import SupportClasses.EMeasureInterval;
 import java.math.BigDecimal;
 import javax.measure.DecimalMeasure;
@@ -91,7 +92,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMinimum() {
-        return minimum.doubleValue(unit);
+        return EMeasureFormat.format(nominal,precision);
     }
 
     @SuppressWarnings("unchecked")
@@ -101,7 +102,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getNominal() {
-        return nominal.doubleValue(unit);
+        return EMeasureFormat.format(nominal,precision);
     }
     
     @SuppressWarnings("unchecked")
@@ -111,8 +112,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMaximun() {
-        
-        return maximun.doubleValue(unit);
+        return EMeasureFormat.format(maximun,precision);
     }
 
     @SuppressWarnings("unchecked")
