@@ -111,6 +111,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMaximun() {
+        
         return maximun.doubleValue(unit);
     }
 
