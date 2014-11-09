@@ -6,12 +6,18 @@
 package Views;
 
 import Controllers.EMeasureController;
+import Listeners.EMeasureListener;
+import SupportClasses.EMeasureUtilities;
+import java.awt.Font;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Greg
  */
-public class EMeasureBasicView extends javax.swing.JPanel {
+public class EMeasureBasicView extends JPanel implements EMeasureListener{
 
     private EMeasureController controller;
     
@@ -44,6 +50,7 @@ public class EMeasureBasicView extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTextField1.setText(org.openide.util.NbBundle.getMessage(EMeasureBasicView.class, "EMeasureBasicView.jTextField1.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -83,7 +90,15 @@ public class EMeasureBasicView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
-        
+        jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
+        jTextField1.setFont(new Font("Tahoma",Font.BOLD,12));
+    }
+
+    @Override
+    public void EMeasureChangeResponce() {
+        jLabel1.setText(controller.getName());
+        jComboBox1.setSelectedItem(controller.getUnit());
+        jTextField1.setText(TOOL_TIP_TEXT_KEY);
     }
 
 
