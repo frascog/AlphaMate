@@ -16,10 +16,48 @@ public class EMeasureFormat {
     
     public static double format(Measure measure,int persision) {
         double number = 0;
+        DecimalFormat df;
         switch(persision){
             case 0:
-                DecimalFormat df = new DecimalFormat("#");
+                df = new DecimalFormat("#");
                 number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 1:
+                df = new DecimalFormat("#.#");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 2:
+                df = new DecimalFormat("#.##");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 3:
+                df = new DecimalFormat("#.###");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 4:
+                df = new DecimalFormat("#.####");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 5:
+                df = new DecimalFormat("#.#####");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 6:
+                df = new DecimalFormat("#.######");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 7:
+                df = new DecimalFormat("#.#######");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 8:
+                df = new DecimalFormat("#.########");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
+            case 9:
+                df = new DecimalFormat("#.#########");
+                number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
+                break;
         }
         return number;
     }
