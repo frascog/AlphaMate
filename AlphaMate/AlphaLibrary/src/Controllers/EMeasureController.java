@@ -92,6 +92,8 @@ public class EMeasureController {
     }
 
     public void setPrecision(int precision) {
-        this.entity.setPrecision(precision);
+        if(precision >= 0 && precision <=9) {
+            this.entity.setPrecision(precision);
+        }
     }
 }
