@@ -5,8 +5,11 @@
  */
 package Controllers;
 
+import Listeners.EMeasureListener;
 import Models.EMeasure;
 import SupportClasses.EMeasureFlavor;
+import java.util.ArrayList;
+import java.util.List;
 import javax.measure.unit.Unit;
 
 /**
@@ -16,9 +19,11 @@ import javax.measure.unit.Unit;
 public class EMeasureController {
 
     private EMeasure entity;
+    private List<EMeasureListener> listeners;
 
     public EMeasureController(EMeasure entity) {
         this.entity = entity;
+        this.listeners = new ArrayList<EMeasureListener>();
     }
 
     public EMeasure getEntity() {
@@ -94,6 +99,16 @@ public class EMeasureController {
     public void setPrecision(int precision) {
         if(precision >= 0 && precision <=9) {
             this.entity.setPrecision(precision);
+        }
+    }
+    
+    public List getListeners() {
+        return this.listeners;
+    }
+        
+    public void fireUpdate() {
+        for (EMeasureListener listener : listeners) {
+            listener.EMeasureChangeResponce();
         }
     }
 }
