@@ -6,16 +6,17 @@
 package UnitConvertor;
 
 import java.awt.BorderLayout;
+import javax.measure.unit.Unit;
 import javax.swing.JPanel;
 
 /**
  *
  * @author frascog
  */
-public class UnitConverterView extends JPanel implements UnitConverterListener{
+public class UnitConverterView extends JPanel implements UnitConverterListener {
 
     private UnitConverterController controller;
-            
+
     public UnitConverterView(UnitConverterController controller) {
         this.controller = controller;
         initComponents();
@@ -104,13 +105,16 @@ public class UnitConverterView extends JPanel implements UnitConverterListener{
 
     private void initMyComponents() {
         jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(controller.getControllerA().getEMeasureBasicView(),BorderLayout.CENTER);
+        jPanel1.add(controller.getControllerA().getEMeasureBasicView(), BorderLayout.CENTER);
         jPanel2.setLayout(new BorderLayout());
-        jPanel2.add(controller.getControllerB().getEMeasureBasicView(),BorderLayout.CENTER);
+        jPanel2.add(controller.getControllerB().getEMeasureBasicView(), BorderLayout.CENTER);
     }
 
     @Override
     public void UnitConverterChangeresponce() {
+        Unit tempUnit = controller.getControllerB().getUnit();
+        controller.getControllerB().setUnit(controller.getControllerA().getUnit());
         controller.getControllerB().setNominal(controller.getControllerA().getNominal());
+        controller.getControllerB().setUnit(tempUnit);
     }
 }

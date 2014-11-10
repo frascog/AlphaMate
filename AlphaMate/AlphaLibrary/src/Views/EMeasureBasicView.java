@@ -8,7 +8,9 @@ package Views;
 import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
 import SupportClasses.EMeasureUtilities;
+import com.sun.glass.events.KeyEvent;
 import java.awt.Font;
+import javafx.scene.input.KeyCode;
 import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
@@ -107,7 +109,9 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.setNominal(Double.parseDouble(this.jTextField1.getText()));
+        }
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
