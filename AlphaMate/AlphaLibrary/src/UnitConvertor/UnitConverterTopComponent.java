@@ -76,7 +76,7 @@ public final class UnitConverterTopComponent extends TopComponent {
 
     @Override
     public void componentClosed() {
-        // TODO add custom code on component closing
+        this.controller.unregisterListeners();
     }
 
     void writeProperties(java.util.Properties p) {

@@ -15,7 +15,7 @@ import javax.measure.unit.SI;
  *
  * @author frascog
  */
-class UnitConverterController {
+public class UnitConverterController {
 
     private EMeasureController controllerA;
     private EMeasureController controllerB;
@@ -27,14 +27,23 @@ class UnitConverterController {
         controllerB = new EMeasureController(new EMeasure("", SI.METER));
         controllerA.setViewState(false, true, true, false);
         controllerB.setViewState(false, false, true, false);
+        this.getListeners();
     }
 
     public EMeasureController getControllerA() {
         return controllerA;
     }
 
+    public void setControllerA(EMeasureController controllerA) {
+        this.controllerA = controllerA;
+    }
+
     public EMeasureController getControllerB() {
         return controllerB;
+    }
+
+    public void setControllerB(EMeasureController controllerB) {
+        this.controllerB = controllerB;
     }
 
     public UnitConverterView getUnitConverterView() {
@@ -44,11 +53,32 @@ class UnitConverterController {
         return unitConverterView;
     }
 
+    public void setUnitConverterView(UnitConverterView unitConverterView) {
+        this.unitConverterView = unitConverterView;
+    }
+
     public List<UnitConverterListener> getListeners() {
         if (listeners == null) {
             listeners = new ArrayList<UnitConverterListener>();
         }
+        registerListeners();
         return listeners;
+    }
+    
+    public void registerListeners() {
+        if (this.unitConverterView != null) {
+            if (!this.listeners.contains(this.unitConverterView)) {
+                this.listeners.add(unitConverterView);
+            }
+        }
+    }
+    
+    public void unregisterListeners() {
+        if (this.unitConverterView != null) {
+            if (this.listeners.contains(this.unitConverterView)) {
+                this.listeners.remove(unitConverterView);
+            }
+        }
     }
 
     public void fireUpdate() {

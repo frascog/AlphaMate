@@ -5,6 +5,7 @@
  */
 package UnitConvertor;
 
+import Listeners.EMeasureListener;
 import java.awt.BorderLayout;
 import javax.measure.unit.Unit;
 import javax.swing.JPanel;
@@ -13,10 +14,11 @@ import javax.swing.JPanel;
  *
  * @author frascog
  */
-public class UnitConverterView extends JPanel implements UnitConverterListener {
+public class UnitConverterView extends JPanel implements UnitConverterListener, EMeasureListener{
 
     private UnitConverterController controller;
-
+    private boolean initDone = false;
+    
     public UnitConverterView(UnitConverterController controller) {
         this.controller = controller;
         initComponents();
@@ -106,8 +108,10 @@ public class UnitConverterView extends JPanel implements UnitConverterListener {
     private void initMyComponents() {
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(controller.getControllerA().getEMeasureBasicView(), BorderLayout.CENTER);
+        controller.getControllerA().getListeners().add(this);
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(controller.getControllerB().getEMeasureBasicView(), BorderLayout.CENTER);
+        initDone = true;
     }
 
     @Override
@@ -116,5 +120,14 @@ public class UnitConverterView extends JPanel implements UnitConverterListener {
         controller.getControllerB().setUnit(controller.getControllerA().getUnit());
         controller.getControllerB().setNominal(controller.getControllerA().getNominal());
         controller.getControllerB().setUnit(tempUnit);
+    }
+
+    @Override
+    public void EMeasureChangeResponce() {
+        if(initDone) {
+        this.initDone = false;
+        this.UnitConverterChangeresponce();
+        this.initDone = true;
+        }
     }
 }
