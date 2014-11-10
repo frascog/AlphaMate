@@ -13,6 +13,7 @@ import Views.EMeasureBasicView;
 import java.util.ArrayList;
 import java.util.List;
 import javax.measure.unit.Unit;
+import javax.swing.JFrame;
 
 /**
  *
@@ -179,5 +180,17 @@ public class EMeasureController {
                 break;
         }
         return eMeasure;
+    }
+
+    public void openFullView() {
+        JFrame editor = new JFrame();
+        //editor.add((editor));
+        editor.pack();
+        editor.setLocation(200, 200);
+        editor.setVisible(true);
+    }
+    
+    public void setViewState(boolean label, boolean textfield,boolean combobox,boolean button) {
+        
     }
 }
