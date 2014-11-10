@@ -10,9 +10,7 @@ package SupportClasses;
  * @author frascog
  */
 public enum EMeasureFlavor {
-    minimum,
     nominal,
-    maximun,
     minimum_maximun,
     minimum_nominal_maximun;
 }

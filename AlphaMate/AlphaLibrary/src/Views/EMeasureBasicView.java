@@ -92,13 +92,14 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener{
     private void initMyComponents() {
         jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         jTextField1.setFont(new Font("Tahoma",Font.BOLD,12));
+        this.EMeasureChangeResponce();
     }
 
     @Override
     public void EMeasureChangeResponce() {
         jLabel1.setText(controller.getName());
         jComboBox1.setSelectedItem(controller.getUnit());
-        jTextField1.setText(TOOL_TIP_TEXT_KEY);
+        jTextField1.setText(controller.getEMeasure());
     }
 
 

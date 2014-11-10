@@ -8,6 +8,8 @@ package Controllers;
 import Listeners.EMeasureListener;
 import Models.EMeasure;
 import SupportClasses.EMeasureFlavor;
+import SupportClasses.EMeasureInterval;
+import Views.EMeasureBasicView;
 import java.util.ArrayList;
 import java.util.List;
 import javax.measure.unit.Unit;
@@ -19,6 +21,7 @@ import javax.measure.unit.Unit;
 public class EMeasureController {
 
     private EMeasure entity;
+    private EMeasureBasicView eMeasureBasicView;
     private List<EMeasureListener> listeners;
 
     public EMeasureController(EMeasure entity) {
@@ -102,13 +105,69 @@ public class EMeasureController {
         }
     }
     
+    public EMeasureBasicView getEMeasureBasicView(){
+        if(this.eMeasureBasicView == null){
+            this.eMeasureBasicView = new EMeasureBasicView(this);
+        }
+        registerListeners();
+        return eMeasureBasicView;
+    }
+    
     public List getListeners() {
         return this.listeners;
     }
-        
+    
+    private void registerListeners(){
+        if(eMeasureBasicView != null) {
+            if(!listeners.contains(eMeasureBasicView)){
+                listeners.add(eMeasureBasicView);
+            }
+        }
+    }
+    
     public void fireUpdate() {
         for (EMeasureListener listener : listeners) {
             listener.EMeasureChangeResponce();
         }
+    }
+
+    public String getEMeasure() {
+        String eMeasure = null;
+        switch(this.getFlavor()){
+            case nominal:
+                eMeasure = entity.getNominal() + "";
+                break;
+            case minimum_maximun:
+                if(entity.getLowerEnd() == EMeasureInterval.exclusive){
+                    eMeasure = "( ";
+                } else {
+                    eMeasure = "[ ";
+                }
+                eMeasure += entity.getMinimum() + " ";
+                eMeasure += entity.getMaximun() + " ";
+                if(entity.getUpperEnd()== EMeasureInterval.exclusive){
+                    eMeasure = ")";
+                } else {
+                    eMeasure = "]";
+                }
+                break;
+            case minimum_nominal_maximun:
+                if(entity.getLowerEnd() == EMeasureInterval.exclusive){
+                    eMeasure = "( ";
+                } else {
+                    eMeasure = "[ ";
+                }
+                eMeasure += entity.getMinimum() + " ";
+                eMeasure += entity.getNominal() + " ";
+                eMeasure += entity.getMaximun() + " ";
+                if(entity.getUpperEnd()== EMeasureInterval.exclusive){
+                    eMeasure = ")";
+                } else {
+                    eMeasure = "]";
+                }
+                break;
+        
+        }
+        return eMeasure;
     }
 }
