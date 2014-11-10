@@ -177,6 +177,8 @@ public final class UnitConvertorTopComponent extends TopComponent {
         this.jComboBox1.setModel(new DefaultComboBoxModel());
         jPanel2.setLayout(new BorderLayout());
         jPanel3.setLayout(new BorderLayout());
+        controllerA.setViewState(false, true, true, false);
+        controllerB.setViewState(false, false, true, false);
         jPanel2.add(controllerA.getEMeasureBasicView());
         jPanel3.add(controllerB.getEMeasureBasicView());
     }

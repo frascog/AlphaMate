@@ -9,6 +9,7 @@ import Listeners.EMeasureListener;
 import Models.EMeasure;
 import SupportClasses.EMeasureFlavor;
 import SupportClasses.EMeasureInterval;
+import SupportClasses.EMeasureViewState;
 import Views.EMeasureBasicView;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import javax.swing.JFrame;
 public class EMeasureController {
 
     private EMeasure entity;
+    private EMeasureViewState viewState = new EMeasureViewState();
     private EMeasureBasicView eMeasureBasicView;
     private List<EMeasureListener> listeners;
 
@@ -123,6 +125,10 @@ public class EMeasureController {
         return eMeasureBasicView;
     }
 
+    public EMeasureViewState getViewState() {
+        return viewState;
+    }
+    
     public List getListeners() {
         return this.listeners;
     }
@@ -191,6 +197,9 @@ public class EMeasureController {
     }
     
     public void setViewState(boolean label, boolean textfield,boolean combobox,boolean button) {
-        
+        this.viewState.setName(label);
+        this.viewState.setTextfield(textfield);
+        this.viewState.setComboBox(combobox);
+        this.viewState.setButton(button);
     }
 }

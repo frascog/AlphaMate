@@ -11,10 +11,10 @@ package SupportClasses;
  */
 public class EMeasureViewState {
     
-    private boolean name = false;
-    private boolean textfield = false;
-    private boolean comboBox = false;
-    private boolean button = false;
+    private boolean name = true;
+    private boolean textfield = true;
+    private boolean comboBox = true;
+    private boolean button = true;
 
     public boolean isName() {
         return name;

@@ -64,6 +64,9 @@ public class EMeasure {
     @SuppressWarnings("rawtypes")
     public void setUnit(Unit unit) {
         this.unit = unit;
+        this.setMinimum(this.minimum.doubleValue(unit));
+        this.setNominal(this.nominal.doubleValue(unit));
+        this.setMaximun(this.maximun.doubleValue(unit));
     }
 
     public EMeasureFlavor getFlavor() {

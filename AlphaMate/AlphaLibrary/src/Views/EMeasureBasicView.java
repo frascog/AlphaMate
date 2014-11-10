@@ -9,6 +9,7 @@ import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
 import SupportClasses.EMeasureUtilities;
 import java.awt.Font;
+import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 
@@ -16,10 +17,11 @@ import javax.swing.JPanel;
  *
  * @author Greg
  */
-public class EMeasureBasicView extends JPanel implements EMeasureListener{
+public class EMeasureBasicView extends JPanel implements EMeasureListener {
 
     private EMeasureController controller;
-    
+    private boolean initDone;
+
     public EMeasureBasicView(EMeasureController controller) {
         this.controller = controller;
         initComponents();
@@ -109,7 +111,9 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener{
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        // TODO add your handling code here:
+        if (initDone) {
+            controller.setUnit((Unit) this.jComboBox1.getSelectedItem());
+        }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -125,15 +129,22 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener{
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
+        initDone = false;
         jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
-        jTextField1.setFont(new Font("Tahoma",Font.BOLD,12));
+        jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
         this.EMeasureChangeResponce();
     }
 
     @Override
     public void EMeasureChangeResponce() {
+        initDone = false;
         jLabel1.setText(controller.getName());
         jComboBox1.setSelectedItem(controller.getUnit());
         jTextField1.setText(controller.getEMeasure());
+        jLabel1.setEnabled(controller.getViewState().isName());
+        jTextField1.setEnabled(controller.getViewState().isTextfield());
+        jComboBox1.setEnabled(controller.getViewState().isComboBox());
+        jButton1.setEnabled(controller.getViewState().isButton());
+        initDone = true;
     }
 }

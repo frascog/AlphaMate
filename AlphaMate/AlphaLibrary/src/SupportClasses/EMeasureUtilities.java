@@ -7,8 +7,8 @@ package SupportClasses;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
@@ -27,16 +27,30 @@ public class EMeasureUtilities {
             } catch (IllegalArgumentException ex) {
             } catch (IllegalAccessException ex) {
             }
-            if (testUnit.isCompatible(unit));
-            compatiableUnits.add(testUnit);
+            if (testUnit.isCompatible(unit)) {
+                if (!compatiableUnits.contains(testUnit)) {
+                    compatiableUnits.add(testUnit);
+                }
+            }
+        }
+        for (Field field : NonSI.class.getFields()) {
+            Unit testUnit = null;
+            try {
+                testUnit = (Unit) field.get(unit);
+            } catch (IllegalArgumentException ex) {
+            } catch (IllegalAccessException ex) {
+            }
+            if (testUnit.isCompatible(unit)) {
+                if (!compatiableUnits.contains(testUnit)) {
+                    compatiableUnits.add(testUnit);
+                }
+            }
         }
         return compatiableUnits;
     }
-    
-    public static void getUnitType(){
+
+    public static void getUnitType() {
         List unitType = new ArrayList();
 
-        
-        
     }
 }
