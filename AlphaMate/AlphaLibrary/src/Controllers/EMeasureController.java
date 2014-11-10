@@ -35,6 +35,7 @@ public class EMeasureController {
 
     public void setEntity(EMeasure entity) {
         this.entity = entity;
+        this.fireUpdate();
     }
 
     public String getName() {
@@ -43,6 +44,7 @@ public class EMeasureController {
 
     public void setName(String name) {
         this.entity.setName(name);
+        this.fireUpdate();
     }
 
     public String getDescription() {
@@ -51,6 +53,7 @@ public class EMeasureController {
 
     public void setDescription(String description) {
         this.entity.setDescription(description);
+        this.fireUpdate();
     }
 
     public double getMinimum() {
@@ -59,6 +62,7 @@ public class EMeasureController {
 
     public void setMinimum(double minimum) {
         this.entity.setMinimum(minimum);
+        this.fireUpdate();
     }
 
     public double getNominal() {
@@ -67,6 +71,7 @@ public class EMeasureController {
 
     public void setNominal(double nominal) {
         this.entity.setNominal(nominal);
+        this.fireUpdate();
     }
 
     public double getMaximun() {
@@ -75,6 +80,7 @@ public class EMeasureController {
 
     public void setMaximun(double maximun) {
         this.entity.setMaximun(maximun);
+        this.fireUpdate();
     }
 
     @SuppressWarnings("rawtypes")
@@ -85,6 +91,7 @@ public class EMeasureController {
     @SuppressWarnings("rawtypes")
     public void setUnit(Unit unit) {
         this.entity.setUnit(unit);
+        this.fireUpdate();
     }
 
     public EMeasureFlavor getFlavor() {
@@ -93,6 +100,7 @@ public class EMeasureController {
 
     public void setFlavor(EMeasureFlavor flavor) {
         this.entity.setFlavor(flavor);
+        this.fireUpdate();
     }
 
     public int getPrecision() {
@@ -100,59 +108,62 @@ public class EMeasureController {
     }
 
     public void setPrecision(int precision) {
-        if(precision >= 0 && precision <=9) {
+        if (precision >= 0 && precision <= 9) {
             this.entity.setPrecision(precision);
+            this.fireUpdate();
         }
     }
-    
-    public EMeasureBasicView getEMeasureBasicView(){
-        if(this.eMeasureBasicView == null){
+
+    public EMeasureBasicView getEMeasureBasicView() {
+        if (this.eMeasureBasicView == null) {
             this.eMeasureBasicView = new EMeasureBasicView(this);
         }
         registerListeners();
         return eMeasureBasicView;
     }
-    
+
     public List getListeners() {
         return this.listeners;
     }
-    
-    private void registerListeners(){
-        if(eMeasureBasicView != null) {
-            if(!listeners.contains(eMeasureBasicView)){
+
+    private void registerListeners() {
+        if (eMeasureBasicView != null) {
+            if (!listeners.contains(eMeasureBasicView)) {
                 listeners.add(eMeasureBasicView);
             }
         }
     }
-    
+
     public void fireUpdate() {
-        for (EMeasureListener listener : listeners) {
-            listener.EMeasureChangeResponce();
+        if (listeners != null) {
+            for (EMeasureListener listener : listeners) {
+                listener.EMeasureChangeResponce();
+            }
         }
     }
 
     public String getEMeasure() {
         String eMeasure = null;
-        switch(this.getFlavor()){
+        switch (this.getFlavor()) {
             case nominal:
                 eMeasure = entity.getNominal() + "";
                 break;
             case minimum_maximun:
-                if(entity.getLowerEnd() == EMeasureInterval.exclusive){
+                if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
                     eMeasure = "( ";
                 } else {
                     eMeasure = "[ ";
                 }
                 eMeasure += entity.getMinimum() + " ";
                 eMeasure += entity.getMaximun() + " ";
-                if(entity.getUpperEnd()== EMeasureInterval.exclusive){
+                if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {
                     eMeasure = "]";
                 }
                 break;
             case minimum_nominal_maximun:
-                if(entity.getLowerEnd() == EMeasureInterval.exclusive){
+                if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
                     eMeasure = "( ";
                 } else {
                     eMeasure = "[ ";
@@ -160,13 +171,12 @@ public class EMeasureController {
                 eMeasure += entity.getMinimum() + " ";
                 eMeasure += entity.getNominal() + " ";
                 eMeasure += entity.getMaximun() + " ";
-                if(entity.getUpperEnd()== EMeasureInterval.exclusive){
+                if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {
                     eMeasure = "]";
                 }
                 break;
-        
         }
         return eMeasure;
     }

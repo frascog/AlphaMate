@@ -9,7 +9,6 @@ import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
 import SupportClasses.EMeasureUtilities;
 import java.awt.Font;
-import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 
