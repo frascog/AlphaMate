@@ -38,6 +38,7 @@ public class EMeasureController {
 
     public void setEntity(EMeasure entity) {
         this.entity = entity;
+        this.eMeasureBasicView.initMyComponents();
         this.fireUpdate();
     }
 

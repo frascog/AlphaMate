@@ -79,6 +79,8 @@ public final class UnitConverterTopComponent extends TopComponent {
         this.controller.unregisterListeners();
     }
 
+    
+    
     void writeProperties(java.util.Properties p) {
         // better to version settings since initial version as advocated at
         // http://wiki.apidesign.org/wiki/PropertyFiles

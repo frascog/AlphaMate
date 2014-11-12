@@ -132,7 +132,7 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
-    private void initMyComponents() {
+    public void initMyComponents() {
         initDone = false;
         jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));

@@ -7,9 +7,11 @@ package UnitConvertor;
 
 import Controllers.EMeasureController;
 import Models.EMeasure;
+import SupportClasses.EMeasureUtilities;
 import java.util.ArrayList;
 import java.util.List;
 import javax.measure.unit.SI;
+import javax.measure.unit.Unit;
 
 /**
  *
@@ -87,5 +89,11 @@ public class UnitConverterController {
                 listener.UnitConverterChangeresponce();
             }
         }
+    }
+
+    public void changeUnitType(Object selectedItem) {
+        Unit tempUnit = (Unit) EMeasureUtilities.unitTypes.get(selectedItem);
+        this.controllerA.setEntity(new EMeasure("", tempUnit));
+        this.controllerB.setEntity(new EMeasure("", tempUnit));
     }
 }
