@@ -5,7 +5,8 @@
  */
 package UnitConvertor;
 
-import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -38,8 +39,8 @@ import org.openide.util.NbBundle.Messages;
 })
 public final class UnitConverterTopComponent extends TopComponent {
 
-    private UnitConverterController controller;
-    
+    private UnitConverterController[] controllers;
+
     public UnitConverterTopComponent() {
         initComponents();
         setName(Bundle.CTL_UnitConverterTopComponent());
@@ -55,19 +56,66 @@ public final class UnitConverterTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 312, Short.MAX_VALUE)
+        );
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(UnitConverterTopComponent.class, "UnitConverterTopComponent.jLabel1.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 393, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        this.setVisiable((String) this.jComboBox1.getSelectedItem());
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
@@ -76,11 +124,8 @@ public final class UnitConverterTopComponent extends TopComponent {
 
     @Override
     public void componentClosed() {
-        this.controller.unregisterListeners();
     }
 
-    
-    
     void writeProperties(java.util.Properties p) {
         // better to version settings since initial version as advocated at
         // http://wiki.apidesign.org/wiki/PropertyFiles
@@ -93,9 +138,36 @@ public final class UnitConverterTopComponent extends TopComponent {
         // TODO read your settings according to their version
     }
 
+    @SuppressWarnings("empty-statement")
     private void initMyComponents() {
-        this.controller = new UnitConverterController();
-        this.setLayout(new BorderLayout());
-        this.add(this.controller.getUnitConverterView());
+        String[] numberOfConvertors = {"1", "2", "3", "4", "5"};
+        this.jComboBox1.setModel(new DefaultComboBoxModel(numberOfConvertors));
+        this.jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
+        controllers = new UnitConverterController[5];
+        for (int i = 0; i < 5; i++) {
+            this.controllers[i] = new UnitConverterController();
+            this.jPanel1.add(this.controllers[i].getUnitConverterView());
+        }
+        setVisiable("1");
+    }
+
+    private void setVisiable(String number) {
+        this.controllers[0].getUnitConverterView().setVisible(false);
+        this.controllers[1].getUnitConverterView().setVisible(false);
+        this.controllers[2].getUnitConverterView().setVisible(false);
+        this.controllers[3].getUnitConverterView().setVisible(false);
+        this.controllers[4].getUnitConverterView().setVisible(false);
+        switch ((int) Double.parseDouble(number)) {
+            case 5:
+                this.controllers[4].getUnitConverterView().setVisible(true);
+            case 4:
+                this.controllers[3].getUnitConverterView().setVisible(true);
+            case 3:
+                this.controllers[2].getUnitConverterView().setVisible(true);
+            case 2:
+                this.controllers[1].getUnitConverterView().setVisible(true);
+            case 1:
+                this.controllers[0].getUnitConverterView().setVisible(true);
+        }
     }
 }
