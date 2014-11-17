@@ -10,7 +10,6 @@ import Listeners.EMeasureListener;
 import SupportClasses.EMeasureUtilities;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Font;
-import javafx.scene.input.KeyCode;
 import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
@@ -110,7 +109,10 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            controller.setNominal(Double.parseDouble(this.jTextField1.getText()));
+            controller.setNominal(this.jTextField1.getText());
+            jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        } else {
+            jTextField1.setFont(new Font("Tahoma", Font.PLAIN, 12));
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
@@ -146,8 +148,8 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
         jComboBox1.setSelectedItem(controller.getUnit());
         jTextField1.setText(controller.getEMeasure());
         jLabel1.setEnabled(controller.getViewState().isName());
-        jTextField1.setEnabled(controller.getViewState().isTextfield());
-        jComboBox1.setEnabled(controller.getViewState().isComboBox());
+        jTextField1.setEditable(controller.getViewState().isTextfield());
+        jComboBox1.setEditable(controller.getViewState().isComboBox());
         jButton1.setEnabled(controller.getViewState().isButton());
         initDone = true;
     }

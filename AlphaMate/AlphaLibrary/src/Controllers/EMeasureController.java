@@ -8,6 +8,7 @@ package Controllers;
 import Listeners.EMeasureListener;
 import Models.EMeasure;
 import SupportClasses.EMeasureFlavor;
+import SupportClasses.EMeasureFormat;
 import SupportClasses.EMeasureInterval;
 import SupportClasses.EMeasureViewState;
 import Views.EMeasureBasicView;
@@ -68,6 +69,14 @@ public class EMeasureController {
         this.entity.setMinimum(minimum);
         this.fireUpdate();
     }
+    
+    public void setMinimum(String minimum) {
+        double number = 0.0;
+        try {
+            number = Double.parseDouble(minimum);
+            this.setMinimum(number);
+        } catch(NumberFormatException nfe) {}
+    }
 
     public double getNominal() {
         return this.entity.getNominal();
@@ -78,6 +87,14 @@ public class EMeasureController {
         this.fireUpdate();
     }
 
+    public void setNominal(String nominal) {
+        double number = 0.0;
+        try {
+            number = Double.parseDouble(nominal);
+            this.setNominal(number);
+        } catch(NumberFormatException nfe) {}
+    }
+    
     public double getMaximun() {
         return entity.getMaximun();
     }
@@ -87,6 +104,14 @@ public class EMeasureController {
         this.fireUpdate();
     }
 
+    public void setMaximun(String maximun) {
+        double number = 0.0;
+        try {
+            number = Double.parseDouble(maximun);
+            this.setMaximun(number);
+        } catch(NumberFormatException nfe) {}
+    }
+    
     @SuppressWarnings("rawtypes")
     public Unit getUnit() {
         return entity.getUnit();
@@ -154,7 +179,7 @@ public class EMeasureController {
         String eMeasure = null;
         switch (this.getFlavor()) {
             case nominal:
-                eMeasure = entity.getNominal() + "";
+                eMeasure = EMeasureFormat.format(entity.getNominal(),entity.getPrecision()) + "";
                 break;
             case minimum_maximun:
                 if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
@@ -162,8 +187,8 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += entity.getMinimum() + " ";
-                eMeasure += entity.getMaximun() + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(),entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(),entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {
@@ -176,9 +201,9 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += entity.getMinimum() + " ";
-                eMeasure += entity.getNominal() + " ";
-                eMeasure += entity.getMaximun() + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(),entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getNominal(),entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(),entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {

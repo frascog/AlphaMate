@@ -62,4 +62,51 @@ public class EMeasureFormat {
         return number;
     }
     
+    public static String format(double measure,int persision) {
+        String number = "ERROR";
+        DecimalFormat df;
+        switch(persision){
+            case 0:
+                df = new DecimalFormat("#");
+                number = df.format(measure);
+                break;
+            case 1:
+                df = new DecimalFormat("#.0");
+                number = df.format(measure);
+                break;
+            case 2:
+                df = new DecimalFormat("#.00");
+                number = df.format(measure);
+                break;
+            case 3:
+                df = new DecimalFormat("#.000");
+                number = df.format(measure);
+                break;
+            case 4:
+                df = new DecimalFormat("#.0000");
+                number = df.format(measure);
+                break;
+            case 5:
+                df = new DecimalFormat("#.00000");
+                number = df.format(measure);
+                break;
+            case 6:
+                df = new DecimalFormat("#.000000");
+                number = df.format(measure);
+                break;
+            case 7:
+                df = new DecimalFormat("#.0000000");
+                number = df.format(measure);
+                break;
+            case 8:
+                df = new DecimalFormat("#.00000000");
+                number = df.format(measure);
+                break;
+            case 9:
+                df = new DecimalFormat("#.000000000");
+                number = df.format(measure);
+                break;
+        }
+        return number;
+    }
 }
