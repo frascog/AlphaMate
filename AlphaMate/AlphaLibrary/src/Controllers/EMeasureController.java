@@ -75,7 +75,9 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(minimum);
             this.setMinimum(number);
-        } catch(NumberFormatException nfe) {}
+        } catch(NumberFormatException nfe) {
+            this.fireUpdate();
+        }
     }
 
     public double getNominal() {
@@ -92,7 +94,9 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(nominal);
             this.setNominal(number);
-        } catch(NumberFormatException nfe) {}
+        } catch(NumberFormatException nfe) {
+            this.fireUpdate();
+        }
     }
     
     public double getMaximun() {
@@ -109,7 +113,9 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(maximun);
             this.setMaximun(number);
-        } catch(NumberFormatException nfe) {}
+        } catch(NumberFormatException nfe) {
+            this.fireUpdate();
+        }
     }
     
     @SuppressWarnings("rawtypes")
