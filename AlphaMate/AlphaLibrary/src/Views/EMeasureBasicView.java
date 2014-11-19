@@ -149,8 +149,9 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
         jTextField1.setText(controller.getEMeasure());
         jLabel1.setEnabled(controller.getViewState().isName());
         jTextField1.setEditable(controller.getViewState().isTextfield());
-        jComboBox1.setEditable(controller.getViewState().isComboBox());
+        jComboBox1.setEnabled(controller.getViewState().isComboBox());
         jButton1.setEnabled(controller.getViewState().isButton());
+        jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
         initDone = true;
     }
 }
