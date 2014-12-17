@@ -34,8 +34,8 @@ import org.openide.util.NbBundle.Messages;
 )
 @Messages({
     "CTL_UnitConverterAction=UnitConverter",
-    "CTL_UnitConverterTopComponent=UnitConverter Window",
-    "HINT_UnitConverterTopComponent=This is a UnitConverter window"
+    "CTL_UnitConverterTopComponent=Unit Converter",
+    "HINT_UnitConverterTopComponent=This is a Unit Converter"
 })
 public final class UnitConverterTopComponent extends TopComponent {
 
