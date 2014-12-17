@@ -7,9 +7,7 @@ package Controllers;
 
 import Listeners.EMeasureListener;
 import Models.EMeasure;
-import SupportClasses.EMeasureFlavor;
 import SupportClasses.EMeasureFormat;
-import SupportClasses.EMeasureInterval;
 import SupportClasses.EMeasureViewState;
 import Views.EMeasureBasicView;
 import java.util.ArrayList;
@@ -69,13 +67,13 @@ public class EMeasureController {
         this.entity.setMinimum(minimum);
         this.fireUpdate();
     }
-    
+
     public void setMinimum(String minimum) {
         double number = 0.0;
         try {
             number = Double.parseDouble(minimum);
             this.setMinimum(number);
-        } catch(NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             this.fireUpdate();
         }
     }
@@ -94,11 +92,11 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(nominal);
             this.setNominal(number);
-        } catch(NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             this.fireUpdate();
         }
     }
-    
+
     public double getMaximun() {
         return entity.getMaximun();
     }
@@ -113,11 +111,11 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(maximun);
             this.setMaximun(number);
-        } catch(NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             this.fireUpdate();
         }
     }
-    
+
     @SuppressWarnings("rawtypes")
     public Unit getUnit() {
         return entity.getUnit();
@@ -160,7 +158,7 @@ public class EMeasureController {
     public EMeasureViewState getViewState() {
         return viewState;
     }
-    
+
     public List getListeners() {
         return this.listeners;
     }
@@ -185,7 +183,7 @@ public class EMeasureController {
         String eMeasure = null;
         switch (this.getFlavor()) {
             case nominal:
-                eMeasure = EMeasureFormat.format(entity.getNominal(),entity.getPrecision()) + "";
+                eMeasure = EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + "";
                 break;
             case minimum_maximun:
                 if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
@@ -193,8 +191,8 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += EMeasureFormat.format(entity.getMinimum(),entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getMaximun(),entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {
@@ -207,9 +205,9 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += EMeasureFormat.format(entity.getMinimum(),entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getNominal(),entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getMaximun(),entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure = ")";
                 } else {
@@ -227,11 +225,24 @@ public class EMeasureController {
         editor.setLocation(200, 200);
         editor.setVisible(true);
     }
-    
-    public void setViewState(boolean label, boolean textfield,boolean combobox,boolean button) {
+
+    public void setViewState(boolean label, boolean textfield, boolean combobox, boolean button) {
         this.viewState.setName(label);
         this.viewState.setTextfield(textfield);
         this.viewState.setComboBox(combobox);
         this.viewState.setButton(button);
+    }
+
+    public enum EMeasureFlavor {
+
+        nominal,
+        minimum_maximun,
+        minimum_nominal_maximun;
+    }
+
+    public enum EMeasureInterval {
+
+        inclusive,
+        exclusive;
     }
 }
