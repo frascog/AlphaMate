@@ -26,6 +26,7 @@ public class EMeasureUtilities {
 
     public static List<Unit> findCompatiableUnits(Unit unit) {
         List<Unit> compatiableUnits = new ArrayList<Unit>();
+        compatiableUnits.add(unit);
         for (Field field : SI.class.getFields()) {
             Unit testUnit = null;
             try {
