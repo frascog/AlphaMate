@@ -5,9 +5,9 @@
  */
 package Models;
 
-import SupportClasses.EMeasureFlavor;
+import Controllers.EMeasureController.EMeasureFlavor;
 import SupportClasses.EMeasureFormat;
-import SupportClasses.EMeasureInterval;
+import Controllers.EMeasureController.EMeasureInterval;
 import java.math.BigDecimal;
 import javax.measure.DecimalMeasure;
 import javax.measure.Measure;
