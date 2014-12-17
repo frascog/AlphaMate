@@ -6,7 +6,7 @@
 package UnitConvertor;
 
 import Listeners.EMeasureListener;
-import SupportClasses.EMeasureUtilities;
+import javax.measure.SupportClasses.MeasureUtilities;
 import java.awt.BorderLayout;
 import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
@@ -145,7 +145,7 @@ public class UnitConverterView extends JPanel implements UnitConverterListener, 
         controller.getControllerA().getListeners().add(this);
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(controller.getControllerB().getEMeasureBasicView(), BorderLayout.CENTER);
-        jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.getUnitTypes()));
+        jComboBox1.setModel(new DefaultComboBoxModel(MeasureUtilities.getUnitTypes()));
         jComboBox1.setSelectedItem("Length");
         initDone = true;
     }

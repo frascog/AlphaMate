@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SupportClasses;
+package javax.measure.SupportClasses;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.measure.unit.Unit;
  *
  * @author Greg
  */
-public class EMeasureUtilities {
+public class MeasureUtilities {
 
     public static HashMap unitTypes;
 
@@ -41,6 +41,19 @@ public class EMeasureUtilities {
             }
         }
         for (Field field : NonSI.class.getFields()) {
+            Unit testUnit = null;
+            try {
+                testUnit = (Unit) field.get(unit);
+            } catch (IllegalArgumentException ex) {
+            } catch (IllegalAccessException ex) {
+            }
+            if (testUnit.isCompatible(unit)) {
+                if (!compatiableUnits.contains(testUnit)) {
+                    compatiableUnits.add(testUnit);
+                }
+            }
+        }
+        for (Field field : MyUnits.class.getFields()) {
             Unit testUnit = null;
             try {
                 testUnit = (Unit) field.get(unit);

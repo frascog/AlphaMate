@@ -600,7 +600,7 @@ public final class NonSI extends SystemOfUnits {
      * (standard name <code>inHg</code>).
      */
     public static final Unit<Pressure> INCH_OF_MERCURY = nonSI(PASCAL.times(3386.388));
-
+    
     /////////////////////////////
     // Radiation dose absorbed //
     /////////////////////////////
@@ -754,5 +754,4 @@ public final class NonSI extends SystemOfUnits {
         UNITS.add(unit);
         return unit;
     }
-
 }

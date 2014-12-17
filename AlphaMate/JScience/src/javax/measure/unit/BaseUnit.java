@@ -42,7 +42,7 @@ public class BaseUnit<Q extends Quantity> extends Unit<Q> {
     /**
      * Holds the symbol.
      */
-    private final String _symbol;
+    private String _symbol;
 
     /**
      * Creates a base unit having the specified symbol. 
@@ -71,7 +71,7 @@ public class BaseUnit<Q extends Quantity> extends Unit<Q> {
      *
      * @return this base unit symbol.
      */
-    public final String getSymbol() {
+    public String getSymbol() {
         return _symbol;
     }
 

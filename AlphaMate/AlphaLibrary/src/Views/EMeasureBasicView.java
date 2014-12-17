@@ -7,9 +7,9 @@ package Views;
 
 import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
-import SupportClasses.EMeasureUtilities;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Font;
+import javax.measure.SupportClasses.MeasureUtilities;
 import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
@@ -136,7 +136,7 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
 
     public void initMyComponents() {
         initDone = false;
-        jComboBox1.setModel(new DefaultComboBoxModel(EMeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
+        jComboBox1.setModel(new DefaultComboBoxModel(MeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
         this.EMeasureChangeResponce();
     }

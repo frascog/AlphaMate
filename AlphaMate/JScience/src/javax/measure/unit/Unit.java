@@ -63,11 +63,6 @@ public abstract class Unit<Q extends Quantity> implements Serializable {
      * Holds the unique symbols collection (base unit or alternate units).
      */
     static final HashMap<String, Unit<?>> SYMBOL_TO_UNIT = new HashMap<String, Unit<?>>();
-
-    /**
-     * Get Unit Symbol
-     */
-    private static String symbol;
     
     /**
      * Default constructor.
