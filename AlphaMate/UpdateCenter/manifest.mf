@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.netbeans.updatecenter
+OpenIDE-Module-Install: org/netbeans/updatecenter/Installer.class
+OpenIDE-Module-Layer: org/netbeans/updatecenter/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/netbeans/updatecenter/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

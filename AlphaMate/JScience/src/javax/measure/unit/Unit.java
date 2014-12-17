@@ -65,6 +65,11 @@ public abstract class Unit<Q extends Quantity> implements Serializable {
     static final HashMap<String, Unit<?>> SYMBOL_TO_UNIT = new HashMap<String, Unit<?>>();
 
     /**
+     * Get Unit Symbol
+     */
+    private static String symbol;
+    
+    /**
      * Default constructor.
      */
     protected Unit() {

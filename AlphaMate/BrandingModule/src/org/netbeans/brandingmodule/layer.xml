@@ -28,11 +28,9 @@
             <file name="org-openide-actions-GotoAction.shadow_hidden"/>
         </folder>
         <folder name="Help">
+            <file name="master-help.xml_hidden"/>
             <file name="org-netbeans-modules-options-OptionsWindowAction-separatorBefore.instance">
                 <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
-            </file>
-            <file name="org-netbeans-modules-options-OptionsWindowAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-modules-options-OptionsWindowAction.instance"/>
             </file>
         </folder>
         <folder name="Tools">

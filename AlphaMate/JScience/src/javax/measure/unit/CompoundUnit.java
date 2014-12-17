@@ -35,7 +35,7 @@ public final class CompoundUnit<Q extends Quantity> extends DerivedUnit<Q> {
      * Holds the lower unit.
      */
     private final Unit<Q> _low;
-
+   
     /**
      * Creates a compound unit from the specified units. 
      *
@@ -50,7 +50,6 @@ public final class CompoundUnit<Q extends Quantity> extends DerivedUnit<Q> {
                     "Both units do not have the same system unit");
         _high = high;
         _low = low;
-        
     }
 
     /**
