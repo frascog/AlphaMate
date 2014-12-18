@@ -26,7 +26,7 @@ public class EMeasure {
     private Measure nominal;
     private Measure maximun;
     private Unit unit;
-    private EMeasureFlavor flavor = EMeasureFlavor.nominal;
+    private EMeasureFlavor flavor = EMeasureFlavor.Nominal;
     private EMeasureInterval lowerEnd = EMeasureInterval.inclusive;
     private EMeasureInterval upperEnd = EMeasureInterval.inclusive;
     private int precision = 3;

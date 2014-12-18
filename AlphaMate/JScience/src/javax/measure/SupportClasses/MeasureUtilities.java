@@ -119,4 +119,22 @@ public class MeasureUtilities {
         return units;
     }
 
+    public static String findUnitTypeOfUnit(Unit unit) {
+        List<Unit> units = findCompatiableUnits(unit);
+        for (Unit u : units) {
+            if (unitTypes.containsValue(u)) {
+                Object[] entrySet = unitTypes.values().toArray();
+                int i = 0;
+                for (Object entry : entrySet) {
+                    if (entry.equals(u)) {
+                        break;
+                    }
+                    i++;
+                }
+                return (String) unitTypes.keySet().toArray()[i];
+            }
+        }
+        return null;
+    }
+
 }

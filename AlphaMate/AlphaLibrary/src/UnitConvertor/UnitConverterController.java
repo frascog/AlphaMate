@@ -27,8 +27,8 @@ public class UnitConverterController {
     public UnitConverterController() {
         controllerA = new EMeasureController(new EMeasure("", SI.METER));
         controllerB = new EMeasureController(new EMeasure("", SI.METER));
-        controllerA.setViewState(false, true, true, false);
-        controllerB.setViewState(false, false, true, false);
+        controllerA.setViewState(false, true, true, true);
+        controllerB.setViewState(false, false, true, true);
         this.getListeners();
     }
 

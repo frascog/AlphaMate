@@ -10,6 +10,9 @@ import Models.EMeasure;
 import SupportClasses.EMeasureFormat;
 import SupportClasses.EMeasureViewState;
 import Views.EMeasureBasicView;
+import Views.EMeasureFullView;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.measure.unit.Unit;
@@ -22,13 +25,15 @@ import javax.swing.JFrame;
 public class EMeasureController {
 
     private EMeasure entity;
-    private EMeasureViewState viewState = new EMeasureViewState();
+    private EMeasureViewState viewState;
     private EMeasureBasicView eMeasureBasicView;
+    private EMeasureFullView eMeasureFullView;
     private List<EMeasureListener> listeners;
 
     public EMeasureController(EMeasure entity) {
         this.entity = entity;
         this.listeners = new ArrayList<EMeasureListener>();
+        this.viewState = new EMeasureViewState();
     }
 
     public EMeasure getEntity() {
@@ -154,6 +159,14 @@ public class EMeasureController {
         registerListeners();
         return eMeasureBasicView;
     }
+    
+    public EMeasureFullView getEMeasureFullView() {
+        if (this.eMeasureFullView == null) {
+            this.eMeasureFullView = new EMeasureFullView(this);
+        }
+        registerListeners();
+        return eMeasureFullView;
+    }
 
     public EMeasureViewState getViewState() {
         return viewState;
@@ -169,10 +182,30 @@ public class EMeasureController {
                 listeners.add(eMeasureBasicView);
             }
         }
+        if (eMeasureFullView != null) {
+            if (!listeners.contains(eMeasureFullView)) {
+                listeners.add(eMeasureFullView);
+            }
+        }
     }
 
+    private void unregisterListeners() {
+        if(eMeasureBasicView == null) {
+            if (listeners.contains(eMeasureBasicView)) {
+                listeners.remove(eMeasureBasicView);
+            }
+        }
+        
+        if(eMeasureFullView == null) {
+            if (listeners.contains(eMeasureFullView)) {
+                listeners.remove(eMeasureFullView);
+            }
+        }
+    }
+    
     public void fireUpdate() {
         if (listeners != null) {
+            unregisterListeners();
             for (EMeasureListener listener : listeners) {
                 listener.EMeasureChangeResponce();
             }
@@ -182,10 +215,10 @@ public class EMeasureController {
     public String getEMeasure() {
         String eMeasure = null;
         switch (this.getFlavor()) {
-            case nominal:
+            case Nominal:
                 eMeasure = EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + "";
                 break;
-            case minimum_maximun:
+            case Minimum_Maximun:
                 if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
                     eMeasure = "( ";
                 } else {
@@ -199,7 +232,7 @@ public class EMeasureController {
                     eMeasure = "]";
                 }
                 break;
-            case minimum_nominal_maximun:
+            case Minimum_Nominal_Maximun:
                 if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
                     eMeasure = "( ";
                 } else {
@@ -220,12 +253,22 @@ public class EMeasureController {
 
     public void openFullView() {
         JFrame editor = new JFrame();
-        //editor.add((editor));
+        editor.add((this.getEMeasureFullView()));
         editor.pack();
         editor.setLocation(200, 200);
         editor.setVisible(true);
+        editor.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e); //To change body of generated methods, choose Tools | Templates.
+                eMeasureFullView = null;
+                fireUpdate();
+            }           
+        });
     }
 
+    
     public void setViewState(boolean label, boolean textfield, boolean combobox, boolean button) {
         this.viewState.setName(label);
         this.viewState.setTextfield(textfield);
@@ -233,11 +276,41 @@ public class EMeasureController {
         this.viewState.setButton(button);
     }
 
+    public EMeasureInterval getLowerEnd() {
+        return this.entity.getLowerEnd();
+    }
+
+    public void setLowerEnd(EMeasureInterval lowerEnd) {
+        this.entity.setLowerEnd(lowerEnd);
+    }
+
+    public EMeasureInterval getUpperEnd() {
+        return this.entity.getUpperEnd();
+    }
+
+    public void setUpperEnd(EMeasureInterval upperEnd) {
+        this.entity.setUpperEnd(upperEnd);
+    }
+    
+    public boolean isLowerInclusive() {
+        if(this.entity.getLowerEnd()== EMeasureInterval.inclusive) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isUpperInclusive() {
+        if(this.entity.getUpperEnd() == EMeasureInterval.inclusive) {
+            return true;
+        }
+        return false;
+    }
+    
     public enum EMeasureFlavor {
 
-        nominal,
-        minimum_maximun,
-        minimum_nominal_maximun;
+        Nominal,
+        Minimum_Maximun,
+        Minimum_Nominal_Maximun;
     }
 
     public enum EMeasureInterval {
