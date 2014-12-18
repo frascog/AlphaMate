@@ -31,7 +31,7 @@ public class EMeasureFormat {
                 number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
                 break;
             case 3:
-                df = new DecimalFormat("#.###");
+                df = new DecimalFormat("#.000");
                 number = Double.parseDouble(df.format(measure.doubleValue(measure.getUnit())));
                 break;
             case 4:

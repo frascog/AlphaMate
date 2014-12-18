@@ -227,9 +227,9 @@ public class EMeasureController {
                 eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision()) + " ";
                 eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
-                    eMeasure = ")";
+                    eMeasure += ")";
                 } else {
-                    eMeasure = "]";
+                    eMeasure += "]";
                 }
                 break;
             case Minimum_Nominal_Maximun:
@@ -242,9 +242,9 @@ public class EMeasureController {
                 eMeasure += EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + " ";
                 eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
-                    eMeasure = ")";
+                    eMeasure += ")";
                 } else {
-                    eMeasure = "]";
+                    eMeasure += "]";
                 }
                 break;
         }

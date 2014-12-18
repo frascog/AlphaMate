@@ -95,7 +95,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMinimum() {
-        return EMeasureFormat.format(nominal,precision);
+        return EMeasureFormat.format(minimum,precision);
     }
 
     @SuppressWarnings("unchecked")

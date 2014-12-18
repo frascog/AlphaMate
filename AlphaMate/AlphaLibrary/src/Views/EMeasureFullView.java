@@ -7,8 +7,13 @@ package Views;
 
 import Controllers.EMeasureController;
 import Controllers.EMeasureController.EMeasureFlavor;
+import Controllers.EMeasureController.EMeasureInterval;
 import Listeners.EMeasureListener;
+import SupportClasses.EMeasureFormat;
+import com.sun.glass.events.KeyEvent;
+import java.awt.Font;
 import javax.measure.SupportClasses.MeasureUtilities;
+import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 
@@ -17,8 +22,9 @@ import javax.swing.JPanel;
  * @author frascog
  */
 public class EMeasureFullView extends JPanel implements EMeasureListener {
-
+    
     private EMeasureController controller;
+    private boolean initDone = true;
     
     public EMeasureFullView(EMeasureController controller) {
         this.controller = controller;
@@ -70,6 +76,11 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel1.text")); // NOI18N
 
         jTextField1.setText(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jTextField1.text")); // NOI18N
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel2.text")); // NOI18N
 
@@ -78,25 +89,57 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel4.text")); // NOI18N
 
         jTextField2.setText(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jTextField2.text")); // NOI18N
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel5.text")); // NOI18N
 
         jTextField3.setText(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jTextField3.text")); // NOI18N
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField3KeyPressed(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel6.text")); // NOI18N
 
         jTextField4.setText(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jTextField4.text")); // NOI18N
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField4KeyPressed(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel7.text")); // NOI18N
 
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel8.text")); // NOI18N
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseExited(evt);
+            }
+        });
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -144,15 +187,37 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel9.text")); // NOI18N
 
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox3ItemStateChanged(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel10, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel10.text")); // NOI18N
 
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBox1, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jCheckBox1.text")); // NOI18N
+        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox1ItemStateChanged(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBox2, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jCheckBox2.text")); // NOI18N
+        jCheckBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox2ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -261,6 +326,85 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.setName(this.jTextField1.getText());
+            jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        } else {
+            jTextField1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.setMinimum(this.jTextField2.getText());
+            jTextField2.setFont(new Font("Tahoma", Font.BOLD, 12));
+        } else {
+            jTextField2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.setNominal(this.jTextField3.getText());
+            jTextField3.setFont(new Font("Tahoma", Font.BOLD, 12));
+        } else {
+            jTextField3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        }
+    }//GEN-LAST:event_jTextField3KeyPressed
+
+    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            controller.setMaximun(this.jTextField4.getText());
+            jTextField4.setFont(new Font("Tahoma", Font.BOLD, 12));
+        } else {
+            jTextField4.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        }
+    }//GEN-LAST:event_jTextField4KeyPressed
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        if (initDone) {
+            controller.setUnit((Unit) jComboBox2.getSelectedItem());
+        }
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jComboBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox3ItemStateChanged
+        if (initDone) {
+            controller.setFlavor((EMeasureFlavor) jComboBox3.getSelectedItem());
+        }
+    }//GEN-LAST:event_jComboBox3ItemStateChanged
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        if (initDone) {
+            controller.setPrecision(Integer.parseInt((String) jComboBox4.getSelectedItem()));
+        }
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
+        if (initDone) {
+            EMeasureInterval interval;            
+            interval = jCheckBox1.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
+            this.controller.setLowerEnd(interval);
+        }
+    }//GEN-LAST:event_jCheckBox1ItemStateChanged
+
+    private void jCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox2ItemStateChanged
+        if (initDone) {
+            EMeasureInterval interval;            
+            interval = jCheckBox2.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
+            this.controller.setUpperEnd(interval);
+        }
+    }//GEN-LAST:event_jCheckBox2ItemStateChanged
+
+    private void jTextArea1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseExited
+        controller.setDescription(jTextArea1.getText());
+        jTextArea1.setFont(new Font("Tahoma", Font.BOLD, 12));
+    }//GEN-LAST:event_jTextArea1MouseExited
+
+    private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
+        jTextArea1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+    }//GEN-LAST:event_jTextArea1KeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -296,29 +440,35 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
-    
     private void initMyComponents() {
         this.jComboBox1.setModel(new DefaultComboBoxModel(MeasureUtilities.getUnitTypes()));
         this.jComboBox2.setModel(new DefaultComboBoxModel(MeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         this.jComboBox3.setModel(new DefaultComboBoxModel(EMeasureFlavor.values()));
-        String data[] = {"0","1","2","3","4","5","6","7","8","9"};
+        String data[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         this.jComboBox4.setModel(new DefaultComboBoxModel(data));
         this.jComboBox1.setEnabled(false);
+        jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        jTextField2.setFont(new Font("Tahoma", Font.BOLD, 12));
+        jTextField3.setFont(new Font("Tahoma", Font.BOLD, 12));
+        jTextField4.setFont(new Font("Tahoma", Font.BOLD, 12));
+        jTextArea1.setFont(new Font("Tahoma", Font.BOLD, 12));
         this.EMeasureChangeResponce();
     }
     
     @Override
     public void EMeasureChangeResponce() {
+        this.initDone = false;
         this.jTextField1.setText(controller.getName());
-        this.jTextField2.setText(controller.getMinimum()+ "");
-        this.jTextField3.setText(controller.getNominal()+ "");
-        this.jTextField4.setText(controller.getMaximun()+ "");
+        this.jTextField2.setText(EMeasureFormat.format(controller.getMinimum(),controller.getPrecision()));
+        this.jTextField3.setText(EMeasureFormat.format(controller.getNominal(),controller.getPrecision()));;
+        this.jTextField4.setText(EMeasureFormat.format(controller.getMaximun(),controller.getPrecision()));;
         this.jCheckBox1.setSelected(controller.isLowerInclusive());
         this.jCheckBox2.setSelected(controller.isUpperInclusive());
         this.jComboBox1.setSelectedItem(MeasureUtilities.findUnitTypeOfUnit(controller.getUnit()));
         this.jComboBox2.setSelectedItem(controller.getUnit());
         this.jComboBox3.setSelectedItem(controller.getFlavor());
-        this.jComboBox4.setSelectedItem(controller.getPrecision()+"");
+        this.jComboBox4.setSelectedItem(controller.getPrecision() + "");
         this.jTextArea1.setText(controller.getDescription());
+        this.initDone = true;
     }
 }
