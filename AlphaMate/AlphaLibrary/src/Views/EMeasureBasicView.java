@@ -99,7 +99,7 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
