@@ -111,6 +111,7 @@ public class FluidFullView extends JPanel implements FluidListener,EMeasureListe
         jPanel1.setLayout(new BorderLayout());
         this.fluidBasicView = new FluidBasicView(controller);
         this.jPanel1.add(fluidBasicView);
+        fluidBasicView.setButtonVisible(false);
     }
 
     @Override

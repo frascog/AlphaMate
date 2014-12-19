@@ -146,4 +146,8 @@ public class FluidBasicView extends JPanel implements FluidListener, EMeasureLis
         this.jComboBox1.setSelectedItem(controller.getFluidKind());
         initDone = true;
     }
+    
+    public void setButtonVisible(boolean value) {
+        this.jButton1.setVisible(value);
+    }
 }
