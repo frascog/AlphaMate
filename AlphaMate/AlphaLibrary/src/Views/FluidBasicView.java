@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Controllers.EMeasureController;
 import Controllers.FluidController;
 import Listeners.EMeasureListener;
 import Listeners.FluidListener;
@@ -17,11 +18,11 @@ import javax.swing.JPanel;
  *
  * @author frascog
  */
-public class FluidBasicView extends JPanel implements FluidListener,EMeasureListener{
+public class FluidBasicView extends JPanel implements FluidListener, EMeasureListener {
 
     private FluidController controller;
     private boolean initDone;
-    
+
     public FluidBasicView(FluidController controller) {
         this.controller = controller;
         initComponents();
@@ -55,6 +56,11 @@ public class FluidBasicView extends JPanel implements FluidListener,EMeasureList
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/OpenFullView.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(FluidBasicView.class, "FluidBasicView.jButton1.text")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,10 +104,14 @@ public class FluidBasicView extends JPanel implements FluidListener,EMeasureList
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        if(initDone) {
+        if (initDone) {
             controller.setFluidKind((FluidKind) jComboBox1.getSelectedItem());
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controller.openFullView();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -113,11 +123,11 @@ public class FluidBasicView extends JPanel implements FluidListener,EMeasureList
 
     private void initMyComponents() {
         this.jPanel1.setLayout(new BoxLayout(this.jPanel1, BoxLayout.Y_AXIS));
-        this.jPanel1.add(this.controller.getPressureController().getEMeasureBasicView());
-        this.jPanel1.add(this.controller.getTemperatureController().getEMeasureBasicView());
-        this.jComboBox1.setModel(new DefaultComboBoxModel(FluidKind.values()));
+        this.jPanel1.add(controller.getPressureController().getEMeasureBasicView());
+        this.jPanel1.add(controller.getTemperatureController().getEMeasureBasicView());
         this.controller.getPressureController().getListeners().add(this);
         this.controller.getTemperatureController().getListeners().add(this);
+        this.jComboBox1.setModel(new DefaultComboBoxModel(FluidKind.values()));
         this.changeResponce();
     }
 
@@ -130,7 +140,7 @@ public class FluidBasicView extends JPanel implements FluidListener,EMeasureList
     public void EMeasureChangeResponce() {
         this.changeResponce();
     }
-    
+
     private void changeResponce() {
         initDone = false;
         this.jComboBox1.setSelectedItem(controller.getFluidKind());

@@ -6,10 +6,16 @@
 package Controllers;
 
 import Listeners.FluidListener;
+import Models.EMeasure;
 import Models.Fluid;
 import SupportClasses.FluidKind;
 import Views.FluidBasicView;
+import Views.FluidFullView;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,12 +27,13 @@ public class FluidController {
     private EMeasureController temperatureController; 
     private EMeasureController pressureController;
     private ArrayList<FluidListener> listeners;
-    private FluidBasicView fluidBasicView;
+    private ArrayList<FluidBasicView> fluidBasicViews;
+    private ArrayList<FluidFullView> fluidFullViews;
     
     public FluidController(Fluid fluid) {
         this.fluid = fluid;
         temperatureController = new EMeasureController(fluid.getTemperature());
-        pressureController = new EMeasureController(fluid.getPressure());
+        pressureController =  new EMeasureController(fluid.getPressure());
         this.listeners = new ArrayList<FluidListener>();
     }
     
@@ -43,8 +50,16 @@ public class FluidController {
         return temperatureController;
     }
 
+    public void setTemperatureController(EMeasureController temperatureController) {
+        this.temperatureController = temperatureController;
+    }
+
     public EMeasureController getPressureController() {
         return pressureController;
+    }
+
+    public void setPressureController(EMeasureController pressureController) {
+        this.pressureController = pressureController;
     }
 
     public Fluid getFluid() {
@@ -61,13 +76,39 @@ public class FluidController {
     }
 
     public FluidBasicView getFluidBasicView() {
-        if (fluidBasicView == null) {
-            this.fluidBasicView = new FluidBasicView(this);
+        if (fluidBasicViews == null) {
+            this.fluidBasicViews = new ArrayList<FluidBasicView>();
         }
+        fluidBasicViews.add(new FluidBasicView(this));
         registerListeners();
-        return fluidBasicView;
+        return fluidBasicViews.get(fluidBasicViews.size()-1);
+    }
+    
+    public List<FluidBasicView> getEMeasureBasicViewSet() {
+        return fluidBasicViews;
     }
 
+    public FluidBasicView getEMeasureBasicView(int index) {
+        return fluidBasicViews.get(index);
+    }
+    
+    public FluidFullView getFluidFullView() {
+        if (fluidFullViews == null) {
+            this.fluidFullViews = new ArrayList<FluidFullView>();
+        }
+        fluidFullViews.add(new FluidFullView(this));
+        registerListeners();
+        return fluidFullViews.get(fluidFullViews.size()-1);
+    }
+
+    public List<FluidFullView> getEMeasureFullViewSet() {
+        return fluidFullViews;
+    }
+
+    public FluidFullView getEMeasureFullView(int index) {
+        return fluidFullViews.get(index);
+    }
+    
     public void fireUpdate() {
         if (listeners != null) {
             unregisterListeners();
@@ -78,19 +119,62 @@ public class FluidController {
     }
     
     private void registerListeners() {
-        if (fluidBasicView != null) {
-            if (!listeners.contains(fluidBasicView)) {
-                listeners.add(fluidBasicView);
+        if (fluidBasicViews != null) {
+            for (FluidBasicView view : fluidBasicViews) {
+                if (!listeners.contains(view)) {
+                    listeners.add(view);
+                }
+            }
+        }
+
+        if (fluidFullViews != null) {
+            for (FluidFullView view : fluidFullViews) {
+                if (!listeners.contains(view)) {
+                    listeners.add(view);
+                }
             }
         }
     }
     
+    
+    
     private void unregisterListeners() {
-        if(fluidBasicView == null) {
-            if (listeners.contains(fluidBasicView)) {
-                listeners.remove(fluidBasicView);
+        if (fluidBasicViews != null) {
+            for (FluidBasicView view : fluidBasicViews) {
+                if (listeners.contains(view)) {
+                    if (view == null) {
+                        listeners.remove(view);
+                    }
+                }
             }
         }
+
+        if (fluidFullViews != null) {
+            for (FluidFullView view : fluidFullViews) {
+                if (listeners.contains(view)) {
+                    if (view == null) {
+                        listeners.remove(view);
+                    }
+                }
+            }
+        }
+    }
+
+    public void openFullView() {
+        JFrame editor = new JFrame();
+        editor.add((this.getFluidFullView()));
+        editor.pack();
+        editor.setLocation(200, 200);
+        editor.setVisible(true);
+        editor.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e); //To change body of generated methods, choose Tools | Templates.
+                fluidFullViews = null;
+                fireUpdate();
+            }           
+        });
     }
     
 }

@@ -26,8 +26,8 @@ public class EMeasureController {
 
     private EMeasure entity;
     private EMeasureViewState viewState;
-    private EMeasureBasicView eMeasureBasicView;
-    private EMeasureFullView eMeasureFullView;
+    private List<EMeasureBasicView> eMeasureBasicViews;
+    private List<EMeasureFullView> eMeasureFullViews;
     private List<EMeasureListener> listeners;
 
     public EMeasureController(EMeasure entity) {
@@ -42,7 +42,9 @@ public class EMeasureController {
 
     public void setEntity(EMeasure entity) {
         this.entity = entity;
-        this.eMeasureBasicView.initMyComponents();
+        for (EMeasureBasicView view : eMeasureBasicViews) {
+            view.initMyComponents();
+        }
         this.fireUpdate();
     }
 
@@ -97,6 +99,7 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(nominal);
             this.setNominal(number);
+            this.fireUpdate();
         } catch (NumberFormatException nfe) {
             this.fireUpdate();
         }
@@ -153,19 +156,37 @@ public class EMeasureController {
     }
 
     public EMeasureBasicView getEMeasureBasicView() {
-        if (this.eMeasureBasicView == null) {
-            this.eMeasureBasicView = new EMeasureBasicView(this);
+        if (this.eMeasureBasicViews == null) {
+            this.eMeasureBasicViews = new ArrayList<EMeasureBasicView>();
         }
+        eMeasureBasicViews.add(new EMeasureBasicView(this));
         registerListeners();
-        return eMeasureBasicView;
+        return eMeasureBasicViews.get(eMeasureBasicViews.size()-1);
     }
-    
+
+    public List<EMeasureBasicView> getEMeasureBasicViewSet() {
+        return eMeasureBasicViews;
+    }
+
+    public EMeasureBasicView getEMeasureBasicView(int index) {
+        return eMeasureBasicViews.get(index);
+    }
+
     public EMeasureFullView getEMeasureFullView() {
-        if (this.eMeasureFullView == null) {
-            this.eMeasureFullView = new EMeasureFullView(this);
+        if (this.eMeasureFullViews == null) {
+            this.eMeasureFullViews = new ArrayList<EMeasureFullView>();
         }
+        eMeasureFullViews.add(new EMeasureFullView(this));
         registerListeners();
-        return eMeasureFullView;
+        return eMeasureFullViews.get(eMeasureFullViews.size()-1);
+    }
+
+    public List<EMeasureFullView> getEMeasureFullViewSet() {
+        return eMeasureFullViews;
+    }
+
+    public EMeasureFullView getEMeasureFullView(int index) {
+        return eMeasureFullViews.get(index);
     }
 
     public EMeasureViewState getViewState() {
@@ -177,32 +198,45 @@ public class EMeasureController {
     }
 
     private void registerListeners() {
-        if (eMeasureBasicView != null) {
-            if (!listeners.contains(eMeasureBasicView)) {
-                listeners.add(eMeasureBasicView);
+        if (eMeasureBasicViews != null) {
+            for (EMeasureBasicView view : eMeasureBasicViews) {
+                if (!listeners.contains(view)) {
+                    listeners.add(view);
+                }
             }
         }
-        if (eMeasureFullView != null) {
-            if (!listeners.contains(eMeasureFullView)) {
-                listeners.add(eMeasureFullView);
+
+        if (eMeasureFullViews != null) {
+            for (EMeasureFullView view : eMeasureFullViews) {
+                if (!listeners.contains(view)) {
+                    listeners.add(view);
+                }
             }
         }
     }
 
     private void unregisterListeners() {
-        if(eMeasureBasicView == null) {
-            if (listeners.contains(eMeasureBasicView)) {
-                listeners.remove(eMeasureBasicView);
+        if (eMeasureBasicViews != null) {
+            for (EMeasureBasicView view : eMeasureBasicViews) {
+                if (listeners.contains(view)) {
+                    if (view == null) {
+                        listeners.remove(view);
+                    }
+                }
             }
         }
-        
-        if(eMeasureFullView == null) {
-            if (listeners.contains(eMeasureFullView)) {
-                listeners.remove(eMeasureFullView);
+
+        if (eMeasureFullViews != null) {
+            for (EMeasureFullView view : eMeasureFullViews) {
+                if (listeners.contains(view)) {
+                    if (view == null) {
+                        listeners.remove(view);
+                    }
+                }
             }
         }
     }
-    
+
     public void fireUpdate() {
         if (listeners != null) {
             unregisterListeners();
@@ -261,14 +295,12 @@ public class EMeasureController {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                super.windowClosing(e); //To change body of generated methods, choose Tools | Templates.
-                eMeasureFullView = null;
+                super.windowClosing(e);
                 fireUpdate();
-            }           
+            }
         });
     }
 
-    
     public void setViewState(boolean label, boolean textfield, boolean combobox, boolean button) {
         this.viewState.setName(label);
         this.viewState.setTextfield(textfield);
@@ -291,21 +323,21 @@ public class EMeasureController {
     public void setUpperEnd(EMeasureInterval upperEnd) {
         this.entity.setUpperEnd(upperEnd);
     }
-    
+
     public boolean isLowerInclusive() {
-        if(this.entity.getLowerEnd()== EMeasureInterval.inclusive) {
+        if (this.entity.getLowerEnd() == EMeasureInterval.inclusive) {
             return true;
         }
         return false;
     }
-    
+
     public boolean isUpperInclusive() {
-        if(this.entity.getUpperEnd() == EMeasureInterval.inclusive) {
+        if (this.entity.getUpperEnd() == EMeasureInterval.inclusive) {
             return true;
         }
         return false;
     }
-    
+
     public enum EMeasureFlavor {
 
         Nominal,
