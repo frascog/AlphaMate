@@ -469,6 +469,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         this.jComboBox3.setSelectedItem(controller.getFlavor());
         this.jComboBox4.setSelectedItem(controller.getPrecision() + "");
         this.jTextArea1.setText(controller.getDescription());
+        this.jComboBox2.setToolTipText(MeasureUtilities.getUnitName(controller.getUnit()));
         this.initDone = true;
     }
 }

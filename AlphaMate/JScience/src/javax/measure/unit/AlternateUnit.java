@@ -26,7 +26,7 @@ public final class AlternateUnit<Q extends Quantity> extends DerivedUnit<Q> {
     /**
      * Holds the symbol.
      */
-    private String _symbol;
+    public String _symbol;
 
     /**
      * Holds the parent unit (a system unit).

@@ -152,6 +152,7 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
         jComboBox1.setEnabled(controller.getViewState().isComboBox());
         jButton1.setEnabled(controller.getViewState().isButton());
         jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        jComboBox1.setToolTipText(MeasureUtilities.getUnitName(controller.getUnit()));
         initDone = true;
     }
 }
