@@ -36,6 +36,7 @@ public class FluidController {
     
     public void setFluidKind(FluidKind fluidKind) {
         this.fluid.setFluidKind(fluidKind);
+        this.fireUpdate();
     }
 
     public EMeasureController getTemperatureController() {
@@ -52,6 +53,7 @@ public class FluidController {
 
     public void setFluid(Fluid fluid) {
         this.fluid = fluid;
+        this.fireUpdate();
     }
     
     public ArrayList<FluidListener> getListeners() {
@@ -62,13 +64,31 @@ public class FluidController {
         if (fluidBasicView == null) {
             this.fluidBasicView = new FluidBasicView(this);
         }
+        registerListeners();
         return fluidBasicView;
     }
 
+    public void fireUpdate() {
+        if (listeners != null) {
+            unregisterListeners();
+            for (FluidListener listener : listeners) {
+                listener.FluidChangeResponce();
+            }
+        }
+    }
+    
     private void registerListeners() {
         if (fluidBasicView != null) {
             if (!listeners.contains(fluidBasicView)) {
                 listeners.add(fluidBasicView);
+            }
+        }
+    }
+    
+    private void unregisterListeners() {
+        if(fluidBasicView == null) {
+            if (listeners.contains(fluidBasicView)) {
+                listeners.remove(fluidBasicView);
             }
         }
     }

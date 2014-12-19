@@ -56,7 +56,14 @@
                     </run-dependency>
                 </dependency>
             </module-dependencies>
-            <public-packages/>
+            <public-packages>
+                <package>Controllers</package>
+                <package>Listeners</package>
+                <package>Models</package>
+                <package>SupportClasses</package>
+                <package>UnitConvertor</package>
+                <package>Views</package>
+            </public-packages>
         </data>
     </configuration>
 </project>
