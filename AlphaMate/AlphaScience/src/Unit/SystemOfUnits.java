@@ -123,6 +123,19 @@ public final class SystemOfUnits {
     public static final Unit gigabyte_per_second = nonSI(new Unit("GB/s", UnitType.DataRate, 0.001));
     public static final Unit terabyte_per_second = nonSI(new Unit("TB/s", UnitType.DataRate, 0.000001));
     
+    //Density
+    
+    public static final Unit gram_per_liter = nonSI(new Unit("g/L", UnitType.Density, 1));
+    public static final Unit gram_per_cubic_meter = nonSI(new Unit("g/m³", UnitType.Density, 1000));
+    public static final Unit milligram_per_liter = nonSI(new Unit("mg/L", UnitType.Density, 1000));
+    public static final Unit pounds_per_gallon = nonSI(new Unit("lb/gal", UnitType.Density, 0.0083454044873));
+    public static final Unit pounds_per_cubic_foot = nonSI(new Unit("lb/ft³", UnitType.Density, 0.62427960841));
+    
+    //Dimensionless
+    
+    public static final Unit one = nonSI(new Unit("", UnitType.Dimensionless, 1));
+    
+    
     
     
 }
