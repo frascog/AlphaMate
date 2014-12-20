@@ -10,6 +10,10 @@ package SupportClasses;
  * @author frascog
  */
 public enum FluidKind {
-    Water,
-    Hydrogen;  
+    Air,
+    Carbon_Dioxide,
+    Helium,
+    Hydrogen,
+    Nitrogen,
+    Water; 
 }

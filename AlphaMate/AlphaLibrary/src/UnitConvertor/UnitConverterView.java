@@ -6,7 +6,7 @@
 package UnitConvertor;
 
 import Listeners.EMeasureListener;
-import javax.measure.SupportClasses.MeasureUtilities;
+import SupportClasses.MeasureUtilities;
 import java.awt.BorderLayout;
 import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
