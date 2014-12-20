@@ -15,6 +15,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.measure.unit.NonSI;
+import javax.measure.unit.SI;
 import javax.swing.JFrame;
 
 /**
@@ -30,11 +32,17 @@ public class FluidController {
     private ArrayList<FluidBasicView> fluidBasicViews;
     private ArrayList<FluidFullView> fluidFullViews;
     
+    private EMeasureController volumeController;
+    private EMeasureController weightCintroller;
+    
     public FluidController(Fluid fluid) {
         this.fluid = fluid;
         temperatureController = new EMeasureController(fluid.getTemperature());
         pressureController =  new EMeasureController(fluid.getPressure());
         this.listeners = new ArrayList<FluidListener>();
+        volumeController = new EMeasureController(new EMeasure("Volume", SI.CUBIC_METRE));
+        volumeController.setEMeasure(1, 1, 1);
+        weightCintroller = new EMeasureController(new EMeasure("Weight", NonSI.POUND));
     }
     
     public FluidKind getFluidKind() {
@@ -177,4 +185,9 @@ public class FluidController {
         });
     }
     
+    public void calcuate() {
+        //(cubic inches) x (specific gravity) x (0.0361) = (pounds)
+        volumeController.toUnit(NonSI.CUBIC_INCH);
+        weightCintroller.setMinimum(volumeController.getMinimum());
+    }
 }
