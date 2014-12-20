@@ -120,6 +120,6 @@ public class FluidFullView extends JPanel implements FluidListener,EMeasureListe
     }
     
     private void changeResponce() {
-        
+        this.controller.calcuate();
     }
 }

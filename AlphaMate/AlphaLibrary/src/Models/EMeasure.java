@@ -95,7 +95,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMinimum() {
-        return EMeasureFormat.format(minimum,precision);
+        return minimum.doubleValue(unit);
     }
 
     @SuppressWarnings("unchecked")
@@ -105,7 +105,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getNominal() {
-        return EMeasureFormat.format(nominal,precision);
+        return nominal.doubleValue(unit);
     }
     
     @SuppressWarnings("unchecked")
@@ -115,7 +115,7 @@ public class EMeasure {
 
     @SuppressWarnings("unchecked")
     public double getMaximun() {
-        return EMeasureFormat.format(maximun,precision);
+        return maximun.doubleValue(unit);
     }
 
     @SuppressWarnings("unchecked")

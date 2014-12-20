@@ -15,5 +15,6 @@ public enum FluidKind {
     Helium,
     Hydrogen,
     Nitrogen,
-    Water; 
+    Water,
+    SO2,
 }

@@ -56,6 +56,14 @@ public class EMeasureSetController {
         return eMeasureSet;
     }
 
+    public EMeasureController getEMeasure(String name) {
+        for (EMeasureController eMeasure : eMeasureSet) {
+            if(eMeasure.getName().equals(name))
+                return eMeasure;
+        }
+        return null;
+    }
+    
     public List<EMeasureListener> getListeners() {
         return listeners;
     }

@@ -42,8 +42,10 @@ public class EMeasureController {
 
     public void setEntity(EMeasure entity) {
         this.entity = entity;
-        for (EMeasureBasicView view : eMeasureBasicViews) {
-            view.initMyComponents();
+        if (eMeasureBasicViews != null) {
+            for (EMeasureBasicView view : eMeasureBasicViews) {
+                view.initMyComponents();
+            }
         }
         this.fireUpdate();
     }
@@ -124,12 +126,12 @@ public class EMeasureController {
         }
     }
 
-    public void setEMeasure(double minimum,double nominal,double maximun) {
+    public void setEMeasure(double minimum, double nominal, double maximun) {
         this.setMinimum(minimum);
         this.setNominal(nominal);
         this.setMaximun(maximun);
     }
-    
+
     @SuppressWarnings("rawtypes")
     public Unit getUnit() {
         return entity.getUnit();
@@ -167,7 +169,7 @@ public class EMeasureController {
         }
         eMeasureBasicViews.add(new EMeasureBasicView(this));
         registerListeners();
-        return eMeasureBasicViews.get(eMeasureBasicViews.size()-1);
+        return eMeasureBasicViews.get(eMeasureBasicViews.size() - 1);
     }
 
     public List<EMeasureBasicView> getEMeasureBasicViewSet() {
@@ -184,7 +186,7 @@ public class EMeasureController {
         }
         eMeasureFullViews.add(new EMeasureFullView(this));
         registerListeners();
-        return eMeasureFullViews.get(eMeasureFullViews.size()-1);
+        return eMeasureFullViews.get(eMeasureFullViews.size() - 1);
     }
 
     public List<EMeasureFullView> getEMeasureFullViewSet() {
@@ -347,7 +349,7 @@ public class EMeasureController {
     public void toUnit(Unit unit) {
         this.entity.toUnit(unit);
     }
-    
+
     public enum EMeasureFlavor {
 
         Nominal,

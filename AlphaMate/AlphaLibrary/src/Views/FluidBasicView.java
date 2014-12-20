@@ -5,7 +5,6 @@
  */
 package Views;
 
-import Controllers.EMeasureController;
 import Controllers.FluidController;
 import Listeners.EMeasureListener;
 import Listeners.FluidListener;
@@ -144,6 +143,7 @@ public class FluidBasicView extends JPanel implements FluidListener, EMeasureLis
     private void changeResponce() {
         initDone = false;
         this.jComboBox1.setSelectedItem(controller.getFluidKind());
+        this.controller.calcuate();
         initDone = true;
     }
     
