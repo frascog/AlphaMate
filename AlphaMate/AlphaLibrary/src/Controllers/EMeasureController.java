@@ -124,6 +124,12 @@ public class EMeasureController {
         }
     }
 
+    public void setEMeasure(double minimum,double nominal,double maximun) {
+        this.setMinimum(minimum);
+        this.setNominal(nominal);
+        this.setMaximun(maximun);
+    }
+    
     @SuppressWarnings("rawtypes")
     public Unit getUnit() {
         return entity.getUnit();
@@ -338,6 +344,10 @@ public class EMeasureController {
         return false;
     }
 
+    public void toUnit(Unit unit) {
+        this.entity.toUnit(unit);
+    }
+    
     public enum EMeasureFlavor {
 
         Nominal,

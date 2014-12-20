@@ -131,4 +131,10 @@ public class EMeasure {
         this.precision = precision;
     }
     
+    public void toUnit(Unit unit) {
+        minimum = minimum.to(unit);
+        nominal = nominal.to(unit);
+        maximun = maximun.to(unit);
+        this.unit = unit;
+    }
 }

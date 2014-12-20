@@ -6,7 +6,6 @@
 package Controllers;
 
 import Listeners.FluidListener;
-import Models.EMeasure;
 import Models.Fluid;
 import SupportClasses.FluidKind;
 import Views.FluidBasicView;
@@ -16,7 +15,6 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.measure.unit.NonSI;
-import javax.measure.unit.SI;
 import javax.swing.JFrame;
 
 /**
@@ -28,21 +26,23 @@ public class FluidController {
     private Fluid fluid;
     private EMeasureController temperatureController; 
     private EMeasureController pressureController;
-    private ArrayList<FluidListener> listeners;
-    private ArrayList<FluidBasicView> fluidBasicViews;
-    private ArrayList<FluidFullView> fluidFullViews;
+    private List<FluidListener> listeners;
+    private List<FluidBasicView> fluidBasicViews;
+    private List<FluidFullView> fluidFullViews;
+    private EMeasureSetController eMeasureSetController;
     
-    private EMeasureController volumeController;
-    private EMeasureController weightCintroller;
     
     public FluidController(Fluid fluid) {
         this.fluid = fluid;
         temperatureController = new EMeasureController(fluid.getTemperature());
         pressureController =  new EMeasureController(fluid.getPressure());
         this.listeners = new ArrayList<FluidListener>();
-        volumeController = new EMeasureController(new EMeasure("Volume", SI.CUBIC_METRE));
-        volumeController.setEMeasure(1, 1, 1);
-        weightCintroller = new EMeasureController(new EMeasure("Weight", NonSI.POUND));
+        this.eMeasureSetController = new EMeasureSetController();
+        initCalculations();
+    }
+    
+    private void initCalculations() {
+        
     }
     
     public FluidKind getFluidKind() {
@@ -79,7 +79,7 @@ public class FluidController {
         this.fireUpdate();
     }
     
-    public ArrayList<FluidListener> getListeners() {
+    public List<FluidListener> getListeners() {
         return listeners;
     }
 
@@ -92,11 +92,11 @@ public class FluidController {
         return fluidBasicViews.get(fluidBasicViews.size()-1);
     }
     
-    public List<FluidBasicView> getEMeasureBasicViewSet() {
+    public List<FluidBasicView> getFluidBasicViewSet() {
         return fluidBasicViews;
     }
 
-    public FluidBasicView getEMeasureBasicView(int index) {
+    public FluidBasicView getFluidBasicView(int index) {
         return fluidBasicViews.get(index);
     }
     
@@ -109,14 +109,18 @@ public class FluidController {
         return fluidFullViews.get(fluidFullViews.size()-1);
     }
 
-    public List<FluidFullView> getEMeasureFullViewSet() {
+    public List<FluidFullView> getFluidFullViewSet() {
         return fluidFullViews;
     }
 
-    public FluidFullView getEMeasureFullView(int index) {
+    public FluidFullView getFluidFullView(int index) {
         return fluidFullViews.get(index);
     }
-    
+
+    public EMeasureSetController geteMeasureSetController() {
+        return eMeasureSetController;
+    }
+        
     public void fireUpdate() {
         if (listeners != null) {
             unregisterListeners();
@@ -186,8 +190,7 @@ public class FluidController {
     }
     
     public void calcuate() {
-        //(cubic inches) x (specific gravity) x (0.0361) = (pounds)
-        volumeController.toUnit(NonSI.CUBIC_INCH);
-        weightCintroller.setMinimum(volumeController.getMinimum());
+
+
     }
 }
