@@ -400,8 +400,54 @@ public final class SystemOfUnits {
     public static final Unit pint = nonSI(new Unit("pt", UnitType.Volume, 2113.376418865));
     public static final Unit quart = nonSI(new Unit("qt", UnitType.Volume, 1056.688209433));
     
+    //Volumetric Density
     
+    public static final Unit kilogram_per_cubic_meter = nonSI(new Unit("kg/m³", UnitType.Volumetric_Density, 1));
+    public static final Unit gram_per_litre = nonSI(new Unit("g/l", UnitType.Volumetric_Density, 1));
+    public static final Unit gram_per_cubic_centimetre = nonSI(new Unit("g/cm³", UnitType.Volumetric_Density,  0.001));
+    public static final Unit pound_per_cubic_inch = nonSI(new Unit("lb/in³", UnitType.Volumetric_Density,  3.61273e-5));
+    public static final Unit pound_per_cubic_foot = nonSI(new Unit("kg/m³", UnitType.Volumetric_Density, 1));
+    public static final Unit pound_per_gallon = nonSI(new Unit("lb/gal", UnitType.Volumetric_Density,  0.010022409999999999));
     
+    // Volumetric Flow Rate
     
+    public static final Unit cubic_meter_per_second = nonSI(new Unit("m³/s", UnitType.Volumetric_Flow_Rate, 1));
+    public static final Unit cubic_meter_per_mintue = nonSI(new Unit("m³/m", UnitType.Volumetric_Flow_Rate, 60));
+    public static final Unit cubic_meter_per_hour = nonSI(new Unit("m³/h", UnitType.Volumetric_Flow_Rate, 3600));
+    public static final Unit liter_per_second = nonSI(new Unit("l/s", UnitType.Volumetric_Flow_Rate, 1000));
+    public static final Unit liter_per_minute = nonSI(new Unit("l/m", UnitType.Volumetric_Flow_Rate, 60000));
+    public static final Unit liter_per_shour = nonSI(new Unit("l/h", UnitType.Volumetric_Flow_Rate, 3600000));
+    public static final Unit gallon_per_second = nonSI(new Unit("gps", UnitType.Volumetric_Flow_Rate, 264.2));
+    public static final Unit gallon_per_minute = nonSI(new Unit("gpm", UnitType.Volumetric_Flow_Rate, 15850));
+    public static final Unit gallon_per_shour = nonSI(new Unit("gph", UnitType.Volumetric_Flow_Rate, 951000));
+    public static final Unit cubic_foot_per_second = nonSI(new Unit("ft³/s", UnitType.Volumetric_Flow_Rate, 35.31));
+    public static final Unit cubic_foot_per_mintue = nonSI(new Unit("ft³/m", UnitType.Volumetric_Flow_Rate, 2119));
+    public static final Unit cubic_foot_per_hour = nonSI(new Unit("ft³/h", UnitType.Volumetric_Flow_Rate, 127100));
+    public static final Unit cubic_inch_per_second = nonSI(new Unit("in³/s", UnitType.Volumetric_Flow_Rate, 61020));
+    public static final Unit cubic_inch_per_mintue = nonSI(new Unit("in³/m", UnitType.Volumetric_Flow_Rate, 3661000));
+    public static final Unit cubic_inch_per_hour = nonSI(new Unit("in³/h", UnitType.Volumetric_Flow_Rate, 219700000));
+    
+    //Metric Convertions
+    public static final Unit yotta = nonSI(new Unit("Y", UnitType.Metric, 1E-24));
+    public static final Unit zetta = nonSI(new Unit("Z", UnitType.Metric, 1E-21 ));
+    public static final Unit exa = nonSI(new Unit("E", UnitType.Metric, 1E-18 ));
+    public static final Unit peta = nonSI(new Unit("P", UnitType.Metric, 1E-15));
+    public static final Unit tera = nonSI(new Unit("T", UnitType.Metric, 1E-12 ));
+    public static final Unit giga = nonSI(new Unit("G", UnitType.Metric, 1E-9 ));
+    public static final Unit mega = nonSI(new Unit("M", UnitType.Metric, 0.000001));
+    public static final Unit kilo = nonSI(new Unit("k", UnitType.Metric, 0.001));
+    public static final Unit hecto = nonSI(new Unit("h", UnitType.Metric, 0.01 ));
+    public static final Unit deka = nonSI(new Unit("da", UnitType.Metric, 0.1));
+    public static final Unit base = nonSI(new Unit("base", UnitType.Metric, 1));
+    public static final Unit deci = nonSI(new Unit("d", UnitType.Metric, 10));
+    public static final Unit centi = nonSI(new Unit("c", UnitType.Metric, 100));
+    public static final Unit milli = nonSI(new Unit("m", UnitType.Metric, 1000));
+    public static final Unit micro = nonSI(new Unit("µ", UnitType.Metric, 1000000));
+    public static final Unit nano = nonSI(new Unit("n", UnitType.Metric, 1000000000));
+    public static final Unit pico = nonSI(new Unit("p", UnitType.Metric, 1E+12));
+    public static final Unit femto = nonSI(new Unit("f", UnitType.Metric, 1E+15));
+    public static final Unit atto = nonSI(new Unit("a", UnitType.Metric, 1E+18));
+    public static final Unit zepto = nonSI(new Unit("z", UnitType.Metric, 1E+21));
+    public static final Unit yocto = nonSI(new Unit("y", UnitType.Metric, 1E+24));
     
 }
