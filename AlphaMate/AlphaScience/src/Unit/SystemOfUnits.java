@@ -320,5 +320,88 @@ public final class SystemOfUnits {
     public static final Unit pounds_per_square_inch = nonSI(new Unit("psi", UnitType.Pressure, 14.69596432068));
     public static final Unit torr = nonSI(new Unit("Torr", UnitType.Pressure, 760));
     public static final Unit inch_of_water = nonSI(new Unit("in-water", UnitType.Pressure, 406.8));
+ 
+    // Radiation Dose Absorbed
+    
+    public static final Unit becquerel = nonSI(new Unit("Bq", UnitType.Radiation_Dose_Absorbed, 1));
+    public static final Unit curie_ = nonSI(new Unit("Ci", UnitType.Radiation_Dose_Absorbed, 2.702702702e-11));
+    public static final Unit disintegrations_per_minute  = nonSI(new Unit("dpm", UnitType.Radiation_Dose_Absorbed, 60));
+    public static final Unit gigabecquerel = nonSI(new Unit("GBq", UnitType.Radiation_Dose_Absorbed, 1E-9));
+    public static final Unit kilobecquerel = nonSI(new Unit("kBq", UnitType.Radiation_Dose_Absorbed, 0.001 ));
+    public static final Unit megabecquerel = nonSI(new Unit("MBq", UnitType.Radiation_Dose_Absorbed, 0.000001));
+    public static final Unit rutherford_ = nonSI(new Unit("Rd", UnitType.Radiation_Dose_Absorbed, 0.000001));
+    public static final Unit Terabecquerel = nonSI(new Unit("TBq", UnitType.Radiation_Dose_Absorbed, 1E-12));
+    
+    //Radioactive_Activity
+    
+    public static final Unit becquerel_ = nonSI(new Unit("Bq", UnitType.Radioactive_Activity, 1));
+    public static final Unit hertz_ = nonSI(new Unit("H", UnitType.Radioactive_Activity, 1));
+    public static final Unit rutherford__ = nonSI(new Unit("Rd", UnitType.Radioactive_Activity, .000001));
+    
+    
+    // Radiation Dose Effective
+    
+    public static final Unit dental_radiography = nonSI(new Unit("dR", UnitType.Radiation_Dose_Effective, 1));
+    public static final Unit microsievert = nonSI(new Unit("µSv", UnitType.Radiation_Dose_Effective, 5));
+    public static final Unit millirem = nonSI(new Unit("mrem", UnitType.Radiation_Dose_Effective, 0.5));
+    public static final Unit millisievert = nonSI(new Unit("mSv", UnitType.Radiation_Dose_Effective, 0.005));
+    public static final Unit röntgen_equivalent_man = nonSI(new Unit("rem", UnitType.Radiation_Dose_Effective, 0.0005));
+    public static final Unit sievert = nonSI(new Unit("Sv", UnitType.Radiation_Dose_Effective, 0.000005));
+    public static final Unit rad = nonSI(new Unit("rd", UnitType.Radiation_Dose_Effective, 0.000005));
+    public static final Unit gray = nonSI(new Unit("Gy", UnitType.Radiation_Dose_Effective, 200000));
+    
+    // Soild Angle
+    
+    public static final Unit degree = nonSI(new Unit("°", UnitType.Solid_Angle, 1));
+    public static final Unit minutes_angle = nonSI(new Unit("'", UnitType.Solid_Angle, 60));
+    public static final Unit seconds_angle = nonSI(new Unit("\"", UnitType.Solid_Angle, 3600));
+    
+    // Temperature
+    
+    public static final Unit kelvin = nonSI(new Unit("°K", UnitType.Temperature, 1));
+    public static final Unit celsius = nonSI(new Unit("°C", UnitType.Temperature, 273.15));
+    public static final Unit fahrenheit = nonSI(new Unit("°F", UnitType.Temperature,1.8000));
+
+    // Torque
+    
+    public static final Unit newton_meter = nonSI(new Unit("N·m", UnitType.Torque, 1));
+    public static final Unit newton_centimeter = nonSI(new Unit("N·cm", UnitType.Torque, 100));
+    public static final Unit newton_millimeter = nonSI(new Unit("N·mm", UnitType.Torque, 1000));
+    public static final Unit kilonewton_meter = nonSI(new Unit("kN·m", UnitType.Torque, 0.001));
+    public static final Unit kilogram_force_meter = nonSI(new Unit("kgf·m", UnitType.Torque, 0.101971621));
+    public static final Unit kilogram_force_centimeter = nonSI(new Unit("kgf·cm", UnitType.Torque, 10.19716213));
+    public static final Unit kilogram_force_millimeter = nonSI(new Unit("kgf·mm", UnitType.Torque, 101.971621298));
+    public static final Unit ounce_force_foot = nonSI(new Unit("ozf·ft", UnitType.Torque, 11.800994078));
+    public static final Unit ounce_force_inch = nonSI(new Unit("ozf·in", UnitType.Torque, 141.611928936));
+    public static final Unit pound_force_foot = nonSI(new Unit("lbf·ft", UnitType.Torque, 0.737562121));
+    public static final Unit pound_force_inch = nonSI(new Unit("inf·in", UnitType.Torque, 8.850745454));
+    
+    // Velocity
+    
+    public static final Unit meter_per_second = nonSI(new Unit("m/s", UnitType.Velocity, 1));
+    public static final Unit miles_per_hour = nonSI(new Unit("mph", UnitType.Velocity, 2.236936292));
+    public static final Unit kilometers_per_hour = nonSI(new Unit("km/h", UnitType.Velocity, 3.6));
+    public static final Unit knot = nonSI(new Unit("kn", UnitType.Velocity, 1.943844492));
+    public static final Unit mach = nonSI(new Unit("mach", UnitType.Velocity, .003015682));
+    
+    // Volume
+    
+    public static final Unit cubic_meter = nonSI(new Unit("m³", UnitType.Volume, 1));
+    public static final Unit cubic_centimeter = nonSI(new Unit("cm³", UnitType.Volume, 1000000));
+    public static final Unit cubic_foot = nonSI(new Unit("ft³", UnitType.Volume, 35.31466672149));
+    public static final Unit cubic_inch = nonSI(new Unit("in³", UnitType.Volume, 61023.74409473));
+    public static final Unit cubic_millimeter = nonSI(new Unit("mm³", UnitType.Volume, 1000000000));
+    public static final Unit cubic_yard = nonSI(new Unit("yd³", UnitType.Volume, 1.307950619314));
+    public static final Unit fluid_ounce = nonSI(new Unit("fl oz", UnitType.Volume, 33814.02270184));
+    public static final Unit gallon = nonSI(new Unit("gal", UnitType.Volume, 1));
+    public static final Unit kiloliter = nonSI(new Unit("kl", UnitType.Volume, 1));
+    public static final Unit liter = nonSI(new Unit("l", UnitType.Volume, 1000));
+    public static final Unit milliliter = nonSI(new Unit("ml", UnitType.Volume, 1000000));
+    public static final Unit pint = nonSI(new Unit("pt", UnitType.Volume, 2113.376418865));
+    public static final Unit quart = nonSI(new Unit("qt", UnitType.Volume, 1056.688209433));
+    
+    
+    
+    
     
 }
