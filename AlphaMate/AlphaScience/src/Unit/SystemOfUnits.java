@@ -198,6 +198,62 @@ public final class SystemOfUnits {
     public static final Unit electronvolt  = nonSI(new Unit("eV", UnitType.Energy, 6241509744511524.9e3));
     public static final Unit erg = nonSI(new Unit("erg", UnitType.Energy, 10000000));
     
+    // Force
+    
+    public static final Unit newton = nonSI(new Unit("N", UnitType.Force, 1));
+    public static final Unit dyne  = nonSI(new Unit("dyn", UnitType.Force, 100000));
+    public static final Unit kilonewton = nonSI(new Unit("kN", UnitType.Force, 0.001));
+    public static final Unit kip = nonSI(new Unit("kip", UnitType.Force, 0.0002248));
+    public static final Unit kilogram_force = nonSI(new Unit("kgf", UnitType.Force, 0.1019716));
+    public static final Unit pound_force = nonSI(new Unit("lbf", UnitType.Force, 0.22480894387));
+    
+    //Frequency
+    
+    public static final Unit hertz = nonSI(new Unit("Hz", UnitType.Frequency, 1));
+    public static final Unit curie = nonSI(new Unit("Ci", UnitType.Frequency, 3.7e10));
+    public static final Unit rutherford = nonSI(new Unit("Rd", UnitType.Frequency, .000001));
+    
+    // Lux
+    
+    public static final Unit lux = nonSI(new Unit("lx", UnitType.Illuminance, 1));
+    public static final Unit foot_candle = nonSI(new Unit("fc", UnitType.Illuminance, 0.09290304));
+    public static final Unit kilolux = nonSI(new Unit("klx", UnitType.Illuminance, 0.001));
+    public static final Unit microlux  = nonSI(new Unit("µlx", UnitType.Illuminance, 1000000));
+    public static final Unit millilux = nonSI(new Unit("mlux", UnitType.Illuminance, 1));
+    public static final Unit phot = nonSI(new Unit("ph", UnitType.Illuminance,0.0001));
+    public static final Unit nox = nonSI(new Unit("nox", UnitType.Illuminance, 1000));
+    
+    // Kinematic_Viscosity
+    
+    public static final Unit square_meter_per_unit = nonSI(new Unit("m²/s", UnitType.Kinematic_Viscosity, 1));
+    public static final Unit square_centimeter_per_second = nonSI(new Unit("cm²/s", UnitType.Kinematic_Viscosity, 1000000));
+    public static final Unit stokes = nonSI(new Unit("St", UnitType.Kinematic_Viscosity, 10000));
+    
+    // Length
+    
+    public static final Unit meter = nonSI(new Unit("m", UnitType.Length, 1));
+    public static final Unit angstrom = nonSI(new Unit("å", UnitType.Length, 1));
+    public static final Unit astronomical_unit = nonSI(new Unit("au", UnitType.Length, 6.684587122671e-12));
+    public static final Unit centimeter = nonSI(new Unit("cm", UnitType.Length, 100));
+    public static final Unit chain = nonSI(new Unit("ch", UnitType.Length, 0.04970969537899));
+    public static final Unit decimeter = nonSI(new Unit("dm", UnitType.Length, 10));
+    public static final Unit fathom = nonSI(new Unit("ftm", UnitType.Length, 0.5468066491689));
+    public static final Unit foot  = nonSI(new Unit("ft", UnitType.Length, 3.280839895013));
+    public static final Unit furlong = nonSI(new Unit("furlong", UnitType.Length, 0.004970969537899));
+    public static final Unit inch  = nonSI(new Unit("in", UnitType.Length, 39.37007874016));
+    public static final Unit kilometer  = nonSI(new Unit("km", UnitType.Length, 0.001 ));
+    public static final Unit lightyear = nonSI(new Unit("ly", UnitType.Length, 1.057000834025e-16));
+    public static final Unit mile  = nonSI(new Unit("mi", UnitType.Length, 0.0006213711922373));
+    public static final Unit millimeter  = nonSI(new Unit("mm", UnitType.Length, 1000));
+    public static final Unit micrometer  = nonSI(new Unit("µm", UnitType.Length, 1000000));
+    public static final Unit micron  = nonSI(new Unit("µ", UnitType.Length, 1000000));
+    public static final Unit nanometer  = nonSI(new Unit("nm", UnitType.Length, 1000000000));
+    public static final Unit nautical_mile = nonSI(new Unit("nmi",UnitType.Length,0.0005399568034557 ));
+    public static final Unit parsec  = nonSI(new Unit("nm", UnitType.Length, 3.240779289639e-17));
+    public static final Unit rod = nonSI(new Unit("rod", UnitType.Length, 0.198838781516));
+    public static final Unit yard = nonSI(new Unit("yd", UnitType.Length, 1.093613298338));
     
     
+
+
 }
