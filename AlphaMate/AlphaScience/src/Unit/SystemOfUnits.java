@@ -175,7 +175,12 @@ public final class SystemOfUnits {
     public static final Unit foot_pound = nonSI(new Unit("ft·lbf", UnitType.Energy, 0.7375621492773));
     public static final Unit electronvolt = nonSI(new Unit("eV", UnitType.Energy, 6241509744511524.9e3));
     public static final Unit erg = nonSI(new Unit("erg", UnitType.Energy, 10000000));
-
+    public static final Unit BTU = nonSI(new Unit("BTU", UnitType.Energy, 0.0009478169879134 ));
+    public static final Unit calorie = nonSI(new Unit("cal", UnitType.Energy, 0.2388458966275 ));
+    public static final Unit kilojoule  = nonSI(new Unit("kJ", UnitType.Energy, 0.001));
+    public static final Unit megajoule  = nonSI(new Unit("MJ", UnitType.Energy, 0.000001 ));
+    public static final Unit ton_of_TNT  = nonSI(new Unit("tn", UnitType.Energy, 2.390057361377E-10));
+    public static final Unit watt_hour  = nonSI(new Unit("Wh", UnitType.Energy, 0.0002777777777778));
     // Force
     public static final Unit newton = nonSI(new Unit("N", UnitType.Force, 1));
     public static final Unit dyne = nonSI(new Unit("dyn", UnitType.Force, 100000));
@@ -261,4 +266,59 @@ public final class SystemOfUnits {
     public static final Unit gilbert  = nonSI(new Unit("Gi", UnitType.Magnetomotive_Force, 1.256637061436));
     
     // Mass
+    
+    public static final Unit gram = nonSI(new Unit("g", UnitType.Mass, 1));
+    public static final Unit atomic_mass_unit = nonSI(new Unit("amu", UnitType.Mass, 6.022136651675e+23));
+    public static final Unit dram  = nonSI(new Unit("dr", UnitType.Mass, 0.5643833911933));
+    public static final Unit grain = nonSI(new Unit("gr", UnitType.Mass, 15.43235835294));
+    public static final Unit kilogram = nonSI(new Unit("kg", UnitType.Mass, 0.001 ));
+    public static final Unit microgram = nonSI(new Unit("µg", UnitType.Mass, 1000000));
+    public static final Unit milligram = nonSI(new Unit("mg", UnitType.Mass, 1000));
+    public static final Unit newton_  = nonSI(new Unit("earth", UnitType.Mass, 0.00980665));
+    public static final Unit ounce = nonSI(new Unit("oz", UnitType.Mass, 0.03527396194958 ));
+    public static final Unit pound = nonSI(new Unit("lb", UnitType.Mass, 0.002204622621849));
+    public static final Unit ton_long_UK = nonSI(new Unit("ton (uk)", UnitType.Mass, 9.842065276111E-7));
+    public static final Unit ton_short_US = nonSI(new Unit("ton (us)", UnitType.Mass, 0.000001102311310924));
+    public static final Unit tonne  = nonSI(new Unit("t", UnitType.Mass, 0.000001));
+
+    // Mass_Flow_Rate
+    
+    public static final Unit kilogram_per_minute = nonSI(new Unit("kg/min",UnitType.Mass_Flow_Rate, 1));
+    public static final Unit kilogram_per_second = nonSI(new Unit("kg/s",UnitType.Mass_Flow_Rate, 0.01667));
+    public static final Unit kilogram_per_hour = nonSI(new Unit("kg/hour",UnitType.Mass_Flow_Rate, 60));
+    public static final Unit grams_per_second = nonSI(new Unit("g/s",UnitType.Mass_Flow_Rate, 16.67));
+    public static final Unit grams_per_min = nonSI(new Unit("g/min",UnitType.Mass_Flow_Rate, 1000));
+    public static final Unit grams_per_hour = nonSI(new Unit("g/hr",UnitType.Mass_Flow_Rate, 60000));
+    public static final Unit pounds_per_second = nonSI(new Unit("lb/s",UnitType.Mass_Flow_Rate, 0.03674));
+    public static final Unit pounds_per_min= nonSI(new Unit("lb/min",UnitType.Mass_Flow_Rate, 2.205));
+    public static final Unit pounds_per_hour = nonSI(new Unit("lb/hr",UnitType.Mass_Flow_Rate, 132.3));
+    
+    // Power
+    
+    public static final Unit watt = nonSI(new Unit("W", UnitType.Power, 1));
+    public static final Unit milliwatt = nonSI(new Unit("mW", UnitType.Power, 1000));
+    public static final Unit megawatt = nonSI(new Unit("MW", UnitType.Power, 0.000001));
+    public static final Unit kilowatt = nonSI(new Unit("kW", UnitType.Power, 0.001));
+    public static final Unit horsepower = nonSI(new Unit("hp", UnitType.Power, 0.001341022089595));
+    public static final Unit foot_pound_per_second = nonSI(new Unit("ft·lbf/s", UnitType.Power, 0.7375621492773));
+    public static final Unit calories_per_second = nonSI(new Unit("C/s", UnitType.Power, 0.2388458966275));
+    public static final Unit BTU_per_second = nonSI(new Unit("BTU/s", UnitType.Power, 0.0009478169879134));
+    public static final Unit BTU_per_hour = nonSI(new Unit("BTU/hr", UnitType.Power, 3.412141156488 ));
+    
+    //Pressure
+    
+    public static final Unit atmosphere = nonSI(new Unit("atm", UnitType.Pressure, 1));
+    public static final Unit bar = nonSI(new Unit("b", UnitType.Pressure, 1.01325));
+    public static final Unit hectopascal  = nonSI(new Unit("hPa", UnitType.Pressure, 1013.25));
+    public static final Unit kilogram_per_sq_cm = nonSI(new Unit("kgf/cm²", UnitType.Pressure, 1.0332274528));
+    public static final Unit kilogram_per_sq_m = nonSI(new Unit("kgf/m²", UnitType.Pressure, 10332.274528));
+    public static final Unit kilopascal = nonSI(new Unit("kPa", UnitType.Pressure, 101.325));
+    public static final Unit millibar = nonSI(new Unit("mb", UnitType.Pressure, 1));
+    public static final Unit millimeter_of_mercury = nonSI(new Unit("mmHg", UnitType.Pressure, 760));
+    public static final Unit pascal = nonSI(new Unit("Pa", UnitType.Pressure, 101325));
+    public static final Unit pounds_per_square_foot = nonSI(new Unit("psf", UnitType.Pressure, 2116.218862178));
+    public static final Unit pounds_per_square_inch = nonSI(new Unit("psi", UnitType.Pressure, 14.69596432068));
+    public static final Unit torr = nonSI(new Unit("Torr", UnitType.Pressure, 760));
+    public static final Unit inch_of_water = nonSI(new Unit("in-water", UnitType.Pressure, 406.8));
+    
 }
