@@ -74,8 +74,8 @@ public final class SystemOfUnits {
     public static final Unit degree_per_minute = nonSI(new Unit("°/min",UnitType.Angular_Velocity,3437.746770785));
     public static final Unit degree_per_hour = nonSI(new Unit("°/hr", UnitType.Angular_Velocity,206264.8062471));
     public static final Unit degree_per_day = nonSI(new Unit("°/d", UnitType.Angular_Velocity,4950355.3499303));
-    public static final Unit revolution_per_second = nonSI(new Unit("r/s",UnitType.Angular_Velocity,0.159154943));
-    public static final Unit revolution_per_minute = nonSI(new Unit("r/min",UnitType.Angular_Velocity,9.549296586));
+    public static final Unit revolution_per_second = nonSI(new Unit("rps",UnitType.Angular_Velocity,0.159154943));
+    public static final Unit revolution_per_minute = nonSI(new Unit("rpm",UnitType.Angular_Velocity,9.549296586));
     public static final Unit revolution_per_hour = nonSI(new Unit("r/hr", UnitType.Angular_Velocity,572.957795131));
     public static final Unit revolution_per_day = nonSI(new Unit("r/d", UnitType.Angular_Velocity,13750.98708314));
     
@@ -154,6 +154,50 @@ public final class SystemOfUnits {
     public static final Unit microfarads  = nonSI(new Unit("µF", UnitType.Electric_Capacitance, 1000000));
     public static final Unit nanofarad = nonSI(new Unit("nF", UnitType.Electric_Capacitance, 1000000000));
 
+    // Electrical Charge
+    
+    public static final Unit coulomb = nonSI(new Unit("C", UnitType.Electric_Charge, 1));
+    public static final Unit elementary_charge = nonSI(new Unit("e", UnitType.Electric_Charge, 624150947415.4e7));
+    public static final Unit faraday = nonSI(new Unit("F", UnitType.Electric_Charge, 0.00001036426864904));
+    public static final Unit franklin = nonSI(new Unit("Fr",UnitType.Electric_Charge,2997961386.257));
 
-
+    // Electrical Conductance
+    
+    public static final Unit siemens = nonSI(new Unit("S", UnitType.Electric_Conductance, 1));
+    public static final Unit megasiemens = nonSI(new Unit("MS", UnitType.Electric_Conductance, 0.000001));
+    public static final Unit kilosiemens = nonSI(new Unit("kS", UnitType.Electric_Conductance, 0.001));
+    public static final Unit millisiemens = nonSI(new Unit("mS", UnitType.Electric_Conductance, 1000));
+    public static final Unit microsiemens = nonSI(new Unit("µS", UnitType.Electric_Conductance, 1000000));
+    
+    // Electric_Current
+    
+    public static final Unit Ampere = nonSI(new Unit("A", UnitType.Electric_Current, 1));
+    
+    // Electrical_Inductance
+    
+    public static final Unit henry = nonSI(new Unit("H", UnitType.Electric_Inductance, 1));
+    public static final Unit kilohenry = nonSI(new Unit("kH", UnitType.Electric_Inductance, 0.001));
+    public static final Unit millihenry = nonSI(new Unit("mH", UnitType.Electric_Inductance, 1000));
+    public static final Unit microhenry = nonSI(new Unit("µH",UnitType.Electric_Inductance,1000000));
+    
+    // Electric_Potential
+    
+    public static final Unit volt = nonSI(new Unit("V",UnitType.Electric_Potential,1));
+     
+    // Electrical_Resistance
+    
+    public static final Unit ohm = nonSI(new Unit("Ω",UnitType.Electric_Resistance,1));
+    public static final Unit megaohm = nonSI(new Unit("MΩ",UnitType.Electric_Resistance,0.000001));
+    public static final Unit kiloohm  = nonSI(new Unit("kΩ",UnitType.Electric_Resistance,0.001));
+    public static final Unit milliohm   = nonSI(new Unit("mΩ",UnitType.Electric_Resistance,1000));
+    
+    //Energy
+    
+    public static final Unit joule = nonSI(new Unit("J", UnitType.Energy, 1));
+    public static final Unit foot_pound = nonSI(new Unit("ft·lbf", UnitType.Energy, 0.7375621492773));
+    public static final Unit electronvolt  = nonSI(new Unit("eV", UnitType.Energy, 6241509744511524.9e3));
+    public static final Unit erg = nonSI(new Unit("erg", UnitType.Energy, 10000000));
+    
+    
+    
 }
