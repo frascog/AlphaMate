@@ -96,11 +96,6 @@ public final class SystemOfUnits {
     public static final Unit mmol_per_l = nonSI(new Unit("mmol / l",UnitType.BloodSuger,1));
     public static final Unit mg_per_dl = nonSI(new Unit("mg%",UnitType.BloodSuger,18));
 
-    // Capacitance
-    
-    public static final Unit farad = nonSI(new Unit("F", UnitType.Capacitance, 1));
-    public static final Unit microfarads  = nonSI(new Unit("µF", UnitType.Capacitance, 1000000));
-    public static final Unit nanofarad = nonSI(new Unit("nF", UnitType.Capacitance, 1000000000));
     
     // DataAmount
     
@@ -135,7 +130,30 @@ public final class SystemOfUnits {
     
     public static final Unit one = nonSI(new Unit("", UnitType.Dimensionless, 1));
     
+    //Duration
     
+    public static final Unit nanosecond = nonSI(new Unit("ns", UnitType.Duration, 1000000000));
+    public static final Unit microsecond = nonSI(new Unit("μs", UnitType.Duration, 1000000));
+    public static final Unit millisecond = nonSI(new Unit("ms", UnitType.Duration, 1000));
+    public static final Unit second = nonSI(new Unit("s", UnitType.Duration, 1));
+    public static final Unit minute = nonSI(new Unit("min", UnitType.Duration, 0.0166666666666666666666666666666666666666666));
+    public static final Unit hour = nonSI(new Unit("hr", UnitType.Duration, 0.000277777777777777777777777777777777777777777));
+    public static final Unit day = nonSI(new Unit("d", UnitType.Duration, 0.0000115740740740740740740740740740740740740740));
+    public static final Unit week = nonSI(new Unit("wk", UnitType.Duration, 0.000001653439153439));
+    public static final Unit month = nonSI(new Unit("mt",UnitType.Duration, 3.802537330419e-7));
+    public static final Unit year = nonSI(new Unit("y",UnitType.Duration,3.170979198377e-8));
     
+    //Dynamic Viscosity
     
+    public static final Unit pascal_second = nonSI(new Unit("Pa · s", UnitType.DynamicViscosity, 1));
+    public static final Unit centipoise = nonSI(new Unit("cP", UnitType.DynamicViscosity, 1000));
+    
+    // Electrical Capacitance
+    
+    public static final Unit farad = nonSI(new Unit("F", UnitType.Capacitance, 1));
+    public static final Unit microfarads  = nonSI(new Unit("µF", UnitType.Capacitance, 1000000));
+    public static final Unit nanofarad = nonSI(new Unit("nF", UnitType.Capacitance, 1000000000));
+
+
+
 }
