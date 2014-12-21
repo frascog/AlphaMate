@@ -49,8 +49,8 @@ public final class SystemOfUnits {
     
     // Amount of Substance
     
-    public static final Unit mol = nonSI(new Unit("mol", UnitType.AmountOfSubstance, 1));
-    public static final Unit atom = nonSI(new Unit("atom", UnitType.AmountOfSubstance, AVOGADRO_CONSTANT));
+    public static final Unit mol = nonSI(new Unit("mol", UnitType.Amount_Of_Substance, 1));
+    public static final Unit atom = nonSI(new Unit("atom", UnitType.Amount_Of_Substance, AVOGADRO_CONSTANT));
     
     // Angle
     
@@ -59,25 +59,25 @@ public final class SystemOfUnits {
     
     // Angular Acceleration
     
-    public static final Unit radian_per_square_second = nonSI(new Unit("rad/s²", UnitType.AngularAcceleration, 1));
-    public static final Unit radian_per_square_minute = nonSI(new Unit("rad/min²", UnitType.AngularAcceleration, 3600));
-    public static final Unit revolution_per_square_second = nonSI(new Unit("r/s²",UnitType.AngularAcceleration,0.159154943));
-    public static final Unit revolution_per_square_minute = nonSI(new Unit("", UnitType.AngularAcceleration, 572.9577952));
+    public static final Unit radian_per_square_second = nonSI(new Unit("rad/s²", UnitType.Angular_Acceleration, 1));
+    public static final Unit radian_per_square_minute = nonSI(new Unit("rad/min²", UnitType.Angular_Acceleration, 3600));
+    public static final Unit revolution_per_square_second = nonSI(new Unit("r/s²",UnitType.Angular_Acceleration,0.159154943));
+    public static final Unit revolution_per_square_minute = nonSI(new Unit("", UnitType.Angular_Acceleration, 572.9577952));
     
     // Angular Acceleration
     
-    public static final Unit radian_per_second = nonSI(new Unit("rad/s",UnitType.AngularVelocity,1));
-    public static final Unit radian_per_minute = nonSI(new Unit("rad/min",UnitType.AngularVelocity,60));
-    public static final Unit radian_per_hour = nonSI(new Unit("rad/hr", UnitType.AngularVelocity,3600));
-    public static final Unit radian_per_day = nonSI(new Unit("rad/d", UnitType.AngularVelocity,86400));
-    public static final Unit degree_per_second = nonSI(new Unit("°/s",UnitType.AngularVelocity,57.295779513));
-    public static final Unit degree_per_minute = nonSI(new Unit("°/min",UnitType.AngularVelocity,3437.746770785));
-    public static final Unit degree_per_hour = nonSI(new Unit("°/hr", UnitType.AngularVelocity,206264.8062471));
-    public static final Unit degree_per_day = nonSI(new Unit("°/d", UnitType.AngularVelocity,4950355.3499303));
-    public static final Unit revolution_per_second = nonSI(new Unit("r/s",UnitType.AngularVelocity,0.159154943));
-    public static final Unit revolution_per_minute = nonSI(new Unit("r/min",UnitType.AngularVelocity,9.549296586));
-    public static final Unit revolution_per_hour = nonSI(new Unit("r/hr", UnitType.AngularVelocity,572.957795131));
-    public static final Unit revolution_per_day = nonSI(new Unit("r/d", UnitType.AngularVelocity,13750.98708314));
+    public static final Unit radian_per_second = nonSI(new Unit("rad/s",UnitType.Angular_Velocity,1));
+    public static final Unit radian_per_minute = nonSI(new Unit("rad/min",UnitType.Angular_Velocity,60));
+    public static final Unit radian_per_hour = nonSI(new Unit("rad/hr", UnitType.Angular_Velocity,3600));
+    public static final Unit radian_per_day = nonSI(new Unit("rad/d", UnitType.Angular_Velocity,86400));
+    public static final Unit degree_per_second = nonSI(new Unit("°/s",UnitType.Angular_Velocity,57.295779513));
+    public static final Unit degree_per_minute = nonSI(new Unit("°/min",UnitType.Angular_Velocity,3437.746770785));
+    public static final Unit degree_per_hour = nonSI(new Unit("°/hr", UnitType.Angular_Velocity,206264.8062471));
+    public static final Unit degree_per_day = nonSI(new Unit("°/d", UnitType.Angular_Velocity,4950355.3499303));
+    public static final Unit revolution_per_second = nonSI(new Unit("r/s",UnitType.Angular_Velocity,0.159154943));
+    public static final Unit revolution_per_minute = nonSI(new Unit("r/min",UnitType.Angular_Velocity,9.549296586));
+    public static final Unit revolution_per_hour = nonSI(new Unit("r/hr", UnitType.Angular_Velocity,572.957795131));
+    public static final Unit revolution_per_day = nonSI(new Unit("r/d", UnitType.Angular_Velocity,13750.98708314));
     
     // Aera
     
@@ -93,30 +93,30 @@ public final class SystemOfUnits {
     
     // Blood Suger
     
-    public static final Unit mmol_per_l = nonSI(new Unit("mmol / l",UnitType.BloodSuger,1));
-    public static final Unit mg_per_dl = nonSI(new Unit("mg%",UnitType.BloodSuger,18));
+    public static final Unit mmol_per_l = nonSI(new Unit("mmol / l",UnitType.Blood_Suger,1));
+    public static final Unit mg_per_dl = nonSI(new Unit("mg%",UnitType.Blood_Suger,18));
 
     
     // DataAmount
     
-    public static final Unit megabyte = nonSI(new Unit("MB", UnitType.DataAmount, 1));
-    public static final Unit bit = nonSI(new Unit("bit",UnitType.DataAmount,8388608));
-    public static final Unit byte_ = nonSI(new Unit("B", UnitType.DataAmount, 1048576)); 
-    public static final Unit kilobit = nonSI(new Unit("Kb", UnitType.DataAmount, 8192)); 
-    public static final Unit kilobyte = nonSI(new Unit("KB", UnitType.DataAmount, 1024)); 
-    public static final Unit megabit = nonSI(new Unit("Mb", UnitType.DataAmount, 8)); 
-    public static final Unit gigabut = nonSI(new Unit("Gb", UnitType.DataAmount, 0.0078125)); 
-    public static final Unit gigabyte = nonSI(new Unit("GB", UnitType.DataAmount, 0.0009765625));
-    public static final Unit terabut = nonSI(new Unit("Tb", UnitType.DataAmount, 0.00000762939453125));
-    public static final Unit terabyte = nonSI(new Unit("TB", UnitType.DataAmount, 9.537109375e-7));
+    public static final Unit megabyte = nonSI(new Unit("MB", UnitType.Data_Amount, 1));
+    public static final Unit bit = nonSI(new Unit("bit",UnitType.Data_Amount,8388608));
+    public static final Unit byte_ = nonSI(new Unit("B", UnitType.Data_Amount, 1048576)); 
+    public static final Unit kilobit = nonSI(new Unit("Kb", UnitType.Data_Amount, 8192)); 
+    public static final Unit kilobyte = nonSI(new Unit("KB", UnitType.Data_Amount, 1024)); 
+    public static final Unit megabit = nonSI(new Unit("Mb", UnitType.Data_Amount, 8)); 
+    public static final Unit gigabut = nonSI(new Unit("Gb", UnitType.Data_Amount, 0.0078125)); 
+    public static final Unit gigabyte = nonSI(new Unit("GB", UnitType.Data_Amount, 0.0009765625));
+    public static final Unit terabut = nonSI(new Unit("Tb", UnitType.Data_Amount, 0.00000762939453125));
+    public static final Unit terabyte = nonSI(new Unit("TB", UnitType.Data_Amount, 9.537109375e-7));
     
     // Data rate converstions
     
-    public static final Unit megabyte_per_second = nonSI(new Unit("MB/s", UnitType.DataRate, 1));
-    public static final Unit kilobyte_per_second = nonSI(new Unit("KB/s", UnitType.DataRate, 1000));
-    public static final Unit byte_per_second = nonSI(new Unit("B/s", UnitType.DataRate, 1000000));
-    public static final Unit gigabyte_per_second = nonSI(new Unit("GB/s", UnitType.DataRate, 0.001));
-    public static final Unit terabyte_per_second = nonSI(new Unit("TB/s", UnitType.DataRate, 0.000001));
+    public static final Unit megabyte_per_second = nonSI(new Unit("MB/s", UnitType.Data_Rate, 1));
+    public static final Unit kilobyte_per_second = nonSI(new Unit("KB/s", UnitType.Data_Rate, 1000));
+    public static final Unit byte_per_second = nonSI(new Unit("B/s", UnitType.Data_Rate, 1000000));
+    public static final Unit gigabyte_per_second = nonSI(new Unit("GB/s", UnitType.Data_Rate, 0.001));
+    public static final Unit terabyte_per_second = nonSI(new Unit("TB/s", UnitType.Data_Rate, 0.000001));
     
     //Density
     
@@ -145,14 +145,14 @@ public final class SystemOfUnits {
     
     //Dynamic Viscosity
     
-    public static final Unit pascal_second = nonSI(new Unit("Pa · s", UnitType.DynamicViscosity, 1));
-    public static final Unit centipoise = nonSI(new Unit("cP", UnitType.DynamicViscosity, 1000));
+    public static final Unit pascal_second = nonSI(new Unit("Pa · s", UnitType.Dynamic_Viscosity, 1));
+    public static final Unit centipoise = nonSI(new Unit("cP", UnitType.Dynamic_Viscosity, 1000));
     
     // Electrical Capacitance
     
-    public static final Unit farad = nonSI(new Unit("F", UnitType.Capacitance, 1));
-    public static final Unit microfarads  = nonSI(new Unit("µF", UnitType.Capacitance, 1000000));
-    public static final Unit nanofarad = nonSI(new Unit("nF", UnitType.Capacitance, 1000000000));
+    public static final Unit farad = nonSI(new Unit("F", UnitType.Electric_Capacitance, 1));
+    public static final Unit microfarads  = nonSI(new Unit("µF", UnitType.Electric_Capacitance, 1000000));
+    public static final Unit nanofarad = nonSI(new Unit("nF", UnitType.Electric_Capacitance, 1000000000));
 
 
 
