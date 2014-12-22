@@ -5,8 +5,8 @@
  */
 package SupportClasses;
 
+import Unit.Measure;
 import java.text.DecimalFormat;
-import javax.measure.Measure;
 
 /**
  *

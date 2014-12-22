@@ -10,6 +10,7 @@ package Unit;
  * @author frascog
  */
 public enum UnitType {
+
     Acceleration,
     Amount_Of_Substance,
     Angle,
@@ -19,7 +20,6 @@ public enum UnitType {
     Blood_Suger,
     Data_Amount,
     Data_Rate,
-    Density,
     Dimensionless,
     Duration,
     Dynamic_Viscosity,
@@ -44,6 +44,8 @@ public enum UnitType {
     Magnetomotive_Force,
     Mass,
     Mass_Flow_Rate,
+    Metric,
+    Molar_Mass,
     Power,
     Pressure,
     Radiation_Dose_Absorbed,
@@ -55,5 +57,29 @@ public enum UnitType {
     Velocity,
     Volume,
     Volumetric_Density,
-    Volumetric_Flow_Rate,
+    Volumetric_Flow_Rate;
+
+    @Override
+    public String toString() {
+        String name = super.toString();
+        if (name != null) {
+            name = name.replace('_', ' ');
+            name = capitalizeString(name);
+        }
+        return name;
+    }
+
+    public static String capitalizeString(String string) {
+        char[] chars = string.toLowerCase().toCharArray();
+        boolean found = false;
+        for (int i = 0; i < chars.length; i++) {
+            if (!found && Character.isLetter(chars[i])) {
+                chars[i] = Character.toUpperCase(chars[i]);
+                found = true;
+            } else if (Character.isWhitespace(chars[i]) || chars[i] == '.' || chars[i] == '\'') { // You can add other chars here
+                found = false;
+            }
+        }
+        return String.valueOf(chars);
+    }
 }

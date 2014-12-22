@@ -27,10 +27,8 @@ public final class SystemOfUnits {
 
     }
 
-    private static final SystemOfUnits INSTANCE = new SystemOfUnits();
-
-    public static SystemOfUnits getInstance() {
-        return INSTANCE;
+    public static HashSet<Unit> getUnits() {
+        return units;
     }
 
     private static Unit nonSI(Unit unit) {
@@ -58,9 +56,9 @@ public final class SystemOfUnits {
     public static final Unit radian_per_square_second = nonSI(new Unit("rad/s²", UnitType.Angular_Acceleration, 1));
     public static final Unit radian_per_square_minute = nonSI(new Unit("rad/min²", UnitType.Angular_Acceleration, 3600));
     public static final Unit revolution_per_square_second = nonSI(new Unit("r/s²", UnitType.Angular_Acceleration, 0.159154943));
-    public static final Unit revolution_per_square_minute = nonSI(new Unit("", UnitType.Angular_Acceleration, 572.9577952));
+    public static final Unit revolution_per_square_minute = nonSI(new Unit("r/min²", UnitType.Angular_Acceleration, 572.9577952));
 
-    // Angular Acceleration
+    // Angular Velocity
     public static final Unit radian_per_second = nonSI(new Unit("rad/s", UnitType.Angular_Velocity, 1));
     public static final Unit radian_per_minute = nonSI(new Unit("rad/min", UnitType.Angular_Velocity, 60));
     public static final Unit radian_per_hour = nonSI(new Unit("rad/hr", UnitType.Angular_Velocity, 3600));
@@ -108,13 +106,6 @@ public final class SystemOfUnits {
     public static final Unit gigabyte_per_second = nonSI(new Unit("GB/s", UnitType.Data_Rate, 0.001));
     public static final Unit terabyte_per_second = nonSI(new Unit("TB/s", UnitType.Data_Rate, 0.000001));
 
-    //Density
-    public static final Unit gram_per_liter = nonSI(new Unit("g/L", UnitType.Density, 1));
-    public static final Unit gram_per_cubic_meter = nonSI(new Unit("g/m³", UnitType.Density, 1000));
-    public static final Unit milligram_per_liter = nonSI(new Unit("mg/L", UnitType.Density, 1000));
-    public static final Unit pounds_per_gallon = nonSI(new Unit("lb/gal", UnitType.Density, 0.0083454044873));
-    public static final Unit pounds_per_cubic_foot = nonSI(new Unit("lb/ft³", UnitType.Density, 0.62427960841));
-
     //Dimensionless
     public static final Unit one = nonSI(new Unit("", UnitType.Dimensionless, 1));
 
@@ -130,7 +121,7 @@ public final class SystemOfUnits {
     public static final Unit month = nonSI(new Unit("mt", UnitType.Duration, 3.802537330419e-7));
     public static final Unit year = nonSI(new Unit("y", UnitType.Duration, 3.170979198377e-8));
 
-    //Dynamic Viscosity
+    // Dynamic Viscosity
     public static final Unit pascal_second = nonSI(new Unit("Pa · s", UnitType.Dynamic_Viscosity, 1));
     public static final Unit centipoise = nonSI(new Unit("cP", UnitType.Dynamic_Viscosity, 1000));
 
@@ -153,7 +144,7 @@ public final class SystemOfUnits {
     public static final Unit microsiemens = nonSI(new Unit("µS", UnitType.Electric_Conductance, 1000000));
 
     // Electric_Current
-    public static final Unit Ampere = nonSI(new Unit("A", UnitType.Electric_Current, 1));
+    public static final Unit ampere = nonSI(new Unit("A", UnitType.Electric_Current, 1));
 
     // Electrical_Inductance
     public static final Unit henry = nonSI(new Unit("H", UnitType.Electric_Inductance, 1));
@@ -175,12 +166,12 @@ public final class SystemOfUnits {
     public static final Unit foot_pound = nonSI(new Unit("ft·lbf", UnitType.Energy, 0.7375621492773));
     public static final Unit electronvolt = nonSI(new Unit("eV", UnitType.Energy, 6241509744511524.9e3));
     public static final Unit erg = nonSI(new Unit("erg", UnitType.Energy, 10000000));
-    public static final Unit BTU = nonSI(new Unit("BTU", UnitType.Energy, 0.0009478169879134 ));
-    public static final Unit calorie = nonSI(new Unit("cal", UnitType.Energy, 0.2388458966275 ));
-    public static final Unit kilojoule  = nonSI(new Unit("kJ", UnitType.Energy, 0.001));
-    public static final Unit megajoule  = nonSI(new Unit("MJ", UnitType.Energy, 0.000001 ));
-    public static final Unit ton_of_TNT  = nonSI(new Unit("tn", UnitType.Energy, 2.390057361377E-10));
-    public static final Unit watt_hour  = nonSI(new Unit("Wh", UnitType.Energy, 0.0002777777777778));
+    public static final Unit BTU = nonSI(new Unit("BTU", UnitType.Energy, 0.0009478169879134));
+    public static final Unit calorie = nonSI(new Unit("cal", UnitType.Energy, 0.2388458966275));
+    public static final Unit kilojoule = nonSI(new Unit("kJ", UnitType.Energy, 0.001));
+    public static final Unit megajoule = nonSI(new Unit("MJ", UnitType.Energy, 0.000001));
+    public static final Unit ton_of_TNT = nonSI(new Unit("tn", UnitType.Energy, 2.390057361377E-10));
+    public static final Unit watt_hour = nonSI(new Unit("Wh", UnitType.Energy, 0.0002777777777778));
     // Force
     public static final Unit newton = nonSI(new Unit("N", UnitType.Force, 1));
     public static final Unit dyne = nonSI(new Unit("dyn", UnitType.Force, 100000));
@@ -238,9 +229,9 @@ public final class SystemOfUnits {
     public static final Unit talbot = nonSI(new Unit("hp", UnitType.Luminous_Flux, 3600));
 
     //Luminous_Intensity
-    public static final Unit lumen_per_steradian  = nonSI(new Unit("lm/sr", UnitType.Luminous_Intensity, 1));
+    public static final Unit lumen_per_steradian = nonSI(new Unit("lm/sr", UnitType.Luminous_Intensity, 1));
     public static final Unit candela = nonSI(new Unit("cd", UnitType.Luminous_Intensity, 1));
-    public static final Unit hefnerkerze  = nonSI(new Unit("HK", UnitType.Luminous_Intensity, 1.106967615309));
+    public static final Unit hefnerkerze = nonSI(new Unit("HK", UnitType.Luminous_Intensity, 1.106967615309));
     public static final Unit candlepower = nonSI(new Unit("hp", UnitType.Luminous_Intensity, 1.019367991845));
 
     //Magnetic Flux
@@ -248,53 +239,50 @@ public final class SystemOfUnits {
     public static final Unit maxwell = nonSI(new Unit("Mx", UnitType.Magnetic_Flux, 10000000));
 
     //Magnetic Flux Density
-    
     public static final Unit tesla = nonSI(new Unit("T", UnitType.Magnetic_Flux_Density, 1));
     public static final Unit gauss = nonSI(new Unit("G", UnitType.Magnetic_Flux_Density, 10000));
     public static final Unit weber_per_square_metre = nonSI(new Unit("Wb/m²", UnitType.Magnetic_Flux_Density, 10000));
 
     //Magnetic Flux Density Strength
-    
     public static final Unit ampere_per_meter = nonSI(new Unit("A/m", UnitType.Magnetic_Flux_Density_Strength, 1));
     public static final Unit ampere_turn_per_meter = nonSI(new Unit("AT/m", UnitType.Magnetic_Flux_Density_Strength, 1));
     public static final Unit gilbert_per_meter = nonSI(new Unit("Gi/m", UnitType.Magnetic_Flux_Density_Strength, 1.256637061436));
-    public static final Unit oersted  = nonSI(new Unit("Oe", UnitType.Magnetic_Flux_Density_Strength, 0.01256637061436));
-      
+    public static final Unit oersted = nonSI(new Unit("Oe", UnitType.Magnetic_Flux_Density_Strength, 0.01256637061436));
+
     //Magnetomotive Force
-    
     public static final Unit ampere_turn = nonSI(new Unit("AT", UnitType.Magnetomotive_Force, 1));
-    public static final Unit gilbert  = nonSI(new Unit("Gi", UnitType.Magnetomotive_Force, 1.256637061436));
-    
+    public static final Unit gilbert = nonSI(new Unit("Gi", UnitType.Magnetomotive_Force, 1.256637061436));
+
     // Mass
-    
     public static final Unit gram = nonSI(new Unit("g", UnitType.Mass, 1));
     public static final Unit atomic_mass_unit = nonSI(new Unit("amu", UnitType.Mass, 6.022136651675e+23));
-    public static final Unit dram  = nonSI(new Unit("dr", UnitType.Mass, 0.5643833911933));
+    public static final Unit dram = nonSI(new Unit("dr", UnitType.Mass, 0.5643833911933));
     public static final Unit grain = nonSI(new Unit("gr", UnitType.Mass, 15.43235835294));
-    public static final Unit kilogram = nonSI(new Unit("kg", UnitType.Mass, 0.001 ));
+    public static final Unit kilogram = nonSI(new Unit("kg", UnitType.Mass, 0.001));
     public static final Unit microgram = nonSI(new Unit("µg", UnitType.Mass, 1000000));
     public static final Unit milligram = nonSI(new Unit("mg", UnitType.Mass, 1000));
-    public static final Unit newton_  = nonSI(new Unit("earth", UnitType.Mass, 0.00980665));
-    public static final Unit ounce = nonSI(new Unit("oz", UnitType.Mass, 0.03527396194958 ));
+    public static final Unit newton_ = nonSI(new Unit("earth", UnitType.Mass, 0.00980665));
+    public static final Unit ounce = nonSI(new Unit("oz", UnitType.Mass, 0.03527396194958));
     public static final Unit pound = nonSI(new Unit("lb", UnitType.Mass, 0.002204622621849));
     public static final Unit ton_long_UK = nonSI(new Unit("ton (uk)", UnitType.Mass, 9.842065276111E-7));
     public static final Unit ton_short_US = nonSI(new Unit("ton (us)", UnitType.Mass, 0.000001102311310924));
-    public static final Unit tonne  = nonSI(new Unit("t", UnitType.Mass, 0.000001));
+    public static final Unit tonne = nonSI(new Unit("t", UnitType.Mass, 0.000001));
 
     // Mass_Flow_Rate
-    
-    public static final Unit kilogram_per_minute = nonSI(new Unit("kg/min",UnitType.Mass_Flow_Rate, 1));
-    public static final Unit kilogram_per_second = nonSI(new Unit("kg/s",UnitType.Mass_Flow_Rate, 0.01667));
-    public static final Unit kilogram_per_hour = nonSI(new Unit("kg/hour",UnitType.Mass_Flow_Rate, 60));
-    public static final Unit grams_per_second = nonSI(new Unit("g/s",UnitType.Mass_Flow_Rate, 16.67));
-    public static final Unit grams_per_min = nonSI(new Unit("g/min",UnitType.Mass_Flow_Rate, 1000));
-    public static final Unit grams_per_hour = nonSI(new Unit("g/hr",UnitType.Mass_Flow_Rate, 60000));
-    public static final Unit pounds_per_second = nonSI(new Unit("lb/s",UnitType.Mass_Flow_Rate, 0.03674));
-    public static final Unit pounds_per_min= nonSI(new Unit("lb/min",UnitType.Mass_Flow_Rate, 2.205));
-    public static final Unit pounds_per_hour = nonSI(new Unit("lb/hr",UnitType.Mass_Flow_Rate, 132.3));
+    public static final Unit kilogram_per_minute = nonSI(new Unit("kg/min", UnitType.Mass_Flow_Rate, 1));
+    public static final Unit kilogram_per_second = nonSI(new Unit("kg/s", UnitType.Mass_Flow_Rate, 0.01667));
+    public static final Unit kilogram_per_hour = nonSI(new Unit("kg/hour", UnitType.Mass_Flow_Rate, 60));
+    public static final Unit grams_per_second = nonSI(new Unit("g/s", UnitType.Mass_Flow_Rate, 16.67));
+    public static final Unit grams_per_min = nonSI(new Unit("g/min", UnitType.Mass_Flow_Rate, 1000));
+    public static final Unit grams_per_hour = nonSI(new Unit("g/hr", UnitType.Mass_Flow_Rate, 60000));
+    public static final Unit pounds_per_second = nonSI(new Unit("lb/s", UnitType.Mass_Flow_Rate, 0.03674));
+    public static final Unit pounds_per_min = nonSI(new Unit("lb/min", UnitType.Mass_Flow_Rate, 2.205));
+    public static final Unit pounds_per_hour = nonSI(new Unit("lb/hr", UnitType.Mass_Flow_Rate, 132.3));
+
+    //Molar_Mass
+    public static final Unit grams_per_mole = nonSI(new Unit("g/mol", UnitType.Molar_Mass,1));
     
     // Power
-    
     public static final Unit watt = nonSI(new Unit("W", UnitType.Power, 1));
     public static final Unit milliwatt = nonSI(new Unit("mW", UnitType.Power, 1000));
     public static final Unit megawatt = nonSI(new Unit("MW", UnitType.Power, 0.000001));
@@ -303,13 +291,12 @@ public final class SystemOfUnits {
     public static final Unit foot_pound_per_second = nonSI(new Unit("ft·lbf/s", UnitType.Power, 0.7375621492773));
     public static final Unit calories_per_second = nonSI(new Unit("C/s", UnitType.Power, 0.2388458966275));
     public static final Unit BTU_per_second = nonSI(new Unit("BTU/s", UnitType.Power, 0.0009478169879134));
-    public static final Unit BTU_per_hour = nonSI(new Unit("BTU/hr", UnitType.Power, 3.412141156488 ));
-    
+    public static final Unit BTU_per_hour = nonSI(new Unit("BTU/hr", UnitType.Power, 3.412141156488));
+
     //Pressure
-    
     public static final Unit atmosphere = nonSI(new Unit("atm", UnitType.Pressure, 1));
     public static final Unit bar = nonSI(new Unit("b", UnitType.Pressure, 1.01325));
-    public static final Unit hectopascal  = nonSI(new Unit("hPa", UnitType.Pressure, 1013.25));
+    public static final Unit hectopascal = nonSI(new Unit("hPa", UnitType.Pressure, 1013.25));
     public static final Unit kilogram_per_sq_cm = nonSI(new Unit("kgf/cm²", UnitType.Pressure, 1.0332274528));
     public static final Unit kilogram_per_sq_m = nonSI(new Unit("kgf/m²", UnitType.Pressure, 10332.274528));
     public static final Unit kilopascal = nonSI(new Unit("kPa", UnitType.Pressure, 101.325));
@@ -320,27 +307,23 @@ public final class SystemOfUnits {
     public static final Unit pounds_per_square_inch = nonSI(new Unit("psi", UnitType.Pressure, 14.69596432068));
     public static final Unit torr = nonSI(new Unit("Torr", UnitType.Pressure, 760));
     public static final Unit inch_of_water = nonSI(new Unit("in-water", UnitType.Pressure, 406.8));
- 
+
     // Radiation Dose Absorbed
-    
     public static final Unit becquerel = nonSI(new Unit("Bq", UnitType.Radiation_Dose_Absorbed, 1));
     public static final Unit curie_ = nonSI(new Unit("Ci", UnitType.Radiation_Dose_Absorbed, 2.702702702e-11));
-    public static final Unit disintegrations_per_minute  = nonSI(new Unit("dpm", UnitType.Radiation_Dose_Absorbed, 60));
+    public static final Unit disintegrations_per_minute = nonSI(new Unit("dpm", UnitType.Radiation_Dose_Absorbed, 60));
     public static final Unit gigabecquerel = nonSI(new Unit("GBq", UnitType.Radiation_Dose_Absorbed, 1E-9));
-    public static final Unit kilobecquerel = nonSI(new Unit("kBq", UnitType.Radiation_Dose_Absorbed, 0.001 ));
+    public static final Unit kilobecquerel = nonSI(new Unit("kBq", UnitType.Radiation_Dose_Absorbed, 0.001));
     public static final Unit megabecquerel = nonSI(new Unit("MBq", UnitType.Radiation_Dose_Absorbed, 0.000001));
     public static final Unit rutherford_ = nonSI(new Unit("Rd", UnitType.Radiation_Dose_Absorbed, 0.000001));
     public static final Unit Terabecquerel = nonSI(new Unit("TBq", UnitType.Radiation_Dose_Absorbed, 1E-12));
-    
+
     //Radioactive_Activity
-    
     public static final Unit becquerel_ = nonSI(new Unit("Bq", UnitType.Radioactive_Activity, 1));
     public static final Unit hertz_ = nonSI(new Unit("H", UnitType.Radioactive_Activity, 1));
     public static final Unit rutherford__ = nonSI(new Unit("Rd", UnitType.Radioactive_Activity, .000001));
-    
-    
+
     // Radiation Dose Effective
-    
     public static final Unit dental_radiography = nonSI(new Unit("dR", UnitType.Radiation_Dose_Effective, 1));
     public static final Unit microsievert = nonSI(new Unit("µSv", UnitType.Radiation_Dose_Effective, 5));
     public static final Unit millirem = nonSI(new Unit("mrem", UnitType.Radiation_Dose_Effective, 0.5));
@@ -349,21 +332,18 @@ public final class SystemOfUnits {
     public static final Unit sievert = nonSI(new Unit("Sv", UnitType.Radiation_Dose_Effective, 0.000005));
     public static final Unit rad = nonSI(new Unit("rd", UnitType.Radiation_Dose_Effective, 0.000005));
     public static final Unit gray = nonSI(new Unit("Gy", UnitType.Radiation_Dose_Effective, 200000));
-    
+
     // Soild Angle
-    
     public static final Unit degree = nonSI(new Unit("°", UnitType.Solid_Angle, 1));
     public static final Unit minutes_angle = nonSI(new Unit("'", UnitType.Solid_Angle, 60));
     public static final Unit seconds_angle = nonSI(new Unit("\"", UnitType.Solid_Angle, 3600));
-    
+
     // Temperature
-    
-    public static final Unit kelvin = nonSI(new Unit("°K", UnitType.Temperature, 1));
-    public static final Unit celsius = nonSI(new Unit("°C", UnitType.Temperature, 273.15));
-    public static final Unit fahrenheit = nonSI(new Unit("°F", UnitType.Temperature,1.8000));
+    public static final Unit kelvin = nonSI(new Unit("°K", UnitType.Temperature, 2));
+    public static final Unit celsius = nonSI(new Unit("°C", UnitType.Temperature, 1));
+    public static final Unit fahrenheit = nonSI(new Unit("°F", UnitType.Temperature, 3));
 
     // Torque
-    
     public static final Unit newton_meter = nonSI(new Unit("N·m", UnitType.Torque, 1));
     public static final Unit newton_centimeter = nonSI(new Unit("N·cm", UnitType.Torque, 100));
     public static final Unit newton_millimeter = nonSI(new Unit("N·mm", UnitType.Torque, 1000));
@@ -375,17 +355,15 @@ public final class SystemOfUnits {
     public static final Unit ounce_force_inch = nonSI(new Unit("ozf·in", UnitType.Torque, 141.611928936));
     public static final Unit pound_force_foot = nonSI(new Unit("lbf·ft", UnitType.Torque, 0.737562121));
     public static final Unit pound_force_inch = nonSI(new Unit("inf·in", UnitType.Torque, 8.850745454));
-    
+
     // Velocity
-    
     public static final Unit meter_per_second = nonSI(new Unit("m/s", UnitType.Velocity, 1));
     public static final Unit miles_per_hour = nonSI(new Unit("mph", UnitType.Velocity, 2.236936292));
     public static final Unit kilometers_per_hour = nonSI(new Unit("km/h", UnitType.Velocity, 3.6));
     public static final Unit knot = nonSI(new Unit("kn", UnitType.Velocity, 1.943844492));
     public static final Unit mach = nonSI(new Unit("mach", UnitType.Velocity, .003015682));
-    
+
     // Volume
-    
     public static final Unit cubic_meter = nonSI(new Unit("m³", UnitType.Volume, 1));
     public static final Unit cubic_centimeter = nonSI(new Unit("cm³", UnitType.Volume, 1000000));
     public static final Unit cubic_foot = nonSI(new Unit("ft³", UnitType.Volume, 35.31466672149));
@@ -399,18 +377,20 @@ public final class SystemOfUnits {
     public static final Unit milliliter = nonSI(new Unit("ml", UnitType.Volume, 1000000));
     public static final Unit pint = nonSI(new Unit("pt", UnitType.Volume, 2113.376418865));
     public static final Unit quart = nonSI(new Unit("qt", UnitType.Volume, 1056.688209433));
-    
+
     //Volumetric Density
-    
     public static final Unit kilogram_per_cubic_meter = nonSI(new Unit("kg/m³", UnitType.Volumetric_Density, 1));
-    public static final Unit gram_per_litre = nonSI(new Unit("g/l", UnitType.Volumetric_Density, 1));
-    public static final Unit gram_per_cubic_centimetre = nonSI(new Unit("g/cm³", UnitType.Volumetric_Density,  0.001));
-    public static final Unit pound_per_cubic_inch = nonSI(new Unit("lb/in³", UnitType.Volumetric_Density,  3.61273e-5));
+    public static final Unit gram_per_liter = nonSI(new Unit("g/l", UnitType.Volumetric_Density, 1));
+    public static final Unit gram_per_cubic_centimetre = nonSI(new Unit("g/cm³", UnitType.Volumetric_Density, 0.001));
+    public static final Unit pound_per_cubic_inch = nonSI(new Unit("lb/in³", UnitType.Volumetric_Density, 3.61273e-5));
     public static final Unit pound_per_cubic_foot = nonSI(new Unit("kg/m³", UnitType.Volumetric_Density, 1));
-    public static final Unit pound_per_gallon = nonSI(new Unit("lb/gal", UnitType.Volumetric_Density,  0.010022409999999999));
-    
+    public static final Unit pound_per_gallon = nonSI(new Unit("lb/gal", UnitType.Volumetric_Density, 0.010022409999999999));
+    public static final Unit gram_per_cubic_meter = nonSI(new Unit("g/m³", UnitType.Volumetric_Density, 1000));
+    public static final Unit milligram_per_liter = nonSI(new Unit("mg/L", UnitType.Volumetric_Density, 1000));
+    public static final Unit pounds_per_gallon = nonSI(new Unit("lb/gal", UnitType.Volumetric_Density, 0.0083454044873));
+    public static final Unit pounds_per_cubic_foot = nonSI(new Unit("lb/ft³", UnitType.Volumetric_Density, 0.62427960841));
+
     // Volumetric Flow Rate
-    
     public static final Unit cubic_meter_per_second = nonSI(new Unit("m³/s", UnitType.Volumetric_Flow_Rate, 1));
     public static final Unit cubic_meter_per_mintue = nonSI(new Unit("m³/m", UnitType.Volumetric_Flow_Rate, 60));
     public static final Unit cubic_meter_per_hour = nonSI(new Unit("m³/h", UnitType.Volumetric_Flow_Rate, 3600));
@@ -426,17 +406,17 @@ public final class SystemOfUnits {
     public static final Unit cubic_inch_per_second = nonSI(new Unit("in³/s", UnitType.Volumetric_Flow_Rate, 61020));
     public static final Unit cubic_inch_per_mintue = nonSI(new Unit("in³/m", UnitType.Volumetric_Flow_Rate, 3661000));
     public static final Unit cubic_inch_per_hour = nonSI(new Unit("in³/h", UnitType.Volumetric_Flow_Rate, 219700000));
-    
+
     //Metric Convertions
     public static final Unit yotta = nonSI(new Unit("Y", UnitType.Metric, 1E-24));
-    public static final Unit zetta = nonSI(new Unit("Z", UnitType.Metric, 1E-21 ));
-    public static final Unit exa = nonSI(new Unit("E", UnitType.Metric, 1E-18 ));
+    public static final Unit zetta = nonSI(new Unit("Z", UnitType.Metric, 1E-21));
+    public static final Unit exa = nonSI(new Unit("E", UnitType.Metric, 1E-18));
     public static final Unit peta = nonSI(new Unit("P", UnitType.Metric, 1E-15));
-    public static final Unit tera = nonSI(new Unit("T", UnitType.Metric, 1E-12 ));
-    public static final Unit giga = nonSI(new Unit("G", UnitType.Metric, 1E-9 ));
+    public static final Unit tera = nonSI(new Unit("T", UnitType.Metric, 1E-12));
+    public static final Unit giga = nonSI(new Unit("G", UnitType.Metric, 1E-9));
     public static final Unit mega = nonSI(new Unit("M", UnitType.Metric, 0.000001));
     public static final Unit kilo = nonSI(new Unit("k", UnitType.Metric, 0.001));
-    public static final Unit hecto = nonSI(new Unit("h", UnitType.Metric, 0.01 ));
+    public static final Unit hecto = nonSI(new Unit("h", UnitType.Metric, 0.01));
     public static final Unit deka = nonSI(new Unit("da", UnitType.Metric, 0.1));
     public static final Unit base = nonSI(new Unit("base", UnitType.Metric, 1));
     public static final Unit deci = nonSI(new Unit("d", UnitType.Metric, 10));
@@ -449,5 +429,5 @@ public final class SystemOfUnits {
     public static final Unit atto = nonSI(new Unit("a", UnitType.Metric, 1E+18));
     public static final Unit zepto = nonSI(new Unit("z", UnitType.Metric, 1E+21));
     public static final Unit yocto = nonSI(new Unit("y", UnitType.Metric, 1E+24));
-    
+
 }

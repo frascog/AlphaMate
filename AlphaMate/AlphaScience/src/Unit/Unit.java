@@ -37,7 +37,11 @@ public class Unit {
     public String toString() {
         return this.symbol;
     }
-    
-    
-    
+
+    public boolean isCompatible(Unit unit) {
+        if(this.unitType.equals(unit.getUnitType())) {
+            return true;
+        }
+        return false;
+    }   
 }

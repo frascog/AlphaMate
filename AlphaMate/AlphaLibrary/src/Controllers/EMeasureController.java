@@ -9,13 +9,13 @@ import Listeners.EMeasureListener;
 import Models.EMeasure;
 import SupportClasses.EMeasureFormat;
 import SupportClasses.EMeasureViewState;
+import Unit.Unit;
 import Views.EMeasureBasicView;
 import Views.EMeasureFullView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.measure.unit.Unit;
 import javax.swing.JFrame;
 
 /**
@@ -101,7 +101,6 @@ public class EMeasureController {
         try {
             number = Double.parseDouble(nominal);
             this.setNominal(number);
-            this.fireUpdate();
         } catch (NumberFormatException nfe) {
             this.fireUpdate();
         }

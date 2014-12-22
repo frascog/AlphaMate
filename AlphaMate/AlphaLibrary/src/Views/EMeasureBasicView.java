@@ -8,9 +8,9 @@ package Views;
 import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
 import SupportClasses.MeasureUtilities;
+import Unit.Unit;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Font;
-import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 

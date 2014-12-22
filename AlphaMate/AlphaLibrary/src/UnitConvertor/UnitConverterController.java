@@ -7,11 +7,11 @@ package UnitConvertor;
 
 import Controllers.EMeasureController;
 import Models.EMeasure;
-import SupportClasses.MeasureUtilities;
+import Unit.SystemOfUnits;
+import Unit.Unit;
+import Unit.UnitType;
 import java.util.ArrayList;
 import java.util.List;
-import javax.measure.unit.SI;
-import javax.measure.unit.Unit;
 
 /**
  *
@@ -25,8 +25,8 @@ public class UnitConverterController {
     private List<UnitConverterListener> listeners;
 
     public UnitConverterController() {
-        controllerA = new EMeasureController(new EMeasure("", SI.METER));
-        controllerB = new EMeasureController(new EMeasure("", SI.METER));
+        controllerA = new EMeasureController(new EMeasure("", SystemOfUnits.meter));
+        controllerB = new EMeasureController(new EMeasure("", SystemOfUnits.meter));
         controllerA.setViewState(false, true, true, true);
         controllerB.setViewState(false, false, true, true);
         this.getListeners();
@@ -66,7 +66,7 @@ public class UnitConverterController {
         registerListeners();
         return listeners;
     }
-    
+
     public void registerListeners() {
         if (this.unitConverterView != null) {
             if (!this.listeners.contains(this.unitConverterView)) {
@@ -74,7 +74,7 @@ public class UnitConverterController {
             }
         }
     }
-    
+
     public void unregisterListeners() {
         if (this.unitConverterView != null) {
             if (this.listeners.contains(this.unitConverterView)) {
@@ -91,9 +91,52 @@ public class UnitConverterController {
         }
     }
 
-    public void changeUnitType(Object selectedItem) {
-        Unit tempUnit = (Unit) MeasureUtilities.unitTypes.get(selectedItem);
+    public void changeUnitType(String unitType) {
+        Unit tempUnit = getBaseUnit(unitType);
         this.controllerA.setEntity(new EMeasure("", tempUnit));
         this.controllerB.setEntity(new EMeasure("", tempUnit));
     }
+
+    private UnitType getUnitType(String unitType) {
+        for (UnitType testType : UnitType.values()) {
+            if (testType.toString().equals(unitType)) {
+                return testType;
+            }
+        }
+        return null;
+    }
+
+    private Unit getUnit(UnitType unitType) {
+        for (Object object : SystemOfUnits.getUnits().toArray()) {
+            if (object instanceof Unit) {
+                Unit unit = (Unit) object;
+                if (unit.getUnitType().equals(unitType)) {
+                    return unit;
+                }
+            }
+        }
+        return null;
+    }
+    
+    private Unit getBaseUnit(Unit unit) {
+        for (Object object : SystemOfUnits.getUnits().toArray()) {
+            if (object instanceof Unit) {
+                Unit newUnit = (Unit) object;
+                if (unit.getUnitType() == newUnit.getUnitType()) {
+                    if (newUnit.getConverstionFactor() == 1) {
+                        return newUnit;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    private Unit getBaseUnit(String unitType) {
+        UnitType ut = getUnitType(unitType);
+        Unit tempUnit = getUnit(ut);
+        return getBaseUnit(tempUnit);
+    }
+    
+    
 }

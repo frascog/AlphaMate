@@ -6,7 +6,7 @@
 package SupportClasses;
 
 import Models.EMeasure;
-import javax.measure.unit.SI;
+import Unit.SystemOfUnits;
 
 /**
  *
@@ -39,7 +39,7 @@ public class MolecularWeight {
                 molecularWeight = 64.1;
                 break;
         }
-        EMeasure eMeasure = new EMeasure("Molecular Weight", SI.GRAM.divide(SI.MOLE));
+        EMeasure eMeasure = new EMeasure("Molecular Weight", SystemOfUnits.grams_per_mole);
         eMeasure.setMinimum(molecularWeight);
         eMeasure.setNominal(molecularWeight);
         eMeasure.setMaximun(molecularWeight);

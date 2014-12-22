@@ -6,12 +6,10 @@
 package Models;
 
 import Controllers.EMeasureController.EMeasureFlavor;
-import SupportClasses.EMeasureFormat;
 import Controllers.EMeasureController.EMeasureInterval;
+import Unit.Measure;
+import Unit.Unit;
 import java.math.BigDecimal;
-import javax.measure.DecimalMeasure;
-import javax.measure.Measure;
-import javax.measure.unit.Unit;
 
 /**
  *
@@ -35,9 +33,9 @@ public class EMeasure {
     public EMeasure(String name,Unit unit){
         this.name = name;
         this.unit = unit;
-        this.minimum = new DecimalMeasure(BigDecimal.valueOf(-1.0), this.unit);
-        this.nominal = new DecimalMeasure(BigDecimal.valueOf(-1.0), this.unit);
-        this.maximun = new DecimalMeasure(BigDecimal.valueOf(-1.0), this.unit);
+        this.minimum = Measure.valueOf(-1.0, this.unit);
+        this.nominal = Measure.valueOf(-1.0, this.unit);
+        this.maximun = Measure.valueOf(-1.0, this.unit);
     }
 
     public String getName() {

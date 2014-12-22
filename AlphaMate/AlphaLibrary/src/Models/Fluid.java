@@ -6,8 +6,7 @@
 package Models;
 
 import SupportClasses.FluidKind;
-import javax.measure.unit.NonSI;
-import javax.measure.unit.Unit;
+import Unit.SystemOfUnits;
 
 /**
  *
@@ -21,8 +20,8 @@ public class Fluid {
 
     public Fluid(FluidKind fluidKind) {
         this.fluidKind = fluidKind;
-        this.pressure = new EMeasure("Pressure", NonSI.ATMOSPHERE);
-        this.temperature = new EMeasure("Temperature", NonSI.FAHRENHEIT);
+        this.pressure = new EMeasure("Pressure", SystemOfUnits.atmosphere);
+        this.temperature = new EMeasure("Temperature", SystemOfUnits.fahrenheit);
     }
     
     public Fluid(FluidKind fluidKind, EMeasure pressure, EMeasure temperature) {

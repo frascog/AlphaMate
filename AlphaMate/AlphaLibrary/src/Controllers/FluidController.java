@@ -10,14 +10,13 @@ import Models.EMeasure;
 import Models.Fluid;
 import SupportClasses.FluidAnalysist;
 import SupportClasses.FluidKind;
-import SupportClasses.MolecularWeight;
+import Unit.SystemOfUnits;
 import Views.FluidBasicView;
 import Views.FluidFullView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.measure.unit.SI;
 import javax.swing.JFrame;
 
 /**
@@ -45,7 +44,7 @@ public class FluidController {
     }
     
     private void initCalculations() {
-        eMeasureSetController.addEMeasure(new EMeasure("Density", SI.KILOGRAM.divide(SI.CUBIC_METRE)));
+        eMeasureSetController.addEMeasure(new EMeasure("Density", SystemOfUnits.kilogram_per_cubic_meter));
     }
     
     public FluidKind getFluidKind() {
@@ -193,7 +192,7 @@ public class FluidController {
     }
     
     public void calcuate() {
-        EMeasureController density = new EMeasureController(new EMeasure("Density", SI.KILOGRAM.divide(SI.CUBIC_METRE.times(0.001))));
+        EMeasureController density = new EMeasureController(new EMeasure("Density", SystemOfUnits.gram_per_liter));
         density.setEntity(FluidAnalysist.calculateDesnisty(this));
         eMeasureSetController.getEMeasure("Density").setEntity(density.getEntity());
     }

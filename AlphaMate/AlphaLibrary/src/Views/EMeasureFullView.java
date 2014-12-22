@@ -11,9 +11,10 @@ import Controllers.EMeasureController.EMeasureInterval;
 import Listeners.EMeasureListener;
 import SupportClasses.EMeasureFormat;
 import SupportClasses.MeasureUtilities;
+import Unit.Unit;
+import Unit.UnitType;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Font;
-import javax.measure.unit.Unit;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 
@@ -437,7 +438,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
-        this.jComboBox1.setModel(new DefaultComboBoxModel(MeasureUtilities.getUnitTypes()));
+        this.jComboBox1.setModel(new DefaultComboBoxModel(UnitType.values()));
         this.jComboBox2.setModel(new DefaultComboBoxModel(MeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         this.jComboBox3.setModel(new DefaultComboBoxModel(EMeasureFlavor.values()));
         String data[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -460,7 +461,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         this.jTextField4.setText(EMeasureFormat.format(controller.getMaximun(),controller.getPrecision()));;
         this.jCheckBox1.setSelected(controller.isLowerInclusive());
         this.jCheckBox2.setSelected(controller.isUpperInclusive());
-        this.jComboBox1.setSelectedItem(MeasureUtilities.findUnitTypeOfUnit(controller.getUnit()));
+        this.jComboBox1.setSelectedItem(controller.getUnit().getUnitType());
         this.jComboBox2.setSelectedItem(controller.getUnit());
         this.jComboBox3.setSelectedItem(controller.getFlavor());
         this.jComboBox4.setSelectedItem(controller.getPrecision() + "");
