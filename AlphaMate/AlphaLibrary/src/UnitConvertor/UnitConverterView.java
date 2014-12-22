@@ -12,6 +12,7 @@ import Unit.UnitType;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
+import javax.swing.text.JTextComponent;
 
 /**
  *
