@@ -28,12 +28,20 @@
             <file name="org-openide-actions-GotoAction.shadow_hidden"/>
         </folder>
         <folder name="Help">
+            <file name="Separator2.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+            </file>
             <file name="master-help.xml_hidden"/>
+            <file name="org-netbeans-modules-autoupdate-ui-actions-PluginManagerAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-netbeans-modules-autoupdate-ui-actions-PluginManagerAction.instance"/>
+            </file>
             <file name="org-netbeans-modules-options-OptionsWindowAction-separatorBefore.instance">
                 <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
             </file>
         </folder>
         <folder name="Tools">
+            <file name="Separator2.instance_hidden"/>
+            <file name="org-netbeans-modules-autoupdate-ui-actions-PluginManagerAction.shadow_hidden"/>
             <file name="org-netbeans-modules-options-OptionsWindowAction-separatorBefore.instance_hidden"/>
             <file name="org-netbeans-modules-options-OptionsWindowAction.shadow_hidden"/>
         </folder>
