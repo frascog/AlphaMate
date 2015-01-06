@@ -59,10 +59,6 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -74,6 +70,12 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         jComboBox4 = new javax.swing.JComboBox();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jSeparator4 = new javax.swing.JSeparator();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel1.text")); // NOI18N
 
@@ -127,33 +129,6 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jLabel8.text")); // NOI18N
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTextArea1MouseExited(evt);
-            }
-        });
-        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextArea1KeyPressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTextArea1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jButton1.text")); // NOI18N
 
@@ -217,6 +192,40 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(jCheckBox3, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jCheckBox3.text")); // NOI18N
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseExited(evt);
+            }
+        });
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,8 +233,8 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4)
                     .addComponent(jSeparator3)
-                    .addComponent(jTabbedPane1)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -258,15 +267,23 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1)
+                        .addGap(0, 0, 0))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCheckBox3)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -317,9 +334,13 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
                     .addComponent(jLabel10)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCheckBox3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -389,7 +410,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if (initDone) {
-            EMeasureInterval interval;            
+            EMeasureInterval interval;
             interval = jCheckBox1.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
             this.controller.setLowerEnd(interval);
         }
@@ -397,11 +418,17 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         if (initDone) {
-            EMeasureInterval interval;            
+            EMeasureInterval interval;
             interval = jCheckBox2.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
             this.controller.setUpperEnd(interval);
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        if (initDone) {
+            this.controller.setScientificNotation(jCheckBox3.isSelected());
+        }
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -410,6 +437,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -430,6 +458,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
@@ -439,6 +468,7 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
+        jPanel1.setVisible(false);
         this.jComboBox1.setModel(new DefaultComboBoxModel(UnitType.values()));
         this.jComboBox2.setModel(new DefaultComboBoxModel(MeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         this.jComboBox3.setModel(new DefaultComboBoxModel(EMeasureFlavor.values()));
@@ -457,9 +487,9 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     public void EMeasureChangeResponce(EMeasure e) {
         this.initDone = false;
         this.jTextField1.setText(controller.getName());
-        this.jTextField2.setText(EMeasureFormat.format(controller.getMinimum(),controller.getPrecision()));
-        this.jTextField3.setText(EMeasureFormat.format(controller.getNominal(),controller.getPrecision()));;
-        this.jTextField4.setText(EMeasureFormat.format(controller.getMaximun(),controller.getPrecision()));;
+        this.jTextField2.setText(EMeasureFormat.format(controller.getMinimum(), controller.getPrecision(),controller.isScientificNotation()));
+        this.jTextField3.setText(EMeasureFormat.format(controller.getNominal(), controller.getPrecision(),controller.isScientificNotation()));;
+        this.jTextField4.setText(EMeasureFormat.format(controller.getMaximun(), controller.getPrecision(),controller.isScientificNotation()));;
         this.jCheckBox1.setSelected(controller.isLowerInclusive());
         this.jCheckBox2.setSelected(controller.isUpperInclusive());
         this.jComboBox1.setSelectedItem(controller.getUnit().getUnitType());
@@ -468,30 +498,42 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         this.jComboBox4.setSelectedItem(controller.getPrecision() + "");
         this.jTextArea1.setText(controller.getDescription());
         this.jComboBox2.setToolTipText(MeasureUtilities.getUnitName(controller.getUnit()));
+        this.jCheckBox3.setSelected(controller.isScientificNotation());
         
-        switch(this.controller.getFlavor()) {
-            case Nominal:
-                jTextField2.setEnabled(false);
-                jTextField3.setEnabled(true);
-                jTextField4.setEnabled(false);
-                jCheckBox1.setEnabled(false);
-                jCheckBox2.setEnabled(false);
-                break;
-            case Minimum_Maximun:
-                jTextField2.setEnabled(true);
-                jTextField3.setEnabled(false);
-                jTextField4.setEnabled(true);
-                jCheckBox1.setEnabled(true);
-                jCheckBox2.setEnabled(true);
-                break;
-            case Minimum_Nominal_Maximun:
-                jTextField2.setEnabled(true);
-                jTextField3.setEnabled(true);
-                jTextField4.setEnabled(true);
-                jCheckBox1.setEnabled(true);
-                jCheckBox2.setEnabled(true);
-                break;
-    }
+        if (controller.getViewState().isComboBox()) {
+            switch (this.controller.getFlavor()) {
+                case Nominal:
+                    jTextField2.setEnabled(false);
+                    jTextField3.setEnabled(true);
+                    jTextField4.setEnabled(false);
+                    jCheckBox1.setEnabled(false);
+                    jCheckBox2.setEnabled(false);
+                    break;
+                case Minimum_Maximun:
+                    jTextField2.setEnabled(true);
+                    jTextField3.setEnabled(false);
+                    jTextField4.setEnabled(true);
+                    jCheckBox1.setEnabled(true);
+                    jCheckBox2.setEnabled(true);
+                    break;
+                case Minimum_Nominal_Maximun:
+                    jTextField2.setEnabled(true);
+                    jTextField3.setEnabled(true);
+                    jTextField4.setEnabled(true);
+                    jCheckBox1.setEnabled(true);
+                    jCheckBox2.setEnabled(true);
+                    break;
+            }
+        } else {
+            jTextField2.setEnabled(controller.getViewState().isTextfield());
+            jTextField3.setEnabled(controller.getViewState().isTextfield());
+            jTextField4.setEnabled(controller.getViewState().isTextfield());
+            jCheckBox1.setEnabled(controller.getViewState().isTextfield());
+            jCheckBox2.setEnabled(controller.getViewState().isTextfield());
+        }
+        jTextField1.setEnabled(controller.getViewState().isName());
+        jComboBox2.setEnabled(controller.getViewState().isComboBox());
+        
         this.initDone = true;
     }
 }

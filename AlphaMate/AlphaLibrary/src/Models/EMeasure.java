@@ -28,6 +28,7 @@ public class EMeasure {
     private EMeasureInterval lowerEnd = EMeasureInterval.inclusive;
     private EMeasureInterval upperEnd = EMeasureInterval.inclusive;
     private int precision = 3;
+    private boolean scientificNotation = false;
     
     @SuppressWarnings("unchecked")
     public EMeasure(String name,Unit unit){
@@ -134,5 +135,13 @@ public class EMeasure {
         nominal = nominal.to(unit);
         maximun = maximun.to(unit);
         this.unit = unit;
+    }
+
+    public boolean isScientificNotation() {
+        return scientificNotation;
+    }
+
+    public void setScientificNotation(boolean scientificNotation) {
+        this.scientificNotation = scientificNotation;
     }
 }

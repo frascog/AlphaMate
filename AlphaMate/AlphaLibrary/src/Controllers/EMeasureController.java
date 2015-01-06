@@ -162,6 +162,15 @@ public class EMeasureController {
         }
     }
 
+    public boolean isScientificNotation() {
+        return this.entity.isScientificNotation();
+    }
+
+    public void setScientificNotation(boolean scientificNotation) {
+        this.entity.setScientificNotation(scientificNotation);
+        this.fireUpdate();
+    }
+    
     public EMeasureBasicView getEMeasureBasicView() {
         if (this.eMeasureBasicViews == null) {
             this.eMeasureBasicViews = new ArrayList<EMeasureBasicView>();
@@ -257,7 +266,7 @@ public class EMeasureController {
         String eMeasure = null;
         switch (this.getFlavor()) {
             case Nominal:
-                eMeasure = EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + "";
+                eMeasure = EMeasureFormat.format(entity.getNominal(), entity.getPrecision(),entity.isScientificNotation()) + "";
                 break;
             case Minimum_Maximun:
                 if (entity.getLowerEnd() == EMeasureInterval.exclusive) {
@@ -265,8 +274,8 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision(),entity.isScientificNotation()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision(),entity.isScientificNotation()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure += ")";
                 } else {
@@ -279,9 +288,9 @@ public class EMeasureController {
                 } else {
                     eMeasure = "[ ";
                 }
-                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getNominal(), entity.getPrecision()) + " ";
-                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMinimum(), entity.getPrecision(),entity.isScientificNotation()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getNominal(), entity.getPrecision(),entity.isScientificNotation()) + " ";
+                eMeasure += EMeasureFormat.format(entity.getMaximun(), entity.getPrecision(),entity.isScientificNotation()) + " ";
                 if (entity.getUpperEnd() == EMeasureInterval.exclusive) {
                     eMeasure += ")";
                 } else {

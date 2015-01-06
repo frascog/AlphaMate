@@ -62,49 +62,99 @@ public class EMeasureFormat {
         return number;
     }
     
-    public static String format(double measure,int persision) {
+    public static String format(double measure,int persision,boolean sciNotation) {
         String number = "ERROR";
         DecimalFormat df;
         switch(persision){
             case 0:
-                df = new DecimalFormat("#");
-                number = df.format(measure);
+                if(sciNotation){
+                    df = new DecimalFormat("#");
+                    number = df.format(measure);
+                } else {
+                    df = new DecimalFormat("#");
+                    number = df.format(measure);
+                }
                 break;
             case 1:
+                if(sciNotation){
+                    df = new DecimalFormat("#.#E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.0");
                 number = df.format(measure);
+                }
                 break;
             case 2:
+                if(sciNotation){
+                    df = new DecimalFormat("#.##E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.00");
                 number = df.format(measure);
+                }
                 break;
             case 3:
+                if(sciNotation){
+                    df = new DecimalFormat("#.###E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.000");
                 number = df.format(measure);
+                }
                 break;
             case 4:
+                if(sciNotation){
+                    df = new DecimalFormat("#.####E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.0000");
                 number = df.format(measure);
+                }
                 break;
             case 5:
+                if(sciNotation){
+                    df = new DecimalFormat("#.#####E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.00000");
                 number = df.format(measure);
+                }
                 break;
             case 6:
+                if(sciNotation){
+                    df = new DecimalFormat("#.######E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.000000");
                 number = df.format(measure);
+                }
                 break;
             case 7:
+                if(sciNotation){
+                    df = new DecimalFormat("#.#######E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.0000000");
                 number = df.format(measure);
+                }
                 break;
             case 8:
+                if(sciNotation){
+                    df = new DecimalFormat("#.########E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.00000000");
                 number = df.format(measure);
+                }
                 break;
             case 9:
+                if(sciNotation){
+                    df = new DecimalFormat("#.#########E0");
+                    number = df.format(measure);
+                } else {
                 df = new DecimalFormat("#.000000000");
                 number = df.format(measure);
+                }
                 break;
         }
         return number;
