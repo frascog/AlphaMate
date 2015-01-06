@@ -86,7 +86,7 @@ public class EMeasureSetController {
         if (listeners != null) {
             unregisterListeners();
             for (EMeasureListener listener : listeners) {
-                listener.EMeasureChangeResponce();
+                listener.EMeasureChangeResponce(this.eMeasureSet.get(1).getEntity());
             }
         }
     }

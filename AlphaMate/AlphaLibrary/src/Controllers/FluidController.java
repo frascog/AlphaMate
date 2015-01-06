@@ -127,7 +127,7 @@ public class FluidController {
         if (listeners != null) {
             unregisterListeners();
             for (FluidListener listener : listeners) {
-                listener.FluidChangeResponce();
+                listener.FluidChangeResponce(fluid);
             }
         }
     }

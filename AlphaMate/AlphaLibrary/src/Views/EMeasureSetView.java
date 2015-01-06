@@ -8,6 +8,7 @@ package Views;
 import Controllers.EMeasureController;
 import Controllers.EMeasureSetController;
 import Listeners.EMeasureListener;
+import Models.EMeasure;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -76,7 +77,7 @@ public class EMeasureSetView extends JPanel implements EMeasureListener{
     }
     
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         
     }
 }

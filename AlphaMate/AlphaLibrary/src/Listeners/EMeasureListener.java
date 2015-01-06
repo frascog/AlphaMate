@@ -5,12 +5,14 @@
  */
 package Listeners;
 
+import Models.EMeasure;
+
 /**
  *
  * @author Greg
  */
 public interface EMeasureListener {
 
-    public void EMeasureChangeResponce();
+    public void EMeasureChangeResponce(EMeasure e);
     
 }

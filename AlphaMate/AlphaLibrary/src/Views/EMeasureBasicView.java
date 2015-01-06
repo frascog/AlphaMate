@@ -7,6 +7,7 @@ package Views;
 
 import Controllers.EMeasureController;
 import Listeners.EMeasureListener;
+import Models.EMeasure;
 import SupportClasses.MeasureUtilities;
 import Unit.Unit;
 import com.sun.glass.events.KeyEvent;
@@ -138,11 +139,11 @@ public class EMeasureBasicView extends JPanel implements EMeasureListener {
         initDone = false;
         jComboBox1.setModel(new DefaultComboBoxModel(MeasureUtilities.findCompatiableUnits(controller.getUnit()).toArray()));
         jTextField1.setFont(new Font("Tahoma", Font.BOLD, 12));
-        this.EMeasureChangeResponce();
+        this.EMeasureChangeResponce(null);
     }
 
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         initDone = false;
         jLabel1.setText(controller.getName());
         jComboBox1.setSelectedItem(controller.getUnit());

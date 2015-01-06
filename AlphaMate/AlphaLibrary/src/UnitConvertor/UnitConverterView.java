@@ -6,6 +6,7 @@
 package UnitConvertor;
 
 import Listeners.EMeasureListener;
+import Models.EMeasure;
 import Unit.Unit;
 import Unit.UnitType;
 import java.awt.BorderLayout;
@@ -145,6 +146,7 @@ public class UnitConverterView extends JPanel implements UnitConverterListener, 
         controller.getControllerA().getListeners().add(this);
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(controller.getControllerB().getEMeasureBasicView(), BorderLayout.CENTER);
+        controller.getControllerB().getListeners().add(this);
         jComboBox1.setModel(new DefaultComboBoxModel(UnitType.values()));
         jComboBox1.setSelectedItem(UnitType.Length);
         initDone = true;
@@ -161,7 +163,7 @@ public class UnitConverterView extends JPanel implements UnitConverterListener, 
     }
 
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         if (initDone) {
             this.initDone = false;
             this.UnitConverterChangeresponce();

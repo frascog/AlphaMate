@@ -8,6 +8,8 @@ package Views;
 import Controllers.FluidController;
 import Listeners.EMeasureListener;
 import Listeners.FluidListener;
+import Models.EMeasure;
+import Models.Fluid;
 import SupportClasses.FluidKind;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
@@ -131,12 +133,12 @@ public class FluidBasicView extends JPanel implements FluidListener, EMeasureLis
     }
 
     @Override
-    public void FluidChangeResponce() {
+    public void FluidChangeResponce(Fluid f) {
         this.changeResponce();
     }
 
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         this.changeResponce();
     }
 

@@ -248,7 +248,7 @@ public class EMeasureController {
         if (listeners != null) {
             unregisterListeners();
             for (EMeasureListener listener : listeners) {
-                listener.EMeasureChangeResponce();
+                listener.EMeasureChangeResponce(this.entity);
             }
         }
     }

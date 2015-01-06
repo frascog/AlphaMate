@@ -8,6 +8,8 @@ package Views;
 import Controllers.FluidController;
 import Listeners.EMeasureListener;
 import Listeners.FluidListener;
+import Models.EMeasure;
+import Models.Fluid;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -110,12 +112,12 @@ public class FluidFullView extends JPanel implements FluidListener,EMeasureListe
     }
 
     @Override
-    public void FluidChangeResponce() {
+    public void FluidChangeResponce(Fluid f) {
         changeResponce();
     }
 
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         changeResponce();
     }
     

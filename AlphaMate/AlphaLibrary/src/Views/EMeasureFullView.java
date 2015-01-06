@@ -9,6 +9,7 @@ import Controllers.EMeasureController;
 import Controllers.EMeasureController.EMeasureFlavor;
 import Controllers.EMeasureController.EMeasureInterval;
 import Listeners.EMeasureListener;
+import Models.EMeasure;
 import SupportClasses.EMeasureFormat;
 import SupportClasses.MeasureUtilities;
 import Unit.Unit;
@@ -449,11 +450,11 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         jTextField3.setFont(new Font("Tahoma", Font.BOLD, 12));
         jTextField4.setFont(new Font("Tahoma", Font.BOLD, 12));
         jTextArea1.setFont(new Font("Tahoma", Font.BOLD, 12));
-        this.EMeasureChangeResponce();
+        this.EMeasureChangeResponce(null);
     }
     
     @Override
-    public void EMeasureChangeResponce() {
+    public void EMeasureChangeResponce(EMeasure e) {
         this.initDone = false;
         this.jTextField1.setText(controller.getName());
         this.jTextField2.setText(EMeasureFormat.format(controller.getMinimum(),controller.getPrecision()));

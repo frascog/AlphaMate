@@ -5,11 +5,13 @@
  */
 package Listeners;
 
+import Models.Fluid;
+
 /**
  *
  * @author frascog
  */
 public interface FluidListener {
     
-     public void FluidChangeResponce();
+     public void FluidChangeResponce(Fluid f);
 }
