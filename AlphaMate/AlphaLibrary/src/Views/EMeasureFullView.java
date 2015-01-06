@@ -204,16 +204,16 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBox1, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jCheckBox1.text")); // NOI18N
-        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox1ItemStateChanged(evt);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
             }
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBox2, org.openide.util.NbBundle.getMessage(EMeasureFullView.class, "EMeasureFullView.jCheckBox2.text")); // NOI18N
-        jCheckBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCheckBox2ItemStateChanged(evt);
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
             }
         });
 
@@ -378,22 +378,6 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
-    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
-        if (initDone) {
-            EMeasureInterval interval;            
-            interval = jCheckBox1.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
-            this.controller.setLowerEnd(interval);
-        }
-    }//GEN-LAST:event_jCheckBox1ItemStateChanged
-
-    private void jCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox2ItemStateChanged
-        if (initDone) {
-            EMeasureInterval interval;            
-            interval = jCheckBox2.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
-            this.controller.setUpperEnd(interval);
-        }
-    }//GEN-LAST:event_jCheckBox2ItemStateChanged
-
     private void jTextArea1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseExited
         controller.setDescription(jTextArea1.getText());
         jTextArea1.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -402,6 +386,22 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
     private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
         jTextArea1.setFont(new Font("Tahoma", Font.PLAIN, 12));
     }//GEN-LAST:event_jTextArea1KeyPressed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (initDone) {
+            EMeasureInterval interval;            
+            interval = jCheckBox1.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
+            this.controller.setLowerEnd(interval);
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        if (initDone) {
+            EMeasureInterval interval;            
+            interval = jCheckBox2.isSelected() ? EMeasureInterval.inclusive : EMeasureInterval.exclusive;
+            this.controller.setUpperEnd(interval);
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -468,6 +468,30 @@ public class EMeasureFullView extends JPanel implements EMeasureListener {
         this.jComboBox4.setSelectedItem(controller.getPrecision() + "");
         this.jTextArea1.setText(controller.getDescription());
         this.jComboBox2.setToolTipText(MeasureUtilities.getUnitName(controller.getUnit()));
+        
+        switch(this.controller.getFlavor()) {
+            case Nominal:
+                jTextField2.setEnabled(false);
+                jTextField3.setEnabled(true);
+                jTextField4.setEnabled(false);
+                jCheckBox1.setEnabled(false);
+                jCheckBox2.setEnabled(false);
+                break;
+            case Minimum_Maximun:
+                jTextField2.setEnabled(true);
+                jTextField3.setEnabled(false);
+                jTextField4.setEnabled(true);
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                break;
+            case Minimum_Nominal_Maximun:
+                jTextField2.setEnabled(true);
+                jTextField3.setEnabled(true);
+                jTextField4.setEnabled(true);
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                break;
+    }
         this.initDone = true;
     }
 }

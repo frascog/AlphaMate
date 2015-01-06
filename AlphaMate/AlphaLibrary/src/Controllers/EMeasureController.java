@@ -321,6 +321,7 @@ public class EMeasureController {
 
     public void setLowerEnd(EMeasureInterval lowerEnd) {
         this.entity.setLowerEnd(lowerEnd);
+        this.fireUpdate();
     }
 
     public EMeasureInterval getUpperEnd() {
@@ -329,6 +330,7 @@ public class EMeasureController {
 
     public void setUpperEnd(EMeasureInterval upperEnd) {
         this.entity.setUpperEnd(upperEnd);
+        this.fireUpdate();
     }
 
     public boolean isLowerInclusive() {
@@ -340,6 +342,20 @@ public class EMeasureController {
 
     public boolean isUpperInclusive() {
         if (this.entity.getUpperEnd() == EMeasureInterval.inclusive) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isLowerExclusive() {
+        if (this.entity.getLowerEnd() == EMeasureInterval.exclusive) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isUpperExclusive() {
+        if (this.entity.getUpperEnd() == EMeasureInterval.exclusive) {
             return true;
         }
         return false;
