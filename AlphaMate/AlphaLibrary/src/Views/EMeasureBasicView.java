@@ -19,6 +19,8 @@ import javax.swing.JPanel;
  *
  * @author Greg
  */
+
+@SuppressWarnings({"unchecked","rawtypes"})
 public class EMeasureBasicView extends JPanel implements EMeasureListener {
 
     private EMeasureController controller;

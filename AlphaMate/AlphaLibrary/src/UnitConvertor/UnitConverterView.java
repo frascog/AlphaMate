@@ -17,6 +17,8 @@ import javax.swing.JPanel;
  *
  * @author frascog
  */
+
+@SuppressWarnings({"unchecked","rawtypes"})
 public class UnitConverterView extends JPanel implements UnitConverterListener, EMeasureListener {
 
     private UnitConverterController controller;

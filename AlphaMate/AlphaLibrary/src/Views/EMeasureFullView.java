@@ -23,6 +23,7 @@ import javax.swing.JPanel;
  *
  * @author frascog
  */
+@SuppressWarnings({"unchecked","rawtypes"})
 public class EMeasureFullView extends JPanel implements EMeasureListener {
     
     private EMeasureController controller;

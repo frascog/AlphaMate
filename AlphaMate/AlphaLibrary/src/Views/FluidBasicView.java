@@ -19,6 +19,8 @@ import javax.swing.JPanel;
  *
  * @author frascog
  */
+
+@SuppressWarnings({"unchecked","rawtypes"})
 public class FluidBasicView extends JPanel implements FluidListener, EMeasureListener {
 
     private FluidController controller;

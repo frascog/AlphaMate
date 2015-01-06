@@ -209,6 +209,7 @@ public class EMeasureController {
         return viewState;
     }
 
+    @SuppressWarnings("rawtypes")
     public List getListeners() {
         return this.listeners;
     }

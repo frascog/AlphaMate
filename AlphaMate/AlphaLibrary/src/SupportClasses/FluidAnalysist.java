@@ -15,12 +15,12 @@ import Unit.SystemOfUnits;
 public class FluidAnalysist {
     
     public static EMeasure calculateDesnisty(FluidController controller) {
-        //d = P x MW / (R x T)
+        //d = P x MW / (R x T(K))
         EMeasure density = new EMeasure("Density", SystemOfUnits.gram_per_cubic_meter);
         EMeasure pressure = new EMeasure("Pressure", controller.getPressureController().getUnit());
         EMeasure temperature = new EMeasure("Temperature", controller.getTemperatureController().getUnit());
-        EMeasureCalculator.eMeasuretoUnit(controller.getPressureController().getEntity(), pressure, SystemOfUnits.atmosphere);
-        EMeasureCalculator.eMeasuretoUnit(controller.getTemperatureController().getEntity(), temperature, SystemOfUnits.kelvin);
+        pressure = EMeasureCalculator.eMeasuretoUnit(controller.getPressureController().getEntity(), pressure, SystemOfUnits.atmosphere);
+        temperature = EMeasureCalculator.eMeasuretoUnit(controller.getTemperatureController().getEntity(), temperature, SystemOfUnits.kelvin);
         EMeasureCalculator.times(pressure, pressure, MolecularWeight.getMolecularWeight(controller.getFluidKind()));
         EMeasureCalculator.times(temperature, 0.0821);
         EMeasureCalculator.divide(density, pressure, temperature);

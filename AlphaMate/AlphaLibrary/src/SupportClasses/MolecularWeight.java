@@ -29,14 +29,23 @@ public class MolecularWeight {
             case Hydrogen:
                 molecularWeight = 1.01;
                 break;
+            case H2:
+                molecularWeight = 2.016;
+                break;
             case Nitrogen:
                 molecularWeight = 14.01;
                 break;
-            case Water:
-                molecularWeight = 18.02;
+            case N2:
+                molecularWeight = 28.0134;
                 break;
-            case SO2:
-                molecularWeight = 64.1;
+            case Oxygen:
+                molecularWeight = 15.9994;
+                break;
+            case O2:
+                molecularWeight = 31.9988;
+                break;
+            case Water:
+                molecularWeight = 18.015;
                 break;
         }
         EMeasure eMeasure = new EMeasure("Molecular Weight", SystemOfUnits.grams_per_mole);

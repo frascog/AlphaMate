@@ -14,35 +14,35 @@ import Unit.Unit;
  */
 public class EMeasureCalculator {
     
-    public static void times(EMeasure eMeasure, EMeasure eMeasureA, EMeasure eMeasureB) {
-        eMeasure.setMinimum(eMeasureA.getMinimum() * eMeasureB.getMinimum());
-        eMeasure.setNominal(eMeasureA.getNominal() * eMeasureB.getNominal());
-        eMeasure.setMaximun(eMeasureA.getMaximun() * eMeasureB.getMaximun());
+    public static void times(EMeasure eMeasureA, EMeasure eMeasureB, EMeasure eMeasureC) {
+        eMeasureC.setMinimum(eMeasureA.getMinimum() * eMeasureB.getMinimum());
+        eMeasureC.setNominal(eMeasureA.getNominal() * eMeasureB.getNominal());
+        eMeasureC.setMaximun(eMeasureA.getMaximun() * eMeasureB.getMaximun());
     }
-
+    
     public static void times(EMeasure eMeasure, double number) {
         eMeasure.setMinimum(eMeasure.getMinimum() * number);
         eMeasure.setNominal(eMeasure.getNominal() * number);
         eMeasure.setMaximun(eMeasure.getMaximun() * number);
     }
 
-    public static void divide(EMeasure eMeasure, EMeasure eMeasureA, EMeasure eMeasureB) {
-        eMeasure.setMinimum(eMeasureA.getMinimum() / eMeasureB.getMinimum());
-        eMeasure.setNominal(eMeasureA.getNominal() / eMeasureB.getNominal());
-        eMeasure.setMaximun(eMeasureA.getMaximun() / eMeasureB.getMaximun());
+    public static void divide(EMeasure eMeasureA, EMeasure eMeasureB,EMeasure eMeasureC) {
+        eMeasureC.setMinimum(eMeasureA.getMinimum() / eMeasureB.getMinimum());
+        eMeasureC.setNominal(eMeasureA.getNominal() / eMeasureB.getNominal());
+        eMeasureC.setMaximun(eMeasureA.getMaximun() / eMeasureB.getMaximun());
     }
 
-    public static void setEMeasure(EMeasure eMeasureA, EMeasure eMeasureB) {
-        eMeasureB.setMinimum(eMeasureA.getMinimum());
-        eMeasureB.setNominal(eMeasureA.getNominal());
-        eMeasureB.setMaximun(eMeasureA.getMaximun());
+    public static void setEMeasure(EMeasure eMeasureA, EMeasure eMeasureC) {
+        eMeasureC.setMinimum(eMeasureA.getMinimum());
+        eMeasureC.setNominal(eMeasureA.getNominal());
+        eMeasureC.setMaximun(eMeasureA.getMaximun());
     }
     
-    public static EMeasure eMeasuretoUnit(EMeasure eMeasureA, EMeasure eMeasureB, Unit unit) {
-        eMeasureB.setMinimum(eMeasureA.getMinimum());
-        eMeasureB.setNominal(eMeasureA.getNominal());
-        eMeasureB.setMaximun(eMeasureA.getMaximun());
-        eMeasureB.setUnit(unit);
-        return eMeasureB;
+    public static EMeasure eMeasuretoUnit(EMeasure eMeasureA, EMeasure eMeasureC, Unit unit) {
+        eMeasureC.setMinimum(eMeasureA.getMinimum());
+        eMeasureC.setNominal(eMeasureA.getNominal());
+        eMeasureC.setMaximun(eMeasureA.getMaximun());
+        eMeasureC.setUnit(unit);
+        return eMeasureC;
     }
 }

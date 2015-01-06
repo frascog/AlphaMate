@@ -37,6 +37,8 @@ import org.openide.util.NbBundle.Messages;
     "CTL_UnitConverterTopComponent=Unit Converter",
     "HINT_UnitConverterTopComponent=This is a Unit Converter"
 })
+
+@SuppressWarnings({"rawtypes","unchecked"})
 public final class UnitConverterTopComponent extends TopComponent {
 
     private UnitConverterController[] controllers;
@@ -138,7 +140,7 @@ public final class UnitConverterTopComponent extends TopComponent {
         // TODO read your settings according to their version
     }
 
-    @SuppressWarnings("empty-statement")
+    @SuppressWarnings({"empty-statement","unchecked","rawtypes"})
     private void initMyComponents() {
         String[] numberOfConvertors = {"1", "2", "3", "4", "5"};
         this.jComboBox1.setModel(new DefaultComboBoxModel(numberOfConvertors));
@@ -151,6 +153,7 @@ public final class UnitConverterTopComponent extends TopComponent {
         setVisiable("1");
     }
 
+    @SuppressWarnings("fallthrough")
     private void setVisiable(String number) {
         this.controllers[0].getUnitConverterView().setVisible(false);
         this.controllers[1].getUnitConverterView().setVisible(false);

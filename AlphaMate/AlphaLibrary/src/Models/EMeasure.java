@@ -144,4 +144,11 @@ public class EMeasure {
     public void setScientificNotation(boolean scientificNotation) {
         this.scientificNotation = scientificNotation;
     }
+
+    @Override
+    public String toString() {
+        return getNominal() + " " + getUnit().toString();
+    }
+    
+    
 }
