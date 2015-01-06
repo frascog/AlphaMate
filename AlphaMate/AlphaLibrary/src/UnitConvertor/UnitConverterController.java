@@ -86,7 +86,7 @@ public class UnitConverterController {
     public void fireUpdate() {
         if (listeners != null) {
             for (UnitConverterListener listener : listeners) {
-                listener.UnitConverterChangeresponce();
+                listener.UnitConverterChangeresponce(null);
             }
         }
     }

@@ -5,10 +5,12 @@
  */
 package UnitConvertor;
 
+import Models.EMeasure;
+
 /**
  *
  * @author frascog
  */
 public interface UnitConverterListener {
-    public void UnitConverterChangeresponce();
+    public void UnitConverterChangeresponce(EMeasure e);
 }

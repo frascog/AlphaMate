@@ -153,12 +153,22 @@ public class UnitConverterView extends JPanel implements UnitConverterListener, 
     }
 
     @Override
-    public void UnitConverterChangeresponce() {
-        Unit tempUnit = controller.getControllerB().getUnit();
-        if (controller.getControllerA().getUnit().isCompatible(tempUnit)) {
-            controller.getControllerB().setUnit(controller.getControllerA().getUnit());
-            controller.getControllerB().setNominal(controller.getControllerA().getNominal());
-            controller.getControllerB().setUnit(tempUnit);
+    public void UnitConverterChangeresponce(EMeasure e) {
+        Unit tempUnit = null;
+        if(controller.getControllerA().getEntity() == e) {
+            tempUnit = controller.getControllerB().getUnit();
+            if (controller.getControllerA().getUnit().isCompatible(tempUnit)) {
+                controller.getControllerB().setUnit(controller.getControllerA().getUnit());
+                controller.getControllerB().setNominal(controller.getControllerA().getNominal());
+                controller.getControllerB().setUnit(tempUnit);
+            }
+        } else if(controller.getControllerB().getEntity() == e) {
+            tempUnit = controller.getControllerA().getUnit();
+            if (controller.getControllerB().getUnit().isCompatible(tempUnit)) {
+                controller.getControllerA().setUnit(controller.getControllerB().getUnit());
+                controller.getControllerA().setNominal(controller.getControllerB().getNominal());
+                controller.getControllerA().setUnit(tempUnit);   
+            }
         }
     }
 
@@ -166,7 +176,7 @@ public class UnitConverterView extends JPanel implements UnitConverterListener, 
     public void EMeasureChangeResponce(EMeasure e) {
         if (initDone) {
             this.initDone = false;
-            this.UnitConverterChangeresponce();
+            this.UnitConverterChangeresponce(e);
             this.initDone = true;
         }
     }
