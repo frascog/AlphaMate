@@ -226,13 +226,13 @@ public final class SystemOfUnits {
     public static final Unit lumen_hour = nonSI(new Unit("lm·h", UnitType.Luminous_Flux, 1));
     public static final Unit lumen_minute = nonSI(new Unit("lm·min", UnitType.Luminous_Flux, 60));
     public static final Unit lumen_second = nonSI(new Unit("lm·s", UnitType.Luminous_Flux, 3600));
-    public static final Unit talbot = nonSI(new Unit("hp", UnitType.Luminous_Flux, 3600));
+    public static final Unit talbot = nonSI(new Unit("T", UnitType.Luminous_Flux, 3600));
 
     //Luminous_Intensity
     public static final Unit lumen_per_steradian = nonSI(new Unit("lm/sr", UnitType.Luminous_Intensity, 1));
     public static final Unit candela = nonSI(new Unit("cd", UnitType.Luminous_Intensity, 1));
     public static final Unit hefnerkerze = nonSI(new Unit("HK", UnitType.Luminous_Intensity, 1.106967615309));
-    public static final Unit candlepower = nonSI(new Unit("hp", UnitType.Luminous_Intensity, 1.019367991845));
+    public static final Unit candlepower = nonSI(new Unit("cp", UnitType.Luminous_Intensity, 1.019367991845));
 
     //Magnetic Flux
     public static final Unit weber = nonSI(new Unit("Wb", UnitType.Magnetic_Flux, 1));
