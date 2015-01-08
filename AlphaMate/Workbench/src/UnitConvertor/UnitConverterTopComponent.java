@@ -17,36 +17,34 @@ import org.openide.util.NbBundle.Messages;
  * Top component which displays something.
  */
 @ConvertAsProperties(
-        dtd = "-//UnitConvertor//UnitConverter//EN",
+        dtd = "-//UnitConvertor//UnitConverters//EN",
         autostore = false
 )
 @TopComponent.Description(
-        preferredID = "UnitConverterTopComponent",
+        preferredID = "UnitConvertersTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
-@ActionID(category = "Tools", id = "UnitConvertor.UnitConverterTopComponent")
+@ActionID(category = "Window", id = "UnitConvertor.UnitConvertersTopComponent")
 @ActionReference(path = "Menu/Tools" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-        displayName = "#CTL_UnitConverterAction",
-        preferredID = "UnitConverterTopComponent"
+        displayName = "#CTL_UnitConvertersAction",
+        preferredID = "UnitConvertersTopComponent"
 )
 @Messages({
-    "CTL_UnitConverterAction=UnitConverter",
-    "CTL_UnitConverterTopComponent=Unit Converter",
-    "HINT_UnitConverterTopComponent=This is a Unit Converter"
+    "CTL_UnitConvertersAction=Unit Converter",
+    "CTL_UnitConvertersTopComponent=Unit Converter",
+    "HINT_UnitConvertersTopComponent=Unit Converter"
 })
-
-@SuppressWarnings({"rawtypes","unchecked"})
 public final class UnitConverterTopComponent extends TopComponent {
 
     private UnitConverterController[] controllers;
-
+    
     public UnitConverterTopComponent() {
         initComponents();
-        setName(Bundle.CTL_UnitConverterTopComponent());
-        setToolTipText(Bundle.HINT_UnitConverterTopComponent());
+        setName(Bundle.CTL_UnitConvertersTopComponent());
+        setToolTipText(Bundle.HINT_UnitConvertersTopComponent());
         initMyComponents();
     }
 
@@ -58,9 +56,11 @@ public final class UnitConverterTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(UnitConverterTopComponent.class, "UnitConverterTopComponent.jLabel1.text")); // NOI18N
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -77,10 +77,8 @@ public final class UnitConverterTopComponent extends TopComponent {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 312, Short.MAX_VALUE)
+            .addGap(0, 331, Short.MAX_VALUE)
         );
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(UnitConverterTopComponent.class, "UnitConverterTopComponent.jLabel1.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,12 +87,12 @@ public final class UnitConverterTopComponent extends TopComponent {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 393, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 457, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -102,8 +100,8 @@ public final class UnitConverterTopComponent extends TopComponent {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -126,6 +124,7 @@ public final class UnitConverterTopComponent extends TopComponent {
 
     @Override
     public void componentClosed() {
+        // TODO add custom code on component closing
     }
 
     void writeProperties(java.util.Properties p) {
@@ -139,7 +138,7 @@ public final class UnitConverterTopComponent extends TopComponent {
         String version = p.getProperty("version");
         // TODO read your settings according to their version
     }
-
+    
     @SuppressWarnings({"empty-statement","unchecked","rawtypes"})
     private void initMyComponents() {
         String[] numberOfConvertors = {"1", "2", "3", "4", "5"};
