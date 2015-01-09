@@ -118,8 +118,8 @@ public class LiftController {
     }
     
     public void calculate() {
-        //Calcuate Surface Aera
         LiftAnalyst.calcuateSurfaceAera(this);
+        LiftAnalyst.calcuateVolume(this);
     }
 
 }

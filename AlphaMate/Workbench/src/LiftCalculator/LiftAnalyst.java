@@ -78,5 +78,70 @@ public class LiftAnalyst {
         controller.getSurfaceAeraController().setEMeasure(surfaceMin, surfaceNom, surfaceMax);
         controller.getSurfaceAeraController().setUnit(tempUnit);
     }
+    
+    public static void calcuateVolume(LiftController controller) {
+        double radiusMin = controller.getRadiusController().to(SystemOfUnits.meter).getMinimum();
+        double radiusNom = controller.getRadiusController().to(SystemOfUnits.meter).getNominal();
+        double radiusMax = controller.getRadiusController().to(SystemOfUnits.meter).getMaximun();
+
+        double heightMin = controller.getHeightController().to(SystemOfUnits.meter).getMinimum();
+        double heightNom = controller.getHeightController().to(SystemOfUnits.meter).getNominal();
+        double heightMax = controller.getHeightController().to(SystemOfUnits.meter).getMaximun();
+
+        double widthMin = controller.getWidthController().to(SystemOfUnits.meter).getMinimum();
+        double widthNom = controller.getWidthController().to(SystemOfUnits.meter).getNominal();
+        double widthMax = controller.getWidthController().to(SystemOfUnits.meter).getMaximun();
+
+        double lengthMin = controller.getLengthController().to(SystemOfUnits.meter).getMinimum();
+        double lengthNom = controller.getLengthController().to(SystemOfUnits.meter).getNominal();
+        double lengthMax = controller.getLengthController().to(SystemOfUnits.meter).getMaximun();
+
+        double volumeMin = 0;
+        double volumeNom = 0;
+        double volumeMax = 0;
+
+        switch (controller.getShape()) {
+            case Capsule:
+                //πr^2((4/3)r + a)
+                volumeMin = Math.PI * Math.pow(radiusMin, 2) * ((4.0/3) * radiusMin + heightMin); 
+                volumeNom = Math.PI * Math.pow(radiusNom, 2) * ((4.0/3) * radiusNom + heightNom); 
+                volumeMax = Math.PI * Math.pow(radiusMax, 2) * ((4.0/3) * radiusMax + heightMax); 
+                break;
+            case Cube:
+                //a^2
+                volumeMin = Math.pow(lengthMin, 3);
+                volumeNom = Math.pow(lengthNom, 3);
+                volumeMax = Math.pow(lengthMax, 3);
+                break;
+            case Cuboid:
+                //lwh
+                volumeMin = lengthMin * widthMin * heightMin;
+                volumeNom = lengthNom * widthNom * heightNom;
+                volumeMax = lengthMax * widthMax * heightMax;
+                break;
+            case Cylinder:
+                //πr^2h
+                volumeMin = Math.PI * Math.pow(radiusMin,2) * heightMin; 
+                volumeNom = Math.PI * Math.pow(radiusNom,2) * heightNom;
+                volumeMax = Math.PI * Math.pow(radiusMax,2) * heightMax;
+                break;
+            case Sphere:
+                //(4/3)πr3
+                volumeMin = (4.0/3.0) * Math.PI * Math.pow(radiusMin, 3);
+                volumeNom = (4.0/3.0) * Math.PI * Math.pow(radiusNom, 3);
+                volumeMax = (4.0/3.0) * Math.PI * Math.pow(radiusMax, 3);
+                break;
+            case Spherical_Cap:
+                //(1/3)πh^2(3R - h)
+                volumeMin = (1/3) * Math.PI * Math.pow(heightMin,2) * (3 * radiusMin - heightMin);
+                volumeNom = (1/3) * Math.PI * Math.pow(heightNom,2) * (3 * radiusNom - heightNom);
+                volumeMax = (1/3) * Math.PI * Math.pow(heightMax,2) * (3 * radiusMax - heightMax);
+                break;
+        }
+        Unit tempUnit = controller.getVolumeController().getUnit();
+        controller.getVolumeController().setUnit(SystemOfUnits.cubic_meter);
+        controller.getVolumeController().setEMeasure(volumeMin, volumeNom, volumeMax);
+        controller.getVolumeController().setUnit(tempUnit);
+    }
 }
 
