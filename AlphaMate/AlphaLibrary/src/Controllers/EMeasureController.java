@@ -375,6 +375,17 @@ public class EMeasureController {
         this.entity.toUnit(unit);
     }
 
+    public EMeasure to(Unit unit) {
+        Unit tempUnit = this.entity.getUnit();
+        entity.toUnit(unit);
+        EMeasure eMeasure = new EMeasure(this.getName(), unit);
+        eMeasure.setMinimum(entity.getMinimum());
+        eMeasure.setNominal(entity.getNominal());
+        eMeasure.setMaximun(entity.getMaximun());
+        entity.toUnit(tempUnit);
+        return eMeasure;
+    }
+    
     public enum EMeasureFlavor {
 
         Nominal,

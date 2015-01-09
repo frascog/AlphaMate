@@ -14,4 +14,11 @@ public enum Shape {
     Cube,
     Cuboid,
     Cylinder,
+    Capsule,
+    Spherical_Cap,;
+    
+    @Override    
+    public String toString() {
+        return super.toString().replaceAll("_", " ");
+    }
 }

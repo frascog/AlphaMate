@@ -26,15 +26,15 @@ import org.openide.util.NbBundle.Messages;
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "LiftCalculator.LiftCalculatorTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionReference(path = "Menu/Tools" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
         displayName = "#CTL_LiftCalculatorAction",
         preferredID = "LiftCalculatorTopComponent"
 )
 @Messages({
-    "CTL_LiftCalculatorAction=LiftCalculator",
-    "CTL_LiftCalculatorTopComponent=LiftCalculator Window",
-    "HINT_LiftCalculatorTopComponent=This is a LiftCalculator window"
+    "CTL_LiftCalculatorAction=Lift Calculator",
+    "CTL_LiftCalculatorTopComponent=Lift Calculator",
+    "HINT_LiftCalculatorTopComponent=Lift Calculator"
 })
 public final class LiftCalculatorTopComponent extends TopComponent {
 

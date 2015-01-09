@@ -5,19 +5,23 @@
  */
 package LiftCalculator;
 
-import java.awt.BorderLayout;
+import Listeners.EMeasureListener;
+import Models.EMeasure;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 
 /**
  *
  * @author frascog
  */
-public class LiftCalcaulatorView extends javax.swing.JPanel {
+public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasureListener {
 
-    /**
-     * Creates new form LiftCalcaulatorView
-     */
-    public LiftCalcaulatorView() {
+    private LiftController controller;
+    private boolean initDone;
+
+    public LiftCalcaulatorView(LiftController controller) {
+        this.controller = controller;
         initComponents();
         initMyComponents();
     }
@@ -38,12 +42,18 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
-        jSplitPane1.setDividerLocation(400);
+        jSplitPane1.setDividerLocation(500);
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(LiftCalcaulatorView.class, "LiftCalcaulatorView.jLabel1.text")); // NOI18N
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -53,7 +63,7 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, 0, 321, Short.MAX_VALUE)
+                .addComponent(jComboBox1, 0, 1, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -74,7 +84,7 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 319, Short.MAX_VALUE)
+            .addGap(0, 194, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -94,24 +104,39 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 107, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(271, Short.MAX_VALUE))
         );
-
-        jSplitPane1.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -119,17 +144,28 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1)
-                .addContainerGap())
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSplitPane1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        if (initDone) {
+            controller.setShape((Shape) jComboBox1.getSelectedItem());
+        }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,12 +175,86 @@ public class LiftCalcaulatorView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
-        jPanel1.setLayout(new BorderLayout());
+        initDone = false;
         jComboBox1.setModel(new DefaultComboBoxModel(Shape.values()));
-        
+        jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.Y_AXIS));
+        controller.getRadiusController().getListeners().add(this);
+        controller.getDiameterController().getListeners().add(this);
+        controller.getLengthController().getListeners().add(this);
+        controller.getWidthController().getListeners().add(this);
+        controller.getHeightController().getListeners().add(this);
+        jPanel4.add(this.controller.getRadiusController().getEMeasureBasicView());
+        jPanel4.add(this.controller.getDiameterController().getEMeasureBasicView());
+        jPanel4.add(this.controller.getLengthController().getEMeasureBasicView());
+        jPanel4.add(this.controller.getWidthController().getEMeasureBasicView());
+        jPanel4.add(this.controller.getHeightController().getEMeasureBasicView());
+        jPanel5.setLayout(new BoxLayout(jPanel5, BoxLayout.Y_AXIS));
+        jPanel5.add(this.controller.getSurfaceAeraController().getEMeasureBasicView());
+        jPanel5.add(this.controller.getVolumeController().getEMeasureBasicView());
+        LiftCalcualtorChangeResponce(null);
     }
+
+    @Override
+    public void LiftCalcualtorChangeResponce(EMeasure e) {
+        initDone = false;
+        jComboBox1.setSelectedItem(controller.getShape());
+        switch (controller.getShape()) {
+            case Cube:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(false);
+                break;
+            case Cuboid:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(true);
+                break;
+            case Cylinder:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(true);
+                break;
+            case Sphere:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(false);
+                break;
+            case Capsule:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(false);
+                break;
+            case Spherical_Cap:
+                this.controller.getRadiusController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getDiameterController().getEMeasureBasicView(0).setVisible(true);
+                this.controller.getLengthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getWidthController().getEMeasureBasicView(0).setVisible(false);
+                this.controller.getHeightController().getEMeasureBasicView(0).setVisible(true);
+                break;
+        }
+        controller.calculate();
+        initDone = true;
+    }
+
+    @Override
+    public void EMeasureChangeResponce(EMeasure e) {
+        this.LiftCalcualtorChangeResponce(e);
+    }
+    
+    
 }
