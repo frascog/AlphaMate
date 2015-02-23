@@ -11,16 +11,13 @@ package SupportClasses;
  */
 public enum FluidKind {
 
-    Air,
+    Dry_Air,
     Carbon_Dioxide,
     Helium,
     Hydrogen,
-    H2,
     Nitrogen,
-    N2,
     Oxygen,
-    O2,
-    Water,;
+    Water;
 
     @Override
     public String toString() {

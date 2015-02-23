@@ -17,7 +17,7 @@ public class MolecularWeight {
     public static EMeasure getMolecularWeight(FluidKind fluid) {
         double molecularWeight = 0;
         switch (fluid) {
-            case Air:
+            case Dry_Air:
                 molecularWeight = 28.97;
                 break;
             case Carbon_Dioxide:
@@ -27,21 +27,12 @@ public class MolecularWeight {
                 molecularWeight = 4.00;
                 break;
             case Hydrogen:
-                molecularWeight = 1.01;
-                break;
-            case H2:
                 molecularWeight = 2.016;
                 break;
             case Nitrogen:
-                molecularWeight = 14.01;
-                break;
-            case N2:
                 molecularWeight = 28.0134;
                 break;
             case Oxygen:
-                molecularWeight = 15.9994;
-                break;
-            case O2:
                 molecularWeight = 31.9988;
                 break;
             case Water:

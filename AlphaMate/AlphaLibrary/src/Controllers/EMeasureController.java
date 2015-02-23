@@ -129,6 +129,7 @@ public class EMeasureController {
         this.setMinimum(minimum);
         this.setNominal(nominal);
         this.setMaximun(maximun);
+        this.fireUpdate();
     }
 
     @SuppressWarnings("rawtypes")

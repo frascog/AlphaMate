@@ -11,6 +11,7 @@ import Models.Fluid;
 import SupportClasses.FluidAnalysist;
 import SupportClasses.FluidKind;
 import Unit.SystemOfUnits;
+import Unit.Unit;
 import Views.FluidBasicView;
 import Views.FluidFullView;
 import java.awt.event.WindowAdapter;
@@ -45,6 +46,12 @@ public class FluidController {
     
     private void initCalculations() {
         eMeasureSetController.addEMeasure(new EMeasure("Density", SystemOfUnits.kilogram_per_cubic_meter));
+        eMeasureSetController.getEMeasure("Density").setViewState(false, false, true, true);
+        eMeasureSetController.addEMeasure(new EMeasure("Volume", SystemOfUnits.liter));
+        eMeasureSetController.getEMeasure("Volume").setViewState(false, true, true, true);
+        eMeasureSetController.getEMeasure("Volume").setEMeasure(20, 20, 20);
+        eMeasureSetController.addEMeasure(new EMeasure("Lift", SystemOfUnits.gram));
+        eMeasureSetController.getEMeasure("Lift").setViewState(false, false, true, true);
     }
     
     public FluidKind getFluidKind() {
@@ -150,8 +157,6 @@ public class FluidController {
         }
     }
     
-    
-    
     private void unregisterListeners() {
         if (fluidBasicViews != null) {
             for (FluidBasicView view : fluidBasicViews) {
@@ -192,8 +197,16 @@ public class FluidController {
     }
     
     public void calcuate() {
+        Unit denistyUnit = eMeasureSetController.getEMeasure("Density").getUnit();
         EMeasureController density = new EMeasureController(new EMeasure("Density", SystemOfUnits.gram_per_liter));
         density.setEntity(FluidAnalysist.calculateDesnisty(this));
         eMeasureSetController.getEMeasure("Density").setEntity(density.getEntity());
+        eMeasureSetController.getEMeasure("Density").setUnit(denistyUnit);
+        
+        Unit liftUnit = eMeasureSetController.getEMeasure("Lift").getUnit();
+        EMeasureController lift = new EMeasureController(new EMeasure("Lift", SystemOfUnits.gram));
+        lift.setEntity(FluidAnalysist.calculateLift(this));
+        eMeasureSetController.getEMeasure("Lift").setEntity(lift.getEntity());
+        eMeasureSetController.getEMeasure("Lift").setUnit(liftUnit);
     }
 }
