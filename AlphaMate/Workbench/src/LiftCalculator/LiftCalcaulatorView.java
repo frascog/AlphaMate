@@ -43,6 +43,8 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jSplitPane1.setDividerLocation(500);
 
@@ -121,13 +123,27 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
             .addGap(0, 107, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(112, 112, 112))
         );
         jPanel2Layout.setVerticalGroup(
@@ -135,7 +151,11 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -146,7 +166,7 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -173,6 +193,8 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 
@@ -185,6 +207,7 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
         controller.getLengthController().getListeners().add(this);
         controller.getWidthController().getListeners().add(this);
         controller.getHeightController().getListeners().add(this);
+        controller.getVolumeController().getListeners().add(this);
         jPanel4.add(this.controller.getRadiusController().getEMeasureBasicView());
         jPanel4.add(this.controller.getDiameterController().getEMeasureBasicView());
         jPanel4.add(this.controller.getLengthController().getEMeasureBasicView());
@@ -193,6 +216,11 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
         jPanel5.setLayout(new BoxLayout(jPanel5, BoxLayout.Y_AXIS));
         jPanel5.add(this.controller.getSurfaceAeraController().getEMeasureBasicView());
         jPanel5.add(this.controller.getVolumeController().getEMeasureBasicView());
+        jPanel6.setLayout(new BoxLayout(jPanel6, BoxLayout.Y_AXIS));
+        jPanel6.add(this.controller.getH2liftController().getEMeasureBasicView());
+        jPanel6.add(this.controller.getHeliftController().getEMeasureBasicView());
+        jPanel6.add(this.controller.getH2doubleliftController().getEMeasureBasicView());
+        jPanel6.add(this.controller.getHedoubleliftController().getEMeasureBasicView());
         LiftCalcualtorChangeResponce(null);
     }
 
@@ -244,7 +272,7 @@ public class LiftCalcaulatorView extends JPanel implements LiftListener, EMeasur
                 this.controller.getHeightController().getEMeasureBasicView(0).setVisible(true);
                 break;
         }
-        controller.calculate();
+        controller.calculate(e);
         initDone = true;
     }
 
