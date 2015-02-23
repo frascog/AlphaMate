@@ -42,7 +42,7 @@ public class LiftController {
         widthController = new EMeasureController(new EMeasure("Width", SystemOfUnits.meter));
         heightController = new EMeasureController(new EMeasure("Height", SystemOfUnits.meter));
         surfaceAeraController = new EMeasureController(new EMeasure("Surface Aera", SystemOfUnits.square_meter));
-        wieghtController = new EMeasureController(new EMeasure("Wieght", SystemOfUnits.gram));
+        wieghtController = new EMeasureController(new EMeasure("Wieght per Sq inch", SystemOfUnits.gram));
         fluidController = new FluidController(new Fluid(FluidKind.Hydrogen));
         
         shape = Shape.Cylinder;
