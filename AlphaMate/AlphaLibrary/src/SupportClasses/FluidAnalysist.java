@@ -62,7 +62,7 @@ public class FluidAnalysist {
         double FNom = densityofFluid.getNominal();
         double FMax = densityofFluid.getMaximun();
                 
-        EMeasure volume = controller.geteMeasureSetController().getEMeasure("Volume").to(SystemOfUnits.kilogram);
+        EMeasure volume = controller.geteMeasureSetController().getEMeasure("Volume").to(SystemOfUnits.cubic_meter);
         
         double vMin = volume.getMinimum();
         double vNom = volume.getNominal();
@@ -76,9 +76,9 @@ public class FluidAnalysist {
         double FMassNom = FNom * vNom;
         double FMassMax = FMax * vMax;
         
-        double lMin = FMassMin - airMassMin;
-        double lNom = FMassNom - airMassNom;
-        double lMax = FMassMax - airMassMax;
+        double lMin = (airMin - FMin)*vMin;
+        double lNom = (airNom - FNom)*vNom;
+        double lMax = (airMax - FMax)*vMax;
         
         lift.setMinimum(lMin);
         lift.setNominal(lNom);

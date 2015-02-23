@@ -50,7 +50,7 @@ public class FluidController {
         eMeasureSetController.addEMeasure(new EMeasure("Volume", SystemOfUnits.liter));
         eMeasureSetController.getEMeasure("Volume").setViewState(false, true, true, true);
         eMeasureSetController.getEMeasure("Volume").setEMeasure(20, 20, 20);
-        eMeasureSetController.addEMeasure(new EMeasure("Lift", SystemOfUnits.gram));
+        eMeasureSetController.addEMeasure(new EMeasure("Lift", SystemOfUnits.kilogram));
         eMeasureSetController.getEMeasure("Lift").setViewState(false, false, true, true);
     }
     

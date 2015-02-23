@@ -6,7 +6,10 @@
 package LiftCalculator;
 
 import Controllers.EMeasureController;
+import Controllers.FluidController;
 import Models.EMeasure;
+import Models.Fluid;
+import SupportClasses.FluidKind;
 import Unit.SystemOfUnits;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +27,8 @@ public class LiftController {
     private EMeasureController widthController;
     private EMeasureController heightController;
     private EMeasureController surfaceAeraController;
-    private EMeasureController h2liftController;
-    private EMeasureController heliftController;
-    private EMeasureController h2doubleliftController;
-    private EMeasureController hedoubleliftController;
+    private EMeasureController wieghtController;
+    private FluidController fluidController;
     private List<LiftCalcaulatorView> listCalculatorViews;
     private List<LiftListener> listeners;
     private Shape shape;
@@ -40,20 +41,14 @@ public class LiftController {
         lengthController = new EMeasureController(new EMeasure("Length", SystemOfUnits.meter));
         widthController = new EMeasureController(new EMeasure("Width", SystemOfUnits.meter));
         heightController = new EMeasureController(new EMeasure("Height", SystemOfUnits.meter));
-        h2liftController = new EMeasureController(new EMeasure("Hydrongen Lift", SystemOfUnits.kilogram));
-        heliftController = new EMeasureController(new EMeasure("Helium Lift", SystemOfUnits.kilogram));
-        h2doubleliftController = new EMeasureController(new EMeasure("2 Hydrongen Lift", SystemOfUnits.kilogram));
-        hedoubleliftController = new EMeasureController(new EMeasure("2 Helium Lift", SystemOfUnits.kilogram));
         surfaceAeraController = new EMeasureController(new EMeasure("Surface Aera", SystemOfUnits.square_meter));
+        wieghtController = new EMeasureController(new EMeasure("Wieght", SystemOfUnits.gram));
+        fluidController = new FluidController(new Fluid(FluidKind.Hydrogen));
         
         shape = Shape.Cylinder;
         listeners = new ArrayList<LiftListener>();
         surfaceAeraController.setViewState(false, false, true, true);
         volumeController.setViewState(false, true, true, true);
-        h2liftController.setViewState(false, true, true, true);
-        heliftController.setViewState(false, true, true, true);
-        h2doubleliftController.setViewState(false, true, true, true);
-        hedoubleliftController.setViewState(false, true, true, true);
         radiusController.setViewState(false, true, true, true);
         diameterController.setViewState(false, true, true, true);
         lengthController.setViewState(false, true, true, true);
@@ -89,22 +84,22 @@ public class LiftController {
         return surfaceAeraController;
     }
 
-    public EMeasureController getH2liftController() {
-        return h2liftController;
+    public EMeasureController getWieghtController() {
+        return wieghtController;
     }
 
-    public EMeasureController getHeliftController() {
-        return heliftController;
-    }
-
-    public EMeasureController getH2doubleliftController() {
-        return h2doubleliftController;
-    }
-
-    public EMeasureController getHedoubleliftController() {
-        return hedoubleliftController;
+    public void setWieghtController(EMeasureController wieghtController) {
+        this.wieghtController = wieghtController;
     }
     
+    public FluidController getFluidController() {
+        return fluidController;
+    }
+
+    public void setFluidController(FluidController fluidController) {
+        this.fluidController = fluidController;
+    }
+        
     public Shape getShape() {
         return shape;
     }
@@ -168,18 +163,6 @@ public class LiftController {
             LiftAnalyst.calcuateSurfaceAera(this);
             if (e.getName() != "Volume") {
                 LiftAnalyst.calcuateVolume(this);
-            }
-            if(e.getName() != "Hydrongen Lift") {
-                LiftAnalyst.calcuateH2Lift(this);
-            }
-            if(e.getName() != "Helium Lift") {
-                LiftAnalyst.calcuateHeLift(this);
-            }
-            if(e.getName() == "2 Hydrongen Lift") {
-                
-            }
-            if(e.getName() == "2 Helium Lift") {
-                
             }
             calculating = false;
         }

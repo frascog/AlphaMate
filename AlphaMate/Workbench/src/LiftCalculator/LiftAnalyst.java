@@ -174,66 +174,36 @@ public class LiftAnalyst {
         controller.getRadiusController().setUnit(tempUnit);
     }
 
-    public static void calcuateH2Lift(LiftController controller) {
-        
-        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
-        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
-        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
-        
-        double h2LiftMin = volumeMin * 1.20154494;
-        double h2LiftNom = volumeNom * 1.20154494;
-        double h2LiftMax = volumeMax * 1.20154494;
-        
-        Unit tempUnit = controller.getH2liftController().getUnit();
-        controller.getH2liftController().setUnit(SystemOfUnits.kilogram);
-        controller.getH2liftController().setEMeasure(h2LiftMin, h2LiftNom, h2LiftMax);
-        controller.getH2liftController().setUnit(tempUnit);
-    }
+//    public static void calcuateH2Lift(LiftController controller) {
+//        
+//        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
+//        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
+//        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
+//        
+//        double h2LiftMin = volumeMin * 1.20154494;
+//        double h2LiftNom = volumeNom * 1.20154494;
+//        double h2LiftMax = volumeMax * 1.20154494;
+//        
+//        Unit tempUnit = controller.getH2liftController().getUnit();
+//        controller.getH2liftController().setUnit(SystemOfUnits.kilogram);
+//        controller.getH2liftController().setEMeasure(h2LiftMin, h2LiftNom, h2LiftMax);
+//        controller.getH2liftController().setUnit(tempUnit);
+//    }
 
-    public static void calcuateHeLift(LiftController controller) {
-        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
-        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
-        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
-        
-        double heLiftMin = volumeMin * 1.05433536;
-        double heLiftNom = volumeNom * 1.05433536;
-        double heLiftMax = volumeMax * 1.05433536;
-        
-        Unit tempUnit = controller.getHeliftController().getUnit();
-        controller.getHeliftController().setUnit(SystemOfUnits.kilogram);
-        controller.getHeliftController().setEMeasure(heLiftMin, heLiftNom, heLiftMax);
-        controller.getHeliftController().setUnit(tempUnit);
-    }
-    
-    public static void calcuateH2doubleLift(LiftController controller) {
-        
-        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
-        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
-        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
-        
-        double h2LiftMin = volumeMin * 1.20154494 * 2;
-        double h2LiftNom = volumeNom * 1.20154494 * 2;
-        double h2LiftMax = volumeMax * 1.20154494 * 2;
-        
-        Unit tempUnit = controller.getH2doubleliftController().getUnit();
-        controller.getH2doubleliftController().setUnit(SystemOfUnits.kilogram);
-        controller.getH2doubleliftController().setEMeasure(h2LiftMin, h2LiftNom, h2LiftMax);
-        controller.getH2doubleliftController().setUnit(tempUnit);
-    }
+//    public static void calcuateHeLift(LiftController controller) {
+//        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
+//        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
+//        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
+//        
+//        double heLiftMin = volumeMin * 1.05433536;
+//        double heLiftNom = volumeNom * 1.05433536;
+//        double heLiftMax = volumeMax * 1.05433536;
+//        
+//        Unit tempUnit = controller.getHeliftController().getUnit();
+//        controller.getHeliftController().setUnit(SystemOfUnits.kilogram);
+//        controller.getHeliftController().setEMeasure(heLiftMin, heLiftNom, heLiftMax);
+//        controller.getHeliftController().setUnit(tempUnit);
+//    }
 
-    public static void calcuateHedoubleLift(LiftController controller) {
-        double volumeMin = controller.getVolumeController().to(SystemOfUnits.meter).getMinimum();
-        double volumeNom = controller.getVolumeController().to(SystemOfUnits.meter).getNominal();
-        double volumeMax = controller.getVolumeController().to(SystemOfUnits.meter).getMaximun();
-        
-        double heLiftMin = volumeMin * 1.05433536 * 2;
-        double heLiftNom = volumeNom * 1.05433536 * 2;
-        double heLiftMax = volumeMax * 1.05433536 * 2;
-        
-        Unit tempUnit = controller.getHedoubleliftController().getUnit();
-        controller.getHedoubleliftController().setUnit(SystemOfUnits.kilogram);
-        controller.getHedoubleliftController().setEMeasure(heLiftMin, heLiftNom, heLiftMax);
-        controller.getHedoubleliftController().setUnit(tempUnit);
-    }
 }
 
